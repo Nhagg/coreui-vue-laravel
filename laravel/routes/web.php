@@ -27,7 +27,7 @@ Route::post(
 )->name('io_generator_builder_generate_from_file');
 
 Route::get('/{any}', function () {
-    return view('coreui.homepage');
+    return view('ejs');
 })->where('any', '.*');
 
 //Auth::routes();
