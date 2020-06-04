@@ -2,74 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f39205ad-a3b8-4980-91fc-27f941274a24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/AppBaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/app/Repositories/BaseRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/flare.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/ignition.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/infyom/generator_builder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/infyom/laravel_generator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/medialibrary.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/sanctum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/tinker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/config/trustedproxy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_02_155831_create_media_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/auth/emails/password.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/401.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/403.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/404.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/419.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/429.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/500.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/503.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/illustrated-layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/errors/minimal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/layouts/datatables_css.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/layouts/datatables_js.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/flash/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/flash/modal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/medialibrary/image.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/medialibrary/placeholderSvg.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/medialibrary/responsiveImage.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/medialibrary/responsiveImageWithPlaceholder.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/notifications/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/pagination/bootstrap-4.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/pagination/default.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/pagination/semantic-ui.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/pagination/simple-bootstrap-4.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/pagination/simple-default.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/pagination/simple-tailwind.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/vendor/pagination/tailwind.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/tests/ApiTestTrait.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/coreui-vue-laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/coreui-vue-laravel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/coreui/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +156,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/laravel/config/infyom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/laravel/resources/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -232,6 +167,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/laravel/resources/views" />
       <recent name="$PROJECT_DIR$/laravel/config/infyom" />
       <recent name="$PROJECT_DIR$/laravel" />
       <recent name="$PROJECT_DIR$/coreui" />
@@ -251,6 +187,7 @@
       <workItem from="1591029320471" duration="1166000" />
       <workItem from="1591109261109" duration="5692000" />
       <workItem from="1591275488867" duration="2668000" />
+      <workItem from="1591282748849" duration="1129000" />
     </task>
     <task id="LOCAL-00001" summary="branch dev admin">
       <created>1591110287042</created>
@@ -282,13 +219,25 @@
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state width="218" height="503" key="Git.Branch.Popup/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591110198582" />
-    <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog" timestamp="1591277962323">
+    <state x="218" y="116" width="1508" height="872" key="MergeDialog" timestamp="1591282721328">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591277962323" />
+    <state x="218" y="116" width="1508" height="872" key="MergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591282721328" />
+    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog" timestamp="1591282721332">
+      <screen x="35" y="27" width="1885" height="1053" />
+    </state>
+    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591282721332" />
+    <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog" timestamp="1591282629304">
+      <screen x="35" y="27" width="1885" height="1053" />
+    </state>
+    <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591282629304" />
     <state x="668" y="291" width="618" height="522" key="find.popup" timestamp="1591276575968">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state x="668" y="291" width="618" height="522" key="find.popup/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591276575968" />
+    <state x="752" y="400" width="441" height="305" key="git4idea.ui.GitUnstashDialog" timestamp="1591283842334">
+      <screen x="35" y="27" width="1885" height="1053" />
+    </state>
+    <state x="752" y="400" width="441" height="305" key="git4idea.ui.GitUnstashDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283842334" />
   </component>
 </project>
