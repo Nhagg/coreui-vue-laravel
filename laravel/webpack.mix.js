@@ -28,6 +28,6 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/ejs.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
-mix.copy('../coreui/public', 'public');
+mix.copy('../coreui/dist', 'public');
 
 

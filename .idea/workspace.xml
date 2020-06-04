@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f39205ad-a3b8-4980-91fc-27f941274a24" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/coreui-vue-laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/coreui-vue-laravel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/coreui/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/app/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/app/public/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/framework/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/cache/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/framework/cache/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/cache/data/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/framework/cache/data/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/sessions/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/framework/sessions/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/testing/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/framework/testing/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/views/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/framework/views/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/storage/logs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/storage/logs/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +201,7 @@
       <workItem from="1591029320471" duration="1166000" />
       <workItem from="1591109261109" duration="5692000" />
       <workItem from="1591275488867" duration="2668000" />
-      <workItem from="1591282748849" duration="1129000" />
+      <workItem from="1591282748849" duration="2070000" />
     </task>
     <task id="LOCAL-00001" summary="branch dev admin">
       <created>1591110287042</created>
@@ -196,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591110287042</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="branch dev admin">
+      <created>1591283947658</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591283947658</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,22 +232,22 @@
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state x="710" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591275755482" />
-    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1591110286800">
+    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1591283947566">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591110286800" />
+    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283947566" />
     <state width="218" height="503" key="Git.Branch.Popup" timestamp="1591110198582">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state width="218" height="503" key="Git.Branch.Popup/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591110198582" />
-    <state x="218" y="116" width="1508" height="872" key="MergeDialog" timestamp="1591282721328">
+    <state x="218" y="116" width="1508" height="872" key="MergeDialog" timestamp="1591283975090">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="218" y="116" width="1508" height="872" key="MergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591282721328" />
-    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog" timestamp="1591282721332">
+    <state x="218" y="116" width="1508" height="872" key="MergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283975090" />
+    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog" timestamp="1591283975093">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591282721332" />
+    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283975093" />
     <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog" timestamp="1591282629304">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
@@ -235,9 +256,9 @@
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state x="668" y="291" width="618" height="522" key="find.popup/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591276575968" />
-    <state x="752" y="400" width="441" height="305" key="git4idea.ui.GitUnstashDialog" timestamp="1591283842334">
+    <state x="752" y="400" width="441" height="305" key="git4idea.ui.GitUnstashDialog" timestamp="1591283975241">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="752" y="400" width="441" height="305" key="git4idea.ui.GitUnstashDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283842334" />
+    <state x="752" y="400" width="441" height="305" key="git4idea.ui.GitUnstashDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283975241" />
   </component>
 </project>

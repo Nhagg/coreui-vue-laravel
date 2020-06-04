@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
-{ 
+{
     /**
      * Create a new AuthController instance.
      *
@@ -18,32 +18,33 @@ class AuthController extends Controller
     {
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
-  
+
     /**
      * Register new user.
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         $validate = Validator::make($request->all(), [
-            'name'      => 'required',
-            'email'     => 'required|email|unique:users',
-            'password'  => 'required|min:4|confirmed',
-        ]);        
-        if ($validate->fails()){
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:4|confirmed',
+        ]);
+        if ($validate->fails()) {
             return response()->json([
                 'status' => 'error',
                 'errors' => $validate->errors()
             ], 422);
-        }        
+        }
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->status = 'Active';
-        $user->save();       
+        $user->save();
         return response()->json(['status' => 'success'], 200);
-    } 
+    }
 
     /**
      * Get a JWT via given credentials.
@@ -54,7 +55,7 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
@@ -86,7 +87,7 @@ class AuthController extends Controller
     /**
      * Get the token array structure.
      *
-     * @param  string $token
+     * @param string $token
      *
      * @return \Illuminate\Http\JsonResponse
      */
