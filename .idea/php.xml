@@ -50,8 +50,6 @@
       <path value="$PROJECT_DIR$/laravel/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/laravel/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/laravel/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/laravel/vendor/jakub-onderka/php-console-highlighter" />
-      <path value="$PROJECT_DIR$/laravel/vendor/jakub-onderka/php-console-color" />
       <path value="$PROJECT_DIR$/laravel/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/laravel/vendor/laravel/tinker" />
       <path value="$PROJECT_DIR$/laravel/vendor/laravel/framework" />
@@ -110,7 +108,24 @@
       <path value="$PROJECT_DIR$/laravel/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/laravel/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/laravel/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/laravel/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/laravel/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/laravel/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/laravel/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/laravel/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/laravel/vendor/infyomlabs/adminlte-templates" />
+      <path value="$PROJECT_DIR$/laravel/vendor/infyomlabs/generator-builder" />
+      <path value="$PROJECT_DIR$/laravel/vendor/laracasts/flash" />
+      <path value="$PROJECT_DIR$/laravel/vendor/infyomlabs/laravel-generator" />
+      <path value="$PROJECT_DIR$/laravel/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/laravel/vendor/infyomlabs/swagger-generator" />
+      <path value="$PROJECT_DIR$/laravel/vendor/laravelcollective/html" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/laravel/vendor/autoload.php" />
+    </phpunit_settings>
+  </component>
 </project>
