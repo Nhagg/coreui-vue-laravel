@@ -42,6 +42,28 @@
 # Editor directories and files
 /coreui/.idea
 /coreui/.vscode
+
+
+/ejs/.DS_Store
+/ejs/node_modules
+/ejs/dist
+/ejs/coverage
+
+/ejs/tests/e2e/reports/
+/ejs/selenium-debug.log
+
+# local env files
+/ejs/.env.local
+/ejs/.env.*.local
+
+# Log files
+/ejs/npm-debug.log*
+/ejs/yarn-debug.log*
+/ejs/yarn-error.log*
+
+# Editor directories and files
+/ejs/.idea
+/ejs/.vscode
 *.suo
 *.ntvs*
 *.njsproj
@@ -49,3 +71,4 @@
 *.sw*
 
 ściąga.txt
+/.idea

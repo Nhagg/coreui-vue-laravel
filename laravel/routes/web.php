@@ -12,7 +12,7 @@
 */
 
 Route::get('/{any}', function () {
-    return view('coreui.homepage');
+    return view('ejs');
 })->where('any', '.*');
 
 //Auth::routes();
