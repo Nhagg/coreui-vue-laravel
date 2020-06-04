@@ -1,8 +1,5 @@
 const path = require('path');
 const mix = require('laravel-mix');
-
-
-
 mix.webpackConfig({
    resolve: {
       alias: {
@@ -10,9 +7,6 @@ mix.webpackConfig({
       }
    }
 });
-
-
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -26,6 +20,7 @@ mix.webpackConfig({
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/ejs.js', 'public/js')
+    .sass('resources/sass/ejs.scss', 'public/css')
    .sass('resources/sass/app.scss', 'public/css');
 
 mix.copy('../coreui/public', 'public');

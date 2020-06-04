@@ -1,0 +1,17 @@
+// Fonts
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+//@import 'variables';
+
+// Bootstrap
+@import './bootstrap/bootstrap';
+div {
+    background: green;
+}
+// Fonts
+//@import "../../../coreui/node_modules/font-awesome/scss/font-awesome"; // Font Awesome
+//@import "../../../coreui/node_modules/simple-line-icons/scss/simple-line-icons"; // Simple Line Icons
+
+// CoreUI Style
+@import "../../../ejs/src/assets/scss/style";

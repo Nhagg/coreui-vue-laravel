@@ -1,22 +1,22 @@
 <template>
-  <div class="c-app">
-    header
-    <router-view></router-view>
-    footer
+  <div class="ejs-app">
+    <Header />
+    <div class="content">
+      <router-view></router-view>
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
-// import TheSidebar from './TheSidebar'
-// import TheHeader from './TheHeader'
-// import TheFooter from './TheFooter'
+import Header from './Header'
+import Footer from './Footer'
 
 export default {
   name: 'TheContainer',
   components: {
-    // TheSidebar,
-    // TheHeader,
-    // TheFooter
+    Header,
+    Footer
   }
 }
 </script>
