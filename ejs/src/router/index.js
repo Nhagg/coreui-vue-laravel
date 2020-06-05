@@ -2,9 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Containers
-const TheContainer = () => import('@/containers/TheContainer')
+const MainLayout = () => import('@/containers/MainLayout')
+const StudyLayout = () => import('@/containers/StudyLayout')
 // Views
 const Home = () => import('@/views/Home')
+const Study = () => import('@/views/Study')
 Vue.use(Router)
 
 export default new Router({
@@ -20,12 +22,25 @@ function configRoutes () {
       path: '/',
       redirect: '/',
       name: 'Home',
-      component: TheContainer,
+      component: MainLayout,
       children: [
         {
           path: '/',
           name: 'Home',
           component: Home
+        }
+      ]
+    },
+    {
+      path: '/study',
+      redirect: '/study',
+      name: 'Study',
+      component: StudyLayout,
+      children: [
+        {
+          path: '/study',
+          name: 'Study',
+          component: Study
         }
       ]
     }
