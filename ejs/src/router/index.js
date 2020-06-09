@@ -28,6 +28,21 @@ function configRoutes () {
           path: '/',
           name: 'Home',
           component: Home
+        },
+        {
+          path: '/exam',
+          name: 'Exam',
+          component: Home
+        },
+        {
+          path: '/report',
+          name: 'Exam',
+          component: Home
+        },
+        {
+          path: '/settings',
+          name: 'Exam',
+          component: Home
         }
       ]
     },

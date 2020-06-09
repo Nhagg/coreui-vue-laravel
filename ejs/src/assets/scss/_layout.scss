@@ -1,14 +1,3 @@
-body {
-  background-color: #ddd;
-  margin: 0;
-  font-family: Roboto, 'SansSerif';
-}
-.ejs-app {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  overflow-y: auto;
-}
 $headerHeight: 60px;
 header {
   position: absolute;
@@ -20,16 +9,39 @@ header {
 }
 $footerHeight: 84px;
 footer {
-  position: absolute;
   width: 100%;
   height: $footerHeight;
-  bottom: 0;
   display: flex;
   z-index: 10;
 }
 .ejs-content {
   padding-top: $headerHeight;
-  padding-bottom: $footerHeight;
   overflow-y: auto;
+  min-height: 90vh;
+}
+.ejs-app {
+  position: relative;
   height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  .side-bar {
+    .sidebar-item {
+      a {
+        display: block;
+        padding: 10px 20px;
+        color: #000;
+        font-weight: 500;
+
+        &:hover {
+          background-color: #ddd;
+          text-decoration: none;
+        }
+      }
+      &.active {
+        a {
+          color: $text-red;
+        }
+      }
+    }
+  }
 }

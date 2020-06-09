@@ -1,30 +1,44 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <img src="/img/ejs/logo.png" alt="">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-                </div>
-            </div>
-            <div class="col-9">
-                <h1>Minano Nihongo N5</h1>
-                <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
-                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-                </div>
+    <div class="home-content">
+        <h2>Minano Nihongo N5</h2>
+        <div class="row lesson-list">
+            <div
+                v-for="lessson in listLesson"
+                :key="lessson"
+                class="col-sm-4"
+            >
+                <router-link to="/" class="lesson-content">
+                    <div class="lesson-card">
+                        <div class="lesson-img">
+                            <img src="/img/lesson/default.png" alt="lesson-img">
+                        </div>
+                        <div class="lesson-body">
+                            <div class="lesson-title">
+                                <div class="lesson-title-native">
+                                    Bài 1: はじめまして
+                                </div>
+                                <div class="lesson-title-trans">
+                                    Làm quen lần đầu gặp gỡ
+                                </div>
+                            </div>
+                            <div class="lesson-result">
+                                100%
+                            </div>
+                        </div>
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>
 </template>
 <script>
-    export default {
-        name: 'Home',
-        components: {}
+export default {
+    name: 'Home',
+    components: {},
+    data() {
+        return {
+            listLesson: [1,2,3,4,5]
+        }
     }
+}
 </script>
