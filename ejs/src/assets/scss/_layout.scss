@@ -1,0 +1,47 @@
+$headerHeight: 60px;
+header {
+  position: absolute;
+  width: 100%;
+  height: $headerHeight;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+$footerHeight: 84px;
+footer {
+  width: 100%;
+  height: $footerHeight;
+  display: flex;
+  z-index: 10;
+}
+.ejs-content {
+  padding-top: $headerHeight;
+  overflow-y: auto;
+  min-height: 90vh;
+}
+.ejs-app {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  .side-bar {
+    .sidebar-item {
+      a {
+        display: block;
+        padding: 10px 20px;
+        color: #000;
+        font-weight: 500;
+
+        &:hover {
+          background-color: #ddd;
+          text-decoration: none;
+        }
+      }
+      &.active {
+        a {
+          color: $text-red;
+        }
+      }
+    }
+  }
+}
