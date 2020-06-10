@@ -2,87 +2,50 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\AppBaseController;
+use App\Http\Requests\API\LoginUserAPIRequest;
+use App\Http\Requests\API\RegisterUserAPIRequest;
+use App\Repositories\BlueprintRepository;
+use App\Repositories\UserRepository;
+use App\Services\UserService;
 
-class AuthController extends Controller
+class AuthController extends AppBaseController
 {
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    /** @var UserRepository */
+    private $userRepo;
+    /** @var UserService */
+    private $userService;
+
+    public function __construct(UserRepository $userRepository)
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->userRepo = $userRepository;
+        $this->userService = app(UserService::class);
     }
 
-    /**
-     * Register new user.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function register(Request $request)
+    public function register(RegisterUserAPIRequest $request)
     {
-        $validate = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:4|confirmed',
-        ]);
-        if ($validate->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'errors' => $validate->errors()
-            ], 422);
+        $input = $request->all();
+        $user = $this->userService->register($input);
+        return $this->sendResponse($user, 'Register success!');
+    }
+
+    public function login(LoginUserAPIRequest $request)
+    {
+        $user = $this->userService->login($request->all());
+        if (!$user){
+            return $this->sendError("Username or password something wrong!", 401);
         }
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->status = 'Active';
-        $user->save();
-        return response()->json(['status' => 'success'], 200);
+        return $this->sendResponse($user, 'Login success!');
     }
 
-    /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function login()
-    {
-        $credentials = request(['email', 'password']);
 
-        if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
-        return $this->respondWithToken($token);
-    }
-
-    /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function logout()
     {
         auth()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return $this->sendResponse(null, 'Successfully logged out') ;
     }
 
-    /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function refresh()
-    {
-        return $this->respondWithToken(auth()->refresh());
-    }
 
     /**
      * Get the token array structure.

@@ -26,18 +26,10 @@ Route::post(
     '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
 )->name('io_generator_builder_generate_from_file');
 
+Route::get('admin{any}', function () {
+    return view('admin');
+})->where('any', '.*');
+
 Route::get('/{any}', function () {
     return view('ejs');
 })->where('any', '.*');
-
-
-
-//Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
-
-/*
-Route::post('register', 'AuthController@register');
-Route::post('login', 'AuthController@login');
-Route::get('logout', 'AuthController@logout');
-Route::post('logout', 'AuthController@logout');
-*/

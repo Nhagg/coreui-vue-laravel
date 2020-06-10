@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post("login", "AuthController@login");
+Route::post('register', 'AuthController@register');
+Route::middleware('auth:sanctum')->group(function () {
+    Route::resource('users', 'UserAPIController');
+});
+
 Route::group(['middleware' => 'api'], function ($router) {
     Route::get('menu', 'MenuController@index');
 
@@ -80,3 +86,28 @@ Route::group(['middleware' => 'api'], function ($router) {
     });
 });
 
+
+
+Route::resource('edu_centers', 'EduCenterAPIController');
+
+Route::resource('courses', 'CourseAPIController');
+
+Route::resource('lessions', 'LessionAPIController');
+
+Route::resource('classes', 'ClassAPIController');
+
+Route::resource('user_classes', 'UserClassAPIController');
+
+Route::resource('learn_units', 'LearnUnitAPIController');
+
+Route::resource('learn_items', 'LearnItemAPIController');
+
+Route::resource('learn_transactions', 'LearnTransactionAPIController');
+
+Route::resource('exam_learn_items', 'ExamLearnItemAPIController');
+
+Route::resource('exam_results', 'ExamResultAPIController');
+
+Route::resource('exams', 'ExamAPIController');
+
+Route::resource('student_setiongs', 'StudentSetiongAPIController');

@@ -4,34 +4,29 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Sanctum\HasApiTokens;
 
-/**
- * Class User
- * @package App\Models
- * @version June 4, 2020, 1:46 pm UTC
- *
- * @property string $user_name
- * @property string $user_email
- * @property string $user_password
- * @property integer $user_role_id
- */
 class User extends Model
 {
     use SoftDeletes;
+    use HasApiTokens;
 
+    const STATUS_ACTIVE = 1;
     public $table = 'users';
-    
+
 
     protected $dates = ['deleted_at'];
 
 
-
     public $fillable = [
-        'user_name',
-        'user_email',
-        'user_password',
-        'user_role_id'
+        'name',
+        'email',
+        'status',
+        'password',
+        'username'
     ];
+
+    public $hidden = ['created_at', 'updated_at', 'deleted_at', 'password', 'remember_token'];
 
     /**
      * The attributes that should be casted to native types.
@@ -40,10 +35,11 @@ class User extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'user_name' => 'string',
-        'user_email' => 'string',
-        'user_password' => 'string',
-        'user_role_id' => 'integer'
+        'name' => 'string',
+        'email' => 'string',
+        'password' => 'string',
+        'status' => 'integer',
+        'username' => 'string',
     ];
 
     /**
@@ -52,8 +48,8 @@ class User extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }
