@@ -6,6 +6,7 @@ const MainLayout = () => import('@/containers/MainLayout')
 const StudyLayout = () => import('@/containers/StudyLayout')
 // Views
 const Home = () => import('@/views/Home')
+const Lesson = () => import('@/views/Lesson')
 const Study = () => import('@/views/Study')
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ function configRoutes () {
           path: '/',
           name: 'Home',
           component: Home
+        },
+        {
+          path: '/lesson',
+          name: 'Lesson',
+          component: Lesson
         },
         {
           path: '/exam',

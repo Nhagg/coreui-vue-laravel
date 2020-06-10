@@ -7,7 +7,7 @@
                 :key="lessson"
                 class="col-sm-4"
             >
-                <router-link to="/" class="lesson-content">
+                <router-link to="/lesson" class="lesson-content">
                     <div class="lesson-card">
                         <div class="lesson-img">
                             <img src="/img/lesson/default.png" alt="lesson-img">
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="lesson-result">
-                                100%
+                                {{ lessson * 20 }}%
                             </div>
                         </div>
                     </div>

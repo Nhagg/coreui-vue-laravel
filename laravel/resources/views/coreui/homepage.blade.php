@@ -61,7 +61,7 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/coreui.js') }}"></script>
 
   </body>
 </html>
