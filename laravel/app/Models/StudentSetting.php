@@ -13,11 +13,11 @@ use Eloquent as Model;
  * @property integer $speed
  * @property boolean $is_view_translate
  */
-class StudentSetiong extends Model
+class StudentSetting extends Model
 {
 
     public $table = 'student_settings';
-    
+
 
 
 
@@ -45,8 +45,8 @@ class StudentSetiong extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }

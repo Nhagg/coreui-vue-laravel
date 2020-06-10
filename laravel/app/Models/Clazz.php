@@ -14,11 +14,11 @@ use Eloquent as Model;
  * @property string $name
  * @property string $start_date
  */
-class Class extends Model
+class Clazz extends Model
 {
 
     public $table = 'classes';
-    
+
 
 
 
@@ -49,8 +49,8 @@ class Class extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }

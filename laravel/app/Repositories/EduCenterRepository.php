@@ -17,9 +17,9 @@ class EduCenterRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'center_name',
-        'center_address',
-        'center_phone'
+        'name',
+        'address',
+        'phone'
     ];
 
     /**

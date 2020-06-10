@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\StudentSetiong;
+use App\Models\StudentSetting;
 use App\Repositories\BaseRepository;
 
 /**
@@ -37,6 +37,6 @@ class StudentSetiongRepository extends BaseRepository
      **/
     public function model()
     {
-        return StudentSetiong::class;
+        return StudentSetting::class;
     }
 }

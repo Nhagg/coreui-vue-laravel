@@ -17,14 +17,14 @@ class EduCenter extends Model
 {
 
     public $table = 'edu_centers';
-    
+
 
 
 
     public $fillable = [
-        'center_name',
-        'center_address',
-        'center_phone'
+        'name',
+        'address',
+        'phone'
     ];
 
     /**
@@ -34,9 +34,9 @@ class EduCenter extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'center_name' => 'integer',
-        'center_address' => 'integer',
-        'center_phone' => 'integer'
+        'name' => 'integer',
+        'address' => 'integer',
+        'phone' => 'integer'
     ];
 
     /**
@@ -45,8 +45,8 @@ class EduCenter extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }

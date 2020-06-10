@@ -16,11 +16,11 @@ class CreateLearnUnitsTable extends Migration
     {
         Schema::create('learn_units', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments('lession_id');
-            $table->increments('type');
-            $table->increments('name_native_language');
-            $table->increments('name_forgein_language');
-            $table->increments('learn_item_id');
+            $table->integer('lession_id');
+            $table->string('type');
+            $table->string('name_native_language');
+            $table->string('name_forgein_language');
+            $table->integer('learn_item_id');
             $table->timestamps();
         });
     }

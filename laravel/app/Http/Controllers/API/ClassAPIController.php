@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\CreateClassAPIRequest;
 use App\Http\Requests\API\UpdateClassAPIRequest;
-use App\Models\Class;
+use App\Models\Clazz;
 use App\Repositories\ClassRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -70,7 +70,7 @@ class ClassAPIController extends AppBaseController
      */
     public function show($id)
     {
-        /** @var Class $class */
+        /** @var Clazz $class */
         $class = $this->classRepository->find($id);
 
         if (empty($class)) {
@@ -93,7 +93,7 @@ class ClassAPIController extends AppBaseController
     {
         $input = $request->all();
 
-        /** @var Class $class */
+        /** @var Clazz $class */
         $class = $this->classRepository->find($id);
 
         if (empty($class)) {
@@ -117,7 +117,7 @@ class ClassAPIController extends AppBaseController
      */
     public function destroy($id)
     {
-        /** @var Class $class */
+        /** @var Clazz $class */
         $class = $this->classRepository->find($id);
 
         if (empty($class)) {

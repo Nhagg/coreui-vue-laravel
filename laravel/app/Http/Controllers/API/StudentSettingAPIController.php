@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\CreateStudentSetiongAPIRequest;
 use App\Http\Requests\API\UpdateStudentSetiongAPIRequest;
-use App\Models\StudentSetiong;
+use App\Models\StudentSetting;
 use App\Repositories\StudentSetiongRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -15,7 +15,7 @@ use Response;
  * @package App\Http\Controllers\API
  */
 
-class StudentSetiongAPIController extends AppBaseController
+class StudentSettingAPIController extends AppBaseController
 {
     /** @var  StudentSetiongRepository */
     private $studentSetiongRepository;
@@ -70,7 +70,7 @@ class StudentSetiongAPIController extends AppBaseController
      */
     public function show($id)
     {
-        /** @var StudentSetiong $studentSetiong */
+        /** @var StudentSetting $studentSetiong */
         $studentSetiong = $this->studentSetiongRepository->find($id);
 
         if (empty($studentSetiong)) {
@@ -93,7 +93,7 @@ class StudentSetiongAPIController extends AppBaseController
     {
         $input = $request->all();
 
-        /** @var StudentSetiong $studentSetiong */
+        /** @var StudentSetting $studentSetiong */
         $studentSetiong = $this->studentSetiongRepository->find($id);
 
         if (empty($studentSetiong)) {
@@ -117,7 +117,7 @@ class StudentSetiongAPIController extends AppBaseController
      */
     public function destroy($id)
     {
-        /** @var StudentSetiong $studentSetiong */
+        /** @var StudentSetting $studentSetiong */
         $studentSetiong = $this->studentSetiongRepository->find($id);
 
         if (empty($studentSetiong)) {

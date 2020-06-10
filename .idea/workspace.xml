@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f39205ad-a3b8-4980-91fc-27f941274a24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/laravel/app/Http/Requests/API/LoginUserAPIRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/app/Http/Requests/API/RegisterUserAPIRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/app/Services/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/coreui-vue-laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/coreui-vue-laravel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreui/src/views/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/coreui/src/views/pages/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/Users.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/BaseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/BaseRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_02_155831_create_media_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_04_134619_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/ClassAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/ClassAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/StudentSetiongAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/StudentSettingAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Requests/API/CreateStudentSetiongAPIRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Requests/API/CreateStudentSetiongAPIRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Requests/API/UpdateStudentSetiongAPIRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Requests/API/UpdateStudentSetiongAPIRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Models/Class.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/Clazz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Models/EduCenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/EduCenter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Models/StudentSetiong.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/StudentSetting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/ClassRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/ClassRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/EduCenterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/EduCenterRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/StudentSetiongRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/StudentSetiongRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_223922_create_edu_centers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_223922_create_edu_centers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_225237_create_learn_units_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_225237_create_learn_units_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +203,7 @@
       <workItem from="1591409813124" duration="599000" />
       <workItem from="1591543364241" duration="7948000" />
       <workItem from="1591746961117" duration="1449000" />
-      <workItem from="1591828459611" duration="353000" />
+      <workItem from="1591828459611" duration="2860000" />
     </task>
     <task id="LOCAL-00001" summary="branch dev admin">
       <created>1591110287042</created>
@@ -231,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591286587290</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="branch dev admin">
+      <created>1591830281836</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591830281836</updated>
+    </task>
+    <task id="LOCAL-00005" summary="create table">
+      <created>1591830305614</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1591830305614</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,18 +248,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="branch dev admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="branch dev admin" />
+    <MESSAGE value="create table" />
+    <option name="LAST_COMMIT_MESSAGE" value="create table" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="696" y="27" width="542" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591831291633">
+      <screen x="35" y="27" width="1885" height="1053" />
+    </state>
+    <state x="696" y="27" width="542" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591831291633" />
     <state x="2409" y="206" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591549267077">
       <screen x="1920" y="0" width="1366" height="768" />
     </state>
     <state x="2409" y="206" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/35.27.1885.1053/1920.0.1366.768@1920.0.1366.768" timestamp="1591549267077" />
     <state x="710" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591275755482" />
-    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1591286587123">
+    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1591830305423">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591286587123" />
+    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591830305423" />
     <state width="218" height="503" key="Git.Branch.Popup" timestamp="1591110198582">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
@@ -271,10 +285,10 @@
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591286576350" />
-    <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591286592639">
+    <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591830312828">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591286592639" />
+    <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591830312828" />
     <state x="2379" y="193" width="588" height="548" key="find.popup" timestamp="1591550174952">
       <screen x="1920" y="0" width="1366" height="768" />
     </state>

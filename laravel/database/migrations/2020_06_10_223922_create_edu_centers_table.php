@@ -16,9 +16,9 @@ class CreateEduCentersTable extends Migration
     {
         Schema::create('edu_centers', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments('center_name');
-            $table->increments('center_address');
-            $table->increments('center_phone');
+            $table->integer('name');
+            $table->string('address');
+            $table->string('phone');
             $table->timestamps();
         });
     }

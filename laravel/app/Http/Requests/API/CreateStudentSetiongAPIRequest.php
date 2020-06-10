@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\API;
 
-use App\Models\StudentSetiong;
+use App\Models\StudentSetting;
 use InfyOm\Generator\Request\APIRequest;
 
 class CreateStudentSetiongAPIRequest extends APIRequest
@@ -24,6 +24,6 @@ class CreateStudentSetiongAPIRequest extends APIRequest
      */
     public function rules()
     {
-        return StudentSetiong::$rules;
+        return StudentSetting::$rules;
     }
 }

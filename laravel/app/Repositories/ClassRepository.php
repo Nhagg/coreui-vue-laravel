@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Class;
+use App\Models\Clazz;
 use App\Repositories\BaseRepository;
 
 /**
@@ -38,6 +38,6 @@ class ClassRepository extends BaseRepository
      **/
     public function model()
     {
-        return Class::class;
+        return Clazz::class;
     }
 }
