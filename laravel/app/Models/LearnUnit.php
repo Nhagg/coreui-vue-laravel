@@ -17,11 +17,20 @@ use Eloquent as Model;
  */
 class LearnUnit extends Model
 {
+    const LEARN_UNIT_TYPE_VOCABURARY = 'vocaburary';
+    const LEARN_UNIT_TYPE_GRAMMAR = 'grammar';
+    const LEARN_UNIT_TYPE_CONVERSATION = 'conversation';
+    const LEARN_UNIT_TYPE_PRACTICE = 'practice';
+    const LEARN_UNIT_TYPE_EXAM = 'exam';
 
+    const LEARN_UNIT_TYPE = [
+        self::LEARN_UNIT_TYPE_VOCABURARY,
+        self::LEARN_UNIT_TYPE_GRAMMAR,
+        self::LEARN_UNIT_TYPE_CONVERSATION,
+        self::LEARN_UNIT_TYPE_PRACTICE,
+        self::LEARN_UNIT_TYPE_EXAM,
+    ];
     public $table = 'learn_units';
-    
-
-
 
     public $fillable = [
         'lession_id',
@@ -39,9 +48,9 @@ class LearnUnit extends Model
     protected $casts = [
         'id' => 'integer',
         'lession_id' => 'integer',
-        'type' => 'integer',
-        'name_native_language' => 'integer',
-        'name_forgein_language' => 'integer',
+        'type' => 'string',
+        'name_native_language' => 'string',
+        'name_forgein_language' => 'string',
         'learn_item_id' => 'integer'
     ];
 
@@ -51,8 +60,23 @@ class LearnUnit extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+    protected $hidden = ['created_at', 'updated_at'];
+
+    protected $with = ['lession', 'learnItem'];
+
+    public function lession()
+    {
+        return $this->hasOne(Lession::class, 'id', 'lession_id');
+    }
+
+
+    public function learnItem()
+    {
+        return $this->hasOne(LearnItem::class, 'id', 'learn_item_id');
+    }
+
+
 }

@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f39205ad-a3b8-4980-91fc-27f941274a24" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/laravel/database/factories/CourseFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/database/factories/LernItemFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/database/factories/LernUnitFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/database/factories/LessionFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/database/seeds/CoursesTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/database/seeds/LearnItemsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/database/seeds/LearnUnitsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/database/seeds/LessionsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/ClassAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/ClassAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/StudentSetiongAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/API/StudentSettingAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Requests/API/CreateStudentSetiongAPIRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Requests/API/CreateStudentSetiongAPIRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Requests/API/UpdateStudentSetiongAPIRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Requests/API/UpdateStudentSetiongAPIRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/Class.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/Clazz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/EduCenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/EduCenter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/StudentSetiong.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/StudentSetting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/ClassRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/ClassRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/EduCenterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/EduCenterRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/StudentSetiongRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/StudentSetiongRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_223922_create_edu_centers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_223922_create_edu_centers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_225237_create_learn_units_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_225237_create_learn_units_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Models/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Models/LearnItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/LearnItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Models/LearnUnit.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/LearnUnit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Models/Lession.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/Lession.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/LessionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/LessionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_224140_create_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_224140_create_courses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_224347_create_lessions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_224347_create_lessions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +187,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/laravel/app/Http/Requests/API" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/laravel/database/seeds" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -175,11 +196,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/laravel/database/seeds" />
+      <recent name="$PROJECT_DIR$/laravel/database/factories" />
       <recent name="$PROJECT_DIR$/laravel/app/Http/Requests/API" />
       <recent name="$PROJECT_DIR$/laravel/resources/views" />
       <recent name="$PROJECT_DIR$/laravel/config/infyom" />
-      <recent name="$PROJECT_DIR$/laravel" />
-      <recent name="$PROJECT_DIR$/coreui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -203,7 +224,8 @@
       <workItem from="1591409813124" duration="599000" />
       <workItem from="1591543364241" duration="7948000" />
       <workItem from="1591746961117" duration="1449000" />
-      <workItem from="1591828459611" duration="2860000" />
+      <workItem from="1591828459611" duration="3897000" />
+      <workItem from="1591917409330" duration="5404000" />
     </task>
     <task id="LOCAL-00001" summary="branch dev admin">
       <created>1591110287042</created>
@@ -240,11 +262,30 @@
       <option name="project" value="LOCAL" />
       <updated>1591830305614</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="create table">
+      <created>1591831474450</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1591831474450</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="branch dev admin" />
@@ -261,43 +302,52 @@
     </state>
     <state x="2409" y="206" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/35.27.1885.1053/1920.0.1366.768@1920.0.1366.768" timestamp="1591549267077" />
     <state x="710" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591275755482" />
-    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1591830305423">
+    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1591831474273">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591830305423" />
+    <state x="516" y="100" width="912" height="904" key="CommitChangelistDialog2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591831474273" />
     <state width="218" height="503" key="Git.Branch.Popup" timestamp="1591110198582">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state width="218" height="503" key="Git.Branch.Popup/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591110198582" />
-    <state x="218" y="116" width="1508" height="872" key="MergeDialog" timestamp="1591283975090">
+    <state x="218" y="116" width="1508" height="872" key="MergeDialog" timestamp="1591831549355">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="218" y="116" width="1508" height="872" key="MergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283975090" />
-    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog" timestamp="1591283975093">
+    <state x="218" y="116" width="1508" height="872" key="MergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591831549355" />
+    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog" timestamp="1591831549358">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283975093" />
-    <state x="2309" y="102" width="577" height="561" key="NewPhpClassDialog" timestamp="1591546881125">
-      <screen x="1920" y="0" width="1366" height="768" />
+    <state x="858" y="420" width="865" height="493" key="MultipleFileMergeDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591831549358" />
+    <state x="816" y="209" width="577" height="561" key="NewPhpClassDialog" timestamp="1591919035494">
+      <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state x="2309" y="102" width="577" height="561" key="NewPhpClassDialog/35.27.1885.1053/1920.0.1366.768@1920.0.1366.768" timestamp="1591546881125" />
+    <state x="816" y="209" key="NewPhpClassDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591919035494" />
     <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog" timestamp="1591286576350">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591286576350" />
-    <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591830312828">
+    <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591831757975">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
-    <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591830312828" />
+    <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591831757975" />
     <state x="2379" y="193" width="588" height="548" key="find.popup" timestamp="1591550174952">
       <screen x="1920" y="0" width="1366" height="768" />
     </state>
     <state x="2379" y="193" width="588" height="548" key="find.popup/35.27.1885.1053/1920.0.1366.768@1920.0.1366.768" timestamp="1591550174952" />
     <state x="668" y="291" width="618" height="522" key="find.popup/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591276575968" />
+    <state x="637" y="341" width="670" height="423" key="git4idea.merge.GitPullDialog" timestamp="1591831753860">
+      <screen x="35" y="27" width="1885" height="1053" />
+    </state>
+    <state x="637" y="341" width="670" height="423" key="git4idea.merge.GitPullDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591831753860" />
     <state x="752" y="400" width="441" height="305" key="git4idea.ui.GitUnstashDialog" timestamp="1591283975241">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state x="752" y="400" width="441" height="305" key="git4idea.ui.GitUnstashDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591283975241" />
+    <state x="641" y="253" key="run.anything.popup" timestamp="1591918549671">
+      <screen x="35" y="27" width="1885" height="1053" />
+    </state>
+    <state x="641" y="253" key="run.anything.popup/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591918549671" />
     <state x="2267" y="29" width="672" height="676" key="search.everywhere.popup" timestamp="1591551000482">
       <screen x="1920" y="0" width="1366" height="768" />
     </state>

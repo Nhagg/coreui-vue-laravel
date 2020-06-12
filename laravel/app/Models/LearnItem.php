@@ -16,10 +16,15 @@ use Eloquent as Model;
 class LearnItem extends Model
 {
 
+    const LEARN_ITEM_TYPE_LEARN = 0;
+    const LEARN_ITEM_TYPE_PRACTICE = 1;
+    const LEARN_ITEM_TYPE_EXAM = 2;
+
+    const LEAN_ITEM_TYPE = [
+        self::LEARN_ITEM_TYPE_LEARN, self::LEARN_ITEM_TYPE_PRACTICE, self::LEARN_ITEM_TYPE_EXAM,
+    ];
+
     public $table = 'learn_items';
-    
-
-
 
     public $fillable = [
         'type',
@@ -45,8 +50,8 @@ class LearnItem extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }

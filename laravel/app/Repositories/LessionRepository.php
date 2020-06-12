@@ -18,8 +18,8 @@ class LessionRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'course_id',
-        'lession_name_native_language',
-        'lession_name_second_language'
+        'name_native_language',
+        'name_second_language'
     ];
 
     /**

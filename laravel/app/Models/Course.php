@@ -16,13 +16,9 @@ class Course extends Model
 {
 
     public $table = 'courses';
-    
-
-
 
     public $fillable = [
         'name',
-        'time'
     ];
 
     /**
@@ -41,8 +37,8 @@ class Course extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }
