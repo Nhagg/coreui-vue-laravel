@@ -36,6 +36,7 @@
     margin-top: 30px;
   }
   i {
+    margin-top: 5px;
     font-size: 18px;
     color: $text-green;
     padding: 0 10px;
@@ -44,7 +45,11 @@
     font-size: 14px;
     font-weight: normal;
   }
-  div {
+  a {
+    color: black;
+    &:hover {
+      color: $text-green;
+    }
     display: inline-flex;
     flex-direction: column;
   }

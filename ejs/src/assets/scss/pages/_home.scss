@@ -4,7 +4,6 @@
 .lesson {
   &-content {
     display: block;
-    padding: 10px;
     background-color: #fff;
     border-radius: 4px;
     margin-top: 30px;
@@ -16,6 +15,7 @@
     }
   }
   &-body{
+    padding: 10px;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;

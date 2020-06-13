@@ -21,14 +21,15 @@
                     </div>
                 </div>
                 <div class="list-unit">
-                    <div class="unit-type-item" v-for="unit in learnUnits" :key="unit.id">
+                    <div class="unit-type-item" v-for="unit in learnUnits.filter(u => u.type == unitType.type)"
+                         :key="unit.id">
                         <i class="fa fa-check-circle"></i>
-                        <div>
-                            {{ unit.name }}
+                        <router-link :to="'/study?item_id=' + unit.id">
+                            {{ unit.name_native_language }}
                             <span class="one-line-text">
-                                {{ unit.name_trans }}
+                                {{ unit.name_forgein_language }}
                             </span>
-                        </div>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -37,14 +38,21 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     name: 'Lesson',
     components: {},
+    async mounted() {
+      let res = await axios.get('http://118.70.161.155:8880/api/learn_units')
+      if(res && res.data && res.data.data) {
+        this.learnUnits = res.data.data
+      }
+    },
     data() {
       return {
         learnUnitTypes: [
           {
-            type: 'new-work',
+            type: 'vocaburary',
             imgUrl: '/img/new-word.png',
             name: 'Học từ mới'
           },
@@ -64,29 +72,7 @@
             name: 'Làm bài tập'
           }
         ],
-        learnUnits: [
-          {
-            id: 1,
-            learn_unit_type: 'new-word',
-            name: '私',
-            name_trans: 'Tôi',
-            result: 3
-          },
-          {
-            id: 2,
-            learn_unit_type: 'new-word',
-            name: 'あなた',
-            name_trans: 'Bạn',
-            result: 3
-          },
-          {
-            id: 3,
-            learn_unit_type: 'new-word',
-            name: 'はじめまして',
-            name_trans: 'Rất vui khi được làm quen',
-            result: 3
-          }
-        ]
+        learnUnits: []
       }
     }
   }
