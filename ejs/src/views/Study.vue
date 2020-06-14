@@ -1,7 +1,19 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            study
+            <div class="col">
+
+            </div>
+        </div>
+        <div class="study-footer">
+            <div>
+                <i class="fa fa-check-circle"></i>
+                Đáp án chính xác
+            </div>
+            <button class="btn">
+                Tiếp theo
+                <i class="fa fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 </template>

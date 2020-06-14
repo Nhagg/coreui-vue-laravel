@@ -1,9 +1,11 @@
 // If you want to add something do it here
-@import "variables";
-@import "custom";
-@import "layout";
+@import "base/variables";
+@import "base/global";
+@import "base/custom";
+@import "pages/layout";
 
 @import "components/header";
 @import "components/footer";
 @import "pages/home";
-@import "boostrap/bootstrap";
+@import "pages/lesson";
+@import "pages/study";

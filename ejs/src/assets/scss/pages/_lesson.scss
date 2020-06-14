@@ -1,5 +1,56 @@
 .detail-lesson {
   &-header{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0px;
+    border-bottom: solid 2px $text-red;
+  }
+}
+.unit-type-header {
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  span {
+    font-size: 12px;
+    font-weight: normal;
+    color: $text-gray;
+  }
+  div {
+    display: inline-flex;
+    flex-direction: column;
+  }
+}
+.unit-type-item {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  margin-top: 12px;
+  &:first-child {
+    margin-top: 30px;
+  }
+  i {
+    margin-top: 5px;
+    font-size: 18px;
+    color: $text-green;
+    padding: 0 10px;
+  }
+  span {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  a {
+    color: black;
+    &:hover {
+      color: $text-green;
+    }
+    display: inline-flex;
+    flex-direction: column;
   }
 }
