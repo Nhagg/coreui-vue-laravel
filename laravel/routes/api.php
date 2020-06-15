@@ -13,18 +13,39 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::resource('classes', 'ClassAPIController');
+Route::resource('courses', 'CourseAPIController');
+Route::resource('edu_centers', 'EduCenterAPIController');
+Route::resource('exams', 'ExamAPIController');
+Route::resource('exam_learn_items', 'ExamLearnItemAPIController');
+Route::resource('exam_results', 'ExamResultAPIController');
+Route::resource('learn_items', 'LearnItemAPIController');
+Route::resource('learn_transactions', 'LearnTransactionAPIController');
+Route::resource('learn_units', 'LearnUnitAPIController');
+Route::resource('lesions', 'LesionAPIController');
+Route::resource('student_settings', 'StudentSettingAPIController');
+Route::resource('user_classes', 'UserClassAPIController');
+
+Route::post("login", "AuthController@login");
+Route::post('register', 'AuthController@register');
+Route::resource('users', 'UserAPIController');
+
+Route::middleware('auth:sanctum')->group(function () {
+
+});
+
 Route::group(['middleware' => 'api'], function ($router) {
     Route::get('menu', 'MenuController@index');
 
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
-    Route::post('register', 'AuthController@register'); 
+    Route::post('register', 'AuthController@register');
 
     Route::resource('notes', 'NotesController');
 
     Route::resource('resource/{table}/resource', 'ResourceController');
-    
+
     Route::group(['middleware' => 'admin'], function ($router) {
 
         Route::resource('mail',        'MailController');
@@ -35,7 +56,7 @@ Route::group(['middleware' => 'api'], function ($router) {
 
         Route::resource('users', 'UsersController')->except( ['create', 'store'] );
 
-        Route::prefix('menu/menu')->group(function () { 
+        Route::prefix('menu/menu')->group(function () {
             Route::get('/',         'MenuEditController@index')->name('menu.menu.index');
             Route::get('/create',   'MenuEditController@create')->name('menu.menu.create');
             Route::post('/store',   'MenuEditController@store')->name('menu.menu.store');
@@ -43,7 +64,7 @@ Route::group(['middleware' => 'api'], function ($router) {
             Route::post('/update',  'MenuEditController@update')->name('menu.menu.update');
             Route::get('/delete',   'MenuEditController@delete')->name('menu.menu.delete');
         });
-        Route::prefix('menu/element')->group(function () { 
+        Route::prefix('menu/element')->group(function () {
             Route::get('/',             'MenuElementController@index')->name('menu.index');
             Route::get('/move-up',      'MenuElementController@moveUp')->name('menu.up');
             Route::get('/move-down',    'MenuElementController@moveDown')->name('menu.down');
@@ -80,3 +101,28 @@ Route::group(['middleware' => 'api'], function ($router) {
     });
 });
 
+
+
+Route::resource('edu_centers', 'EduCenterAPIController');
+
+Route::resource('courses', 'CourseAPIController');
+
+Route::resource('lessions', 'LessionAPIController');
+
+Route::resource('classes', 'ClassAPIController');
+
+Route::resource('user_classes', 'UserClassAPIController');
+
+Route::resource('learn_units', 'LearnUnitAPIController');
+
+Route::resource('learn_items', 'LearnItemAPIController');
+
+Route::resource('learn_transactions', 'LearnTransactionAPIController');
+
+Route::resource('exam_learn_items', 'ExamLearnItemAPIController');
+
+Route::resource('exam_results', 'ExamResultAPIController');
+
+Route::resource('exams', 'ExamAPIController');
+
+Route::resource('student_setiongs', 'StudentSetiongAPIController');

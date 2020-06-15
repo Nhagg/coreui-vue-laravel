@@ -82,9 +82,8 @@ import axios from "axios";
             email: self.email,
             password: self.password,
           }).then(function (response) {
-            self.email = '';
-            self.password = '';
-            localStorage.setItem("api_token", response.data.access_token);
+            console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',response.data.token)
+            localStorage.setItem("api_token", response.data.token);
             self.$router.push({ path: 'notes' });
           })
           .catch(function (error) {
@@ -92,7 +91,7 @@ import axios from "axios";
             self.showMessage = true;
             console.log(error);
           });
-  
+
         }
       }
     }
