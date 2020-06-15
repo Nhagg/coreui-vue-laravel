@@ -72,4 +72,5 @@
 
 ściąga.txt
 /.idea
+/.idea/*
 /docker/*
