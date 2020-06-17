@@ -2,14 +2,14 @@
   <header>
     <div class="container">
       <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Học định hướng</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li v-for="course in listCourse" :key="course.id" class="nav-item">
+          <a
+            :href="'?course_id=' + course.id"
+            class="nav-link"
+            :class="{ active: activeCourse == course.id}"
+          >
+            {{ course.name }}
+          </a>
         </li>
       </ul>
     </div>
@@ -17,8 +17,13 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   name: 'Header',
-  components: {}
+  components: {},
+  computed: {
+    ...mapState(['listCourse', 'activeCourse'])
+  }
 }
 </script>

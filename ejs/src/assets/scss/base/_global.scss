@@ -378,3 +378,8 @@ $half: round($loops / 2);
     max-width: 100%;
   }
 }
+.two-lines-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

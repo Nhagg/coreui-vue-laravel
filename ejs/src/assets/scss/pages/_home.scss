@@ -16,7 +16,6 @@
   }
   &-body{
     padding: 10px;
-    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     min-height: 120px;
@@ -33,13 +32,18 @@
     color: $text-green;
   }
   &-title {
+    flex: 1;
     &-native {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
+      line-height: 30px;
+      min-height: 60px;
     }
     &-trans {
       margin-top: 10px;
       font-size: 16px;
+      line-height: 24px;
+      min-height: 48px;
     }
   }
 }

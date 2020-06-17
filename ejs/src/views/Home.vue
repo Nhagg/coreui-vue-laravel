@@ -1,23 +1,23 @@
 <template>
     <div class="home-content">
-        <h2>Minano Nihongo N5</h2>
+        <h2>{{ course.name }}</h2>
         <div class="row lesson-list">
             <div
-                    v-for="lessson in listLesson"
-                    :key="lessson"
-                    class="col-sm-4"
+                v-for="lessson in listLesson.filter(s => s.course_id == activeCourse)"
+                :key="lessson.id"
+                class="col-sm-4"
             >
                 <router-link to="/lesson" class="lesson-content">
                     <div class="lesson-card">
                         <div class="lesson-img ratio-4-3">
-                            <img :src="lessson.image" alt="lesson-img">
+                            <img :src="lessson.image" alt="lesson-img" @error="onErrorImg">
                         </div>
                         <div class="lesson-body">
                             <div class="lesson-title">
-                                <div class="lesson-title-native">
+                                <div class="lesson-title-native two-line-text">
                                     {{ lessson.name_native_language }}
                                 </div>
-                                <div class="lesson-title-trans">
+                                <div class="lesson-title-trans two-line-text">
                                     {{ lessson.name_second_language }}
                                 </div>
                             </div>
@@ -33,19 +33,44 @@
 </template>
 <script>
   import axios from 'axios'
+  import {mapState} from "vuex";
   export default {
     name: 'Home',
     components: {},
+    computed: {
+      ...mapState(['activeCourse', 'listCourse']),
+      course() {
+        let res = this.listCourse.find(c => c.id == this.activeCourse)
+        return res ? res : {}
+      },
+    },
+    watch: {
+      activeCourse(val) {
+        console.log(val)
+      }
+    },
     async mounted() {
-      let res = await axios.get('http://118.70.161.155:8880/api/lessions')
-      if(res && res.data && res.data.data) {
+      await this.$store.dispatch('GET_LIST_COURSE')
+      const course_id = this.$route.query.course_id
+      if(course_id) {
+        this.$store.dispatch('SET_ACTIVE_COURSE', course_id)
+      }
+      const { listCourse } = this.$store.state
+      let res = await axios.get(window.DOMAIN_API + '/api/lessions')
+      if(listCourse && res && res.data && res.data.data) {
         this.listLesson = res.data.data
       }
-      console.log(res)
+      if(this.$store.state.listCourse)
+      console.log(this.listLesson)
     },
     data() {
       return {
         listLesson: []
+      }
+    },
+    methods: {
+      onErrorImg(event) {
+        event.target.src = require('../../public/img/lesson/default.png')
       }
     }
   }

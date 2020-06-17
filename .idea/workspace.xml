@@ -20,23 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f39205ad-a3b8-4980-91fc-27f941274a24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/laravel/database/factories/CourseFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/factories/LernItemFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/factories/LernUnitFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/factories/LessionFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/seeds/CoursesTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/seeds/LearnItemsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/seeds/LearnUnitsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/database/seeds/LessionsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/LearnItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/LearnItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/LearnUnit.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/LearnUnit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Models/Lession.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/Lession.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Repositories/LessionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Repositories/LessionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_224140_create_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_224140_create_courses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_224347_create_lessions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/migrations/2020_06_10_224347_create_lessions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejs/src/assets/scss/base/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ejs/src/assets/scss/base/_global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejs/src/assets/scss/base/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ejs/src/assets/scss/base/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejs/src/assets/scss/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ejs/src/assets/scss/components/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejs/src/assets/scss/pages/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ejs/src/assets/scss/pages/_home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejs/src/containers/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ejs/src/containers/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejs/src/containers/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ejs/src/containers/MainLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejs/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/ejs/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejs/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ejs/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/ejs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/ejs.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +40,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/laravel/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -187,11 +184,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/laravel/database/seeds" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -226,6 +224,7 @@
       <workItem from="1591746961117" duration="1449000" />
       <workItem from="1591828459611" duration="3897000" />
       <workItem from="1591917409330" duration="5404000" />
+      <workItem from="1592405903195" duration="5023000" />
     </task>
     <task id="LOCAL-00001" summary="branch dev admin">
       <created>1591110287042</created>
@@ -273,19 +272,20 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="branch dev admin" />
@@ -327,6 +327,10 @@
       <screen x="35" y="27" width="1885" height="1053" />
     </state>
     <state x="230" y="255" width="553" height="633" key="RollbackChangesDialog/35.27.1885.1053/1920.0.1366.768@35.27.1885.1053" timestamp="1591286576350" />
+    <state x="246" y="75" key="SettingsEditor" timestamp="1592407308622">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="246" y="75" key="SettingsEditor/0.0.1474.864@0.0.1474.864" timestamp="1592407308622" />
     <state x="572" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591831757975">
       <screen x="35" y="27" width="1885" height="1053" />
     </state>

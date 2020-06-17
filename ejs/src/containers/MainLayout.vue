@@ -32,6 +32,9 @@ export default {
     Header,
     Footer
   },
+  async mounted() {
+      await this.$store.dispatch('GET_LIST_COURSE')
+  },
   data() {
     return {
       menus: [
