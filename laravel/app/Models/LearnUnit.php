@@ -77,6 +77,4 @@ class LearnUnit extends Model
     {
         return $this->hasMany(LearnItem::class, 'learn_unit_id','id');
     }
-
-
 }
