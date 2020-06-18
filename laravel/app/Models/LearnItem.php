@@ -25,6 +25,7 @@ class LearnItem extends Model
     ];
 
     public $table = 'learn_items';
+    protected $appends = ['content'];
 
     public $fillable = [
         'type',
@@ -52,6 +53,12 @@ class LearnItem extends Model
     public static $rules = [
 
     ];
+
+    public function getContentAttribute()
+    {
+        $str =  $this->attributes['content'];
+        return json_decode($str);
+    }
 
 
 }

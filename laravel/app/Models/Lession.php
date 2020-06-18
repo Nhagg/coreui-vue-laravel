@@ -44,7 +44,7 @@ class Lession extends Model
         'name_native_language' => 'string',
         'name_second_language' => 'string',
         'image' => 'string',
-        'type' => 'integer'
+        'type' => 'string'
     ];
 
     /**
@@ -56,7 +56,7 @@ class Lession extends Model
 
     ];
 
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'course_id'];
 
     protected $with = ['course'];
 
