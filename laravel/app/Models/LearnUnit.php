@@ -63,7 +63,7 @@ class LearnUnit extends Model
 
     ];
 
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'lession_id', 'learn_item_id'];
 
     protected $with = ['lession', 'learnItem'];
 
@@ -75,7 +75,7 @@ class LearnUnit extends Model
 
     public function learnItem()
     {
-        return $this->hasOne(LearnItem::class, 'id', 'learn_item_id');
+        return $this->hasMany(LearnItem::class, 'id', 'learn_item_id');
     }
 
 
