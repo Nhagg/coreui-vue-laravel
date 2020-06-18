@@ -44,7 +44,7 @@ class Lession extends Model
         'name_native_language' => 'string',
         'name_second_language' => 'string',
         'image' => 'string',
-        'type' => 'integer'
+        'type' => 'string'
     ];
 
     /**
