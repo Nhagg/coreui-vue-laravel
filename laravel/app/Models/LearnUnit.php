@@ -75,7 +75,7 @@ class LearnUnit extends Model
 
     public function learnItems()
     {
-        return $this->hasMany(LearnItem::class, 'id', 'learn_unit_id');
+        return $this->hasMany(LearnItem::class, 'learn_unit_id','id');
     }
 
 
