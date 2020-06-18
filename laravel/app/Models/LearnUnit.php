@@ -65,7 +65,7 @@ class LearnUnit extends Model
 
     protected $hidden = ['created_at', 'updated_at', 'lession_id', 'learn_item_id'];
 
-    protected $with = ['lession', 'learnItem'];
+    protected $with = ['lession', 'learnItems'];
 
     public function lession()
     {
@@ -73,9 +73,9 @@ class LearnUnit extends Model
     }
 
 
-    public function learnItem()
+    public function learnItems()
     {
-        return $this->hasMany(LearnItem::class, 'id', 'learn_item_id');
+        return $this->hasMany(LearnItem::class, 'id', 'learn_unit_id');
     }
 
 
