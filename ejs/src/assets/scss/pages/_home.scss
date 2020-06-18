@@ -2,6 +2,11 @@
   padding: 30px 0px;
 }
 .lesson {
+  &-card {
+    .lesson-title-native {
+      min-height: 60px;
+    }
+  }
   &-content {
     display: block;
     background-color: #fff;
@@ -37,10 +42,8 @@
       font-size: 20px;
       font-weight: bold;
       line-height: 30px;
-      min-height: 60px;
     }
     &-trans {
-      margin-top: 10px;
       font-size: 16px;
       line-height: 24px;
       min-height: 48px;

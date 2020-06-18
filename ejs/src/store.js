@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from "axios";
+import axios from "axios"
 Vue.use(Vuex)
 
 const state = {
   sidebarShow: 'responsive',
   listCourse: [],
+  listLesson: [],
+  listLearnUnit: [],
   activeCourse: 2,
   sidebarMinimize: false
 }
@@ -17,6 +19,26 @@ const actions = {
     await axios.get(window.DOMAIN_API + '/api/courses').then(
       res => {
         commit('setListCourse', res.data.data)
+      }
+    )
+  },
+  async GET_LIST_LESSON({commit, state}) {
+    if (state.listLesson.length) {
+      return
+    }
+    await axios.get(window.DOMAIN_API + '/api/lessions').then(
+      res => {
+        commit('setListLesson', res.data.data)
+      }
+    )
+  },
+  async GET_LIST_LEARN_UNIT({commit, state}) {
+    if (state.listLearnUnit.length) {
+      return
+    }
+    await axios.get(window.DOMAIN_API + '/api/learn_units').then(
+      res => {
+        commit('setListLeanUnit', res.data.data)
       }
     )
   },
@@ -41,6 +63,12 @@ const mutations = {
   },
   setActiveCourse(state, data) {
     state.activeCourse = data
+  },
+  setListLesson(state, data) {
+    state.listLesson = data
+  },
+  setListLeanUnit(state, data) {
+    state.listLearnUnit = data
   }
 }
 
