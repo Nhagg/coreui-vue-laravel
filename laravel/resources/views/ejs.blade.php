@@ -22,6 +22,10 @@
     <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 </noscript>
 <div id="ejs"></div>
+<script>
+    //global variable
+    window.DOMAIN_API = "<?php echo env('DOMAIN_API') ? env('DOMAIN_API') : 'http://118.70.161.155:8880' ?>"
+</script>
 <!-- built files will be auto injected -->
 <script src="{{ asset('js/ejs.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
