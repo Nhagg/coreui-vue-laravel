@@ -1,27 +1,29 @@
 <template>
-    <div class="container">
+    <div class="container newwork-practice-2">
         <div class="row">
             <div class="col text-center">
-                <h3>Chọn từ đúng có nghĩa</h3>
+                <h3>Chọn đúng nghĩa của</h3>
                 <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
             </div>
         </div>
-        <div class="item-list-answer">
+        <div class="item-list-answer mt-5">
             <div class="row">
-                <div v-for="i in listAnswer" :key="i" class="col-sm-6">
-                    <div class="item-answer" @click="() => checkAnswer(i)">
-                        <div class="item-img ratio-4-3">
-                            <img :src="$domainAPI + '/images/new_work/' + item.content['image' + i]" alt="">
+                <div v-for="i in listAnswer" :key="i" class="col-sm-12">
+                    <div
+                        @click="() => checkAnswer(i)"
+                        class="item-choice"
+                        :class="{
+                          incorrect: userAnswer === i && userAnswer !== 1,
+                          correct: userAnswer !== null && i === 1
+                        }"
+                    >
+                        <div class="item-icon">
                             <i
                                 v-if="userAnswer !== null && i === 1"
-                                class="fas fa-check-circle text-success"
-                            />
-                            <i
-                                v-if="userAnswer === i && i !== 1"
-                                class="fas fa-check-circle text-danger"
+                                class="far fa-check-circle text-success"
                             />
                         </div>
-                        <div class="item-text">
+                        <div>
                             {{ item.content['image_text' + i] }}
                         </div>
                     </div>

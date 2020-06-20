@@ -3,20 +3,43 @@
         <div class="study-content" v-if="unit.id">
             <NewwordPractice1
                 v-if="activeItem.type == 'newword_practice_1'"
+                :key="activeItem.id"
                 :setAnswer="setAnswer"
                 :unit="unit"
-                :item="unit.learn_items[activeItemIndex]"
+                :item="activeItem"
+            />
+            <NewwordPractice2
+                v-else-if="activeItem.type == 'newword_practice_2'"
+                :key="activeItem.id"
+                :setAnswer="setAnswer"
+                :unit="unit"
+                :item="activeItem"
+            />
+            <NewwordSpeak1
+                v-else-if="activeItem.type == 'newword_speak_1'"
+                :key="activeItem.id"
+                :setAnswer="setAnswer"
+                :unit="unit"
+                :item="activeItem"
+            />
+            <NewwordPronunciation1
+                v-else-if="activeItem.type == 'newword_pronounciation_1'"
+                :key="activeItem.id"
+                :setAnswer="setAnswer"
+                :unit="unit"
+                :item="activeItem"
             />
             <Default
                 v-else
+                :key="activeItem.id"
                 :setAnswer="setAnswer"
                 :unit="unit"
-                :item="unit.learn_items[activeItemIndex]"
+                :item="activeItem"
             />
         </div>
         <div
-                class="study-footer"
-                :class="{ incorrect: activeItem.correct === false, correct: activeItem.correct === true}"
+            class="study-footer"
+            :class="{ incorrect: activeItem.correct === false, correct: activeItem.correct === true}"
         >
             <span class="d-none">
                 {{ resetStatus }}
@@ -40,10 +63,19 @@
 <script>
   import axios from "axios"
   import NewwordPractice1 from "./Item/NewwordPractice1";
+  import NewwordPractice2 from "./Item/NewwordPractice2";
+  import NewwordSpeak1 from "./Item/NewwordSpeak1";
+  import NewwordPronunciation1 from "./Item/NewwordPronunciation1";
   import Default from "./Item/Default";
   export default {
     name: 'Unit',
-    components: { NewwordPractice1, Default },
+    components: {
+      NewwordPractice1,
+      NewwordPractice2,
+      NewwordSpeak1,
+      NewwordPronunciation1,
+      Default
+    },
     async mounted() {
       let unitId = this.$route.params.id
       if( !unitId) {
@@ -53,7 +85,7 @@
       await axios.get(window.DOMAIN_API + '/api/learn_units/' + unitId).then(
         res => {
           this.unit = res.data.data
-          console.log(this.unit)
+          console.log('unit', this.unit)
         }
       ).catch(e => {
         console.log(e)
@@ -63,6 +95,7 @@
     computed: {
       activeItem() {
         if(this.unit && this.unit.learn_items) {
+          console.log('item', this.unit.learn_items[this.activeItemIndex])
           return this.unit.learn_items[this.activeItemIndex]
         }
         return {}
