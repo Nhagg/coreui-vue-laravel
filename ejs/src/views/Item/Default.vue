@@ -1,6 +1,19 @@
 <template>
     <div class="container">
-        {{ item }}
+        <div class="row">
+            <div class="col text-center">
+                <h3>Chúc mừng bạn học được thêm 1 từ mới </h3>
+                <h3>{{ unit.name_forgein_language }}</h3>
+                <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="text-result-point">
+                    {{ resultPoint + ' %' }}
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -14,10 +27,22 @@
       unit: {
         type: Object,
         default: Object
-      },
-      item: {
-        type: Object,
-        default: Object
+      }
+    },
+    computed: {
+      resultPoint() {
+        let res = 0
+        const listItem = this.unit.learn_items
+        let totalPoint = 0
+        listItem.forEach(
+          item => {
+            totalPoint += parseInt(item.score)
+            if(item.correct || item.type == 'newword_speak_1') {
+              res += parseInt(item.score)
+            }
+          }
+        )
+        return parseInt(res * 100/totalPoint)
       }
     },
     data() {
@@ -27,13 +52,6 @@
       }
     },
     methods: {
-      checkAnswer(i) {
-        if(this.userAnswer != null) {
-          return
-        }
-        this.userAnswer = i
-        this.setAnswer(this.item, i === 1)
-      }
     }
   }
 </script>

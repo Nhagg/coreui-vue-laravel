@@ -53,10 +53,13 @@
                 Đáp án không chính xác
             </div>
             <div v-else></div>
-            <button class="btn" @click="activeItemIndex ++">
+            <button class="btn" @click="activeItemIndex ++" v-if="activeItem.id">
                 Tiếp theo
                 <i class="fa fa-arrow-right"></i>
             </button>
+            <a href="/" v-else class="btn">
+                Quay lại trang chủ
+            </a>
         </div>
     </div>
 </template>
@@ -94,9 +97,9 @@
     },
     computed: {
       activeItem() {
-        if(this.unit && this.unit.learn_items) {
-          console.log('item', this.unit.learn_items[this.activeItemIndex])
-          return this.unit.learn_items[this.activeItemIndex]
+        let { unit, activeItemIndex } = this
+        if(unit && unit.learn_items && unit.learn_items[activeItemIndex]) {
+          return unit.learn_items[activeItemIndex]
         }
         return {}
       }

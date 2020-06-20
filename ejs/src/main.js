@@ -21,7 +21,6 @@ Vue.prototype.$getNativeName = (text) => {
       s += splitText
     }
   })
-  console.log(s)
   return s
 }
 Vue.prototype.$convertNameToHtml = (text) => {
@@ -37,7 +36,6 @@ Vue.prototype.$convertNameToHtml = (text) => {
   })
   res = s.replace(/\(/g, '<span>')
   res = res.replace(/\)/g, '</span>')
-  console.log(s)
   return res
 }
 new Vue({
