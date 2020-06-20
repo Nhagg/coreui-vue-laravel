@@ -4,6 +4,7 @@ import axios from "axios"
 Vue.use(Vuex)
 
 const state = {
+  domainAPI: window.DOMAIN_API,
   sidebarShow: 'responsive',
   listCourse: [],
   listLesson: [],

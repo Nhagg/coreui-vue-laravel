@@ -10,7 +10,11 @@
                 <router-link :to="'/lesson/' + lesson.id" class="lesson-content">
                     <div class="lesson-card">
                         <div class="lesson-img ratio-4-3">
-                            <img :src="lesson.image" alt="lesson-img" @error="onErrorImg">
+                            <img
+                                :src="domainAPI + '/images/lesson/' + lesson.image"
+                                alt="lesson-img"
+                                @error="onErrorImg"
+                            >
                         </div>
                         <div class="lesson-body">
                             <div class="lesson-title">
@@ -33,12 +37,12 @@
 </template>
 <script>
   import axios from 'axios'
-  import {mapState} from "vuex";
+  import { mapState } from "vuex";
   export default {
     name: 'Home',
     components: {},
     computed: {
-      ...mapState(['activeCourse', 'listCourse']),
+      ...mapState(['domainAPI', 'activeCourse', 'listCourse']),
       course() {
         let res = this.listCourse.find(c => c.id == this.activeCourse)
         return res ? res : {}

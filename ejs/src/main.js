@@ -6,7 +6,10 @@ import router from './router'
 import store from './store'
 
 Vue.config.performance = true
-
+Vue.prototype.$domainAPI = window.DOMAIN_API
+Vue.prototype.$shuffler = (arr) => {
+  return arr.sort(() => 0.5 - Math.random())
+}
 new Vue({
   el: '#ejs',
   router,

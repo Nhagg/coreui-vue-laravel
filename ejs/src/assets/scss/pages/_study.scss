@@ -23,22 +23,30 @@
   color: $text-red;
   height: 20px;
 }
+$sFooterHeight: 80px;
 .study-content {
-  padding-top: 100px;
+  padding-top: 40px;
+  padding-bottom: $sFooterHeight;
 }
 
 .study-footer{
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
   display: flex;
-  height: 100px;
+  height: $sFooterHeight;
   align-items: center;
   justify-content: space-between;
   padding: 0px 70px;
-  background-color: $text-green;
+  background-color: $text-yellow;
   color: #fff;
+  &.incorrect {
+    background-color: $text-red;
+  }
+  &.correct {
+    background-color: $text-green;
+  }
   > div {
     font-size: 24px;
     font-weight: bold;
@@ -59,5 +67,29 @@
     i {
       margin-left: 10px;
     }
+  }
+}
+.item-list-answer {
+  max-width: 700px;
+  margin: 0 auto;
+  .item-answer {
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  .item-img {
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    position: relative;
+    i {
+      font-size: 40px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+  .item-text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
   }
 }
