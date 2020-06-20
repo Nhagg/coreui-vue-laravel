@@ -40,7 +40,7 @@ class LearnItem extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'type' => 'integer',
+        'type' => 'string',
         'content' => 'string',
         'score' => 'integer'
     ];

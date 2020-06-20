@@ -45,7 +45,7 @@ class LearnTransaction extends Model
         'learn_result' => 'integer',
         'start_time' => 'datetime',
         'end_time' => 'datetime',
-        'lipe_type' => 'integer'
+        'lipe_type' => 'string'
     ];
 
     /**

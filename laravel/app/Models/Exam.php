@@ -41,7 +41,7 @@ class Exam extends Model
         'class_id' => 'integer',
         'start_date' => 'datetime',
         'end_date' => 'datetime',
-        'type' => 'integer',
+        'type' => 'string',
         'duration' => 'integer'
     ];
 
