@@ -11,7 +11,7 @@
                 <div v-for="i in listAnswer" :key="i" class="col-sm-6">
                     <div class="item-answer" @click="() => checkAnswer(i)">
                         <div class="item-img ratio-4-3">
-                            <img :src="$domainAPI + '/images/new_work/' + item.content['image' + i]" alt="">
+                            <img :src="$getItemImg(unit, item, i)" alt="">
                             <i
                                 v-if="userAnswer !== null && i === 1"
                                 class="fas fa-check-circle text-success"

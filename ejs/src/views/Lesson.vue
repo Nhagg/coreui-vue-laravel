@@ -65,6 +65,7 @@
         }
       },
       listActiveLearnUnit(){
+        console.log(this.listLearnUnit)
         return this.listLearnUnit.filter(u => u.lession.id === this.lesson.id)
       }
     },

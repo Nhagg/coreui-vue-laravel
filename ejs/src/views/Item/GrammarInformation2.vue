@@ -8,17 +8,15 @@
                             <h3>{{ unit.name_forgein_language }}</h3>
                             <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
                         </div>
-                        <div class="volume-icon" @click="playVolume">
-                            <i class="fa fa-volume-up"></i>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-8 offset-2">
+                <div class="col-sm-10 offset-1">
+                    <h4>Bạn hãy dành thời gian để hiểu cấu trúc ngữ pháp này</h4>
                     <div class="item-answer">
                         <div class="ratio-4-4">
-                            <img :src="$getItemImg(unit, item, activeAnswer)" alt="">
+                            <img :src="$getItemImg(unit, item, 1)" alt="gramar-i-2">
                         </div>
                     </div>
                 </div>
@@ -27,7 +25,6 @@
     </div>
 </template>
 <script>
-let playTimeout1, playTimeout2
   export default {
     name: 'NewworkPractice1',
     props: {
@@ -45,19 +42,8 @@ let playTimeout1, playTimeout2
       }
     },
     mounted() {
-      setTimeout(this.playVolume(), 2000)
-      playTimeout1 = setTimeout(() => {
-        this.activeAnswer = 2
-        this.playVolume()
-      }, 6000)
-      playTimeout2 = setTimeout(() => {
-        this.activeAnswer = 3
-        this.playVolume()
-      }, 9000)
     },
     beforeDestroy() {
-      clearTimeout(playTimeout1)
-      clearTimeout(playTimeout2)
     },
     data() {
       return {
@@ -65,12 +51,6 @@ let playTimeout1, playTimeout2
       }
     },
     methods: {
-      playVolume() {
-        console.log('playVolume', this.$getNativeName(this.unit.name_native_language))
-        let msg = new SpeechSynthesisUtterance(this.$getNativeName(this.unit.name_native_language));
-        msg.lang = 'ja-JP'
-        window.speechSynthesis.speak(msg);
-      }
     }
   }
 </script>

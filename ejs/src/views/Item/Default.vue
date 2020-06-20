@@ -42,7 +42,7 @@
             }
           }
         )
-        return parseInt(res * 100/totalPoint)
+        return parseInt((res * 100)/totalPoint)
       }
     },
     data() {

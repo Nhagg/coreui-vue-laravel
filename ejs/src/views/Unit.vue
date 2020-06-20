@@ -2,28 +2,45 @@
     <div class="container-fluid">
         <div class="study-content" v-if="unit.id">
             <NewwordPractice1
-                v-if="activeItem.type == 'newword_practice_1'"
+                v-if="activeItem.type == 'newword_practice_1' || activeItem.type == 'grammar_practice_1'"
                 :key="activeItem.id"
                 :setAnswer="setAnswer"
                 :unit="unit"
                 :item="activeItem"
             />
             <NewwordPractice2
-                v-else-if="activeItem.type == 'newword_practice_2'"
+                v-else-if="activeItem.type == 'newword_practice_2' || activeItem.type == 'grammar_practice_2'"
                 :key="activeItem.id"
                 :setAnswer="setAnswer"
                 :unit="unit"
                 :item="activeItem"
             />
             <NewwordSpeak1
-                v-else-if="activeItem.type == 'newword_speak_1'"
+                v-else-if="
+                    activeItem.type == 'newword_speak_1'
+                    || activeItem.type == 'grammar_speak_1'
+                    || activeItem.type == 'grammar_speak_2'
+                "
                 :key="activeItem.id"
                 :setAnswer="setAnswer"
                 :unit="unit"
                 :item="activeItem"
             />
             <NewwordPronunciation1
-                v-else-if="activeItem.type == 'newword_pronounciation_1'"
+                v-else-if="
+                    activeItem.type == 'newword_pronounciation_1'
+                    || activeItem.type == 'grammar_pronounciation_1'
+                "
+                :key="activeItem.id"
+                :setAnswer="setAnswer"
+                :unit="unit"
+                :item="activeItem"
+            />
+            <GrammarInformation2
+                v-else-if="
+                    activeItem.type == 'grammar_information_1'
+                    || activeItem.type == 'grammar_information_2'
+                "
                 :key="activeItem.id"
                 :setAnswer="setAnswer"
                 :unit="unit"
@@ -69,6 +86,7 @@
   import NewwordPractice2 from "./Item/NewwordPractice2";
   import NewwordSpeak1 from "./Item/NewwordSpeak1";
   import NewwordPronunciation1 from "./Item/NewwordPronunciation1";
+  import GrammarInformation2 from "./Item/GrammarInformation2";
   import Default from "./Item/Default";
   export default {
     name: 'Unit',
@@ -77,6 +95,7 @@
       NewwordPractice2,
       NewwordSpeak1,
       NewwordPronunciation1,
+      GrammarInformation2,
       Default
     },
     async mounted() {

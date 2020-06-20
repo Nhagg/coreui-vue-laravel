@@ -18,7 +18,7 @@
                 </div>
                 <div class="col">
                     <h4 v-if="userAnswer">
-                        Đáp án của bạn:
+                        Phát âm của bạn:
                         <div v-html="$convertNameToHtml(userAnswer)" class="japan-name d-inline-block"></div>
                     </h4>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="col-sm-8 offset-2">
                     <div class="item-answer">
                         <div class="ratio-4-4">
-                            <img :src="$domainAPI + '/images/new_work/' + item.content['image' + activeAnswer]" alt="">
+                            <img :src="$getItemImg(unit, item, 1)" alt="">
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ let recognition
       }
     },
     mounted() {
-      setTimeout(this.playVolume(), 3000)
+      setTimeout(this.playVolume(), 2000)
       recognition = new webkitSpeechRecognition();
       recognition.continuous = true;
       recognition.lang='ja-JP'
@@ -66,8 +66,7 @@ let recognition
     data() {
       return {
         microStatus: false,
-        userAnswer: '',
-        activeAnswer: 1
+        userAnswer: ''
       }
     },
     methods: {
