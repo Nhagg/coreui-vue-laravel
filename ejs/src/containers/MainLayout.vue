@@ -42,22 +42,22 @@ export default {
           id: 1,
           title: 'Học bài',
           path: '/'
-        },
-        {
-          id: 2,
-          title: 'Thi cử',
-          path: '/exam'
-        },
-        {
-          id: 3,
-          title: 'Kết quả học tập',
-          path: '/report'
-        },
-        {
-          id: 4,
-          title: 'Cài đặt',
-          path: '/settings'
         }
+        // {
+        //   id: 2,
+        //   title: 'Thi cử',
+        //   path: '/exam'
+        // },
+        // {
+        //   id: 3,
+        //   title: 'Kết quả học tập',
+        //   path: '/report'
+        // },
+        // {
+        //   id: 4,
+        //   title: 'Cài đặt',
+        //   path: '/settings'
+        // }
       ]
     }
   }

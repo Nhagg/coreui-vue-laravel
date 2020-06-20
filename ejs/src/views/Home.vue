@@ -3,26 +3,26 @@
         <h2>{{ course.name }}</h2>
         <div class="row lesson-list">
             <div
-                v-for="lessson in listLesson.filter(s => s.course_id == activeCourse)"
-                :key="lessson.id"
+                v-for="lesson in listLesson.filter(s => s.course && s.course.id == activeCourse)"
+                :key="lesson.id"
                 class="col-sm-4"
             >
-                <router-link to="/lesson" class="lesson-content">
+                <router-link :to="'/lesson/' + lesson.id" class="lesson-content">
                     <div class="lesson-card">
                         <div class="lesson-img ratio-4-3">
-                            <img :src="lessson.image" alt="lesson-img" @error="onErrorImg">
+                            <img :src="lesson.image" alt="lesson-img" @error="onErrorImg">
                         </div>
                         <div class="lesson-body">
                             <div class="lesson-title">
                                 <div class="lesson-title-native two-line-text">
-                                    {{ lessson.name_native_language }}
+                                    {{ lesson.name_native_language }}
                                 </div>
                                 <div class="lesson-title-trans two-line-text">
-                                    {{ lessson.name_second_language }}
+                                    {{ lesson.name_second_language }}
                                 </div>
                             </div>
                             <div class="lesson-result">
-                                {{ 20 }}%
+                                {{ 100 }}%
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,6 @@
       if(listCourse && res && res.data && res.data.data) {
         this.listLesson = res.data.data
       }
-      if(this.$store.state.listCourse)
       console.log(this.listLesson)
     },
     data() {

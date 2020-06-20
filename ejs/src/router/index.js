@@ -3,11 +3,11 @@ import Router from 'vue-router'
 
 // Containers
 const MainLayout = () => import('@/containers/MainLayout')
-const StudyLayout = () => import('@/containers/StudyLayout')
+const UnitLayout = () => import('@/containers/UnitLayout')
 // Views
 const Home = () => import('@/views/Home')
 const Lesson = () => import('@/views/Lesson')
-const Study = () => import('@/views/Study')
+const Unit = () => import('@/views/Unit')
 Vue.use(Router)
 
 export default new Router({
@@ -31,7 +31,7 @@ function configRoutes () {
           component: Home
         },
         {
-          path: '/lesson',
+          path: '/lesson/:id',
           name: 'Lesson',
           component: Lesson
         },
@@ -49,19 +49,24 @@ function configRoutes () {
           path: '/settings',
           name: 'Exam',
           component: Home
-        }
+        },
+        {
+          path: '/:d',
+          name: 'Default',
+          component: Home
+        },
       ]
     },
     {
-      path: '/study',
-      redirect: '/study',
-      name: 'Study',
-      component: StudyLayout,
+      path: '/unit',
+      redirect: '/unit',
+      name: 'Unit',
+      component: UnitLayout,
       children: [
         {
-          path: '/study',
+          path: '/unit/:id',
           name: 'Study',
-          component: Study
+          component: Unit
         }
       ]
     }
