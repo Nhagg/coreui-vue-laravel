@@ -16,7 +16,7 @@ class CreateLearnItemsTable extends Migration
     {
         Schema::create('learn_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('type');
+            $table->string('type');
             $table->text('content');
             $table->integer('score');
             $table->timestamps();

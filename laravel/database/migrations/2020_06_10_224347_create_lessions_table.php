@@ -20,7 +20,7 @@ class CreateLessionsTable extends Migration
             $table->string('name_native_language');
             $table->string('name_second_language');
             $table->string('image');
-            $table->integer('type');
+            $table->string('type');
             $table->timestamps();
         });
     }

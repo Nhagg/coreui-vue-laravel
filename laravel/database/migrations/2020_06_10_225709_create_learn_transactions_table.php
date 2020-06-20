@@ -21,7 +21,7 @@ class CreateLearnTransactionsTable extends Migration
             $table->integer('learn_result');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
-            $table->integer('lipe_type');
+            $table->string('lipe_type');
             $table->timestamps();
         });
     }

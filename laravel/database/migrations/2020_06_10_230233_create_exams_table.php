@@ -19,7 +19,7 @@ class CreateExamsTable extends Migration
             $table->integer('class_id');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->integer('type');
+            $table->string('type');
             $table->integer('duration');
             $table->timestamps();
         });
