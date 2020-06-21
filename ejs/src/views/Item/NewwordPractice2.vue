@@ -2,8 +2,8 @@
     <div class="container newwork-practice-2">
         <div class="row">
             <div class="col text-center">
-                <h3>Chọn đúng nghĩa của</h3>
-                <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
+                <h2>Chọn đúng nghĩa của</h2>
+                <h2 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h2>
             </div>
         </div>
         <div class="item-list-answer mt-5">
@@ -61,7 +61,7 @@
           return
         }
         this.userAnswer = i
-        this.setAnswer(this.item, i === 1)
+        this.setAnswer(this.item, i === 1 ? this.item.scrore : 0)
       }
     }
   }

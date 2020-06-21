@@ -28,7 +28,7 @@
                     >
                         <i class="fa fa-check-circle"></i>
                         <router-link :to="'/unit/' + unit.id">
-                            {{ unit.name_native_language }}
+                            <div v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></div>
                             <span class="one-line-text">
                                 {{ unit.name_forgein_language }}
                             </span>

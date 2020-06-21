@@ -2,7 +2,7 @@
   <div class="ejs-app">
     <Header />
     <section class="ejs-content">
-      <div class="container">
+      <div class="container home-container">
         <div class="row">
           <div class="col-sm-2">
             <img src="/img/ejs/logo.png" alt="">
@@ -42,22 +42,22 @@ export default {
           id: 1,
           title: 'Học bài',
           path: '/'
+        },
+        {
+          id: 2,
+          title: 'Thi cử',
+          path: '/exam'
+        },
+        {
+          id: 3,
+          title: 'Kết quả học tập',
+          path: '/report'
+        },
+        {
+          id: 4,
+          title: 'Cài đặt',
+          path: '/settings'
         }
-        // {
-        //   id: 2,
-        //   title: 'Thi cử',
-        //   path: '/exam'
-        // },
-        // {
-        //   id: 3,
-        //   title: 'Kết quả học tập',
-        //   path: '/report'
-        // },
-        // {
-        //   id: 4,
-        //   title: 'Cài đặt',
-        //   path: '/settings'
-        // }
       ]
     }
   }

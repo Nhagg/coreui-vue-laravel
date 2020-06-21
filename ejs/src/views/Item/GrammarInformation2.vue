@@ -5,8 +5,8 @@
                 <div class="col">
                     <div class="speak-title">
                         <div class="text-center mr-3">
-                            <h3>{{ unit.name_forgein_language }}</h3>
-                            <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
+                            <h2>{{ unit.name_forgein_language }}</h2>
+                            <h2 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h2>
                         </div>
                     </div>
                 </div>

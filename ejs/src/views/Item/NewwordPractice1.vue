@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h3>Chọn từ đúng có nghĩa</h3>
-                <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
+                <h2>{{ listTitle[0] }}</h2>
+                <h2 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h2>
             </div>
         </div>
         <div class="item-list-answer">
@@ -31,6 +31,12 @@
     </div>
 </template>
 <script>
+    let listTitle = [
+      'Bạn hãy thử đoán nghĩa của từ sau nhé!',
+      'Hãy thử nhìn các bức tranh và tìm ra nghĩa của từ dưới đây:',
+      'Chúng ta thử chơi trò chơi đoán nghĩa của từ sau nhé ?',
+      'Theo bạn bức tranh nào mô tả đúng nghĩa của từ này ?',
+    ]
   export default {
     name: 'NewworkPractice1',
     props: {
@@ -49,6 +55,7 @@
     },
     data() {
       return {
+        listTitle: this.$shuffler(listTitle),
         userAnswer: null,
         listAnswer: this.$shuffler([1, 2, 3, 4])
       }
@@ -59,7 +66,7 @@
           return
         }
         this.userAnswer = i
-        this.setAnswer(this.item, i === 1)
+        this.setAnswer(this.item, i === 1 ? this.item.score : 0)
       }
     }
   }

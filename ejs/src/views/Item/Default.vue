@@ -2,14 +2,23 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h3>Chúc mừng bạn học được thêm 1 từ mới </h3>
-                <h3>{{ unit.name_forgein_language }}</h3>
-                <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
+                <h2>Chúc mừng bạn học được thêm 1 từ mới </h2>
             </div>
         </div>
         <div class="row mt-5">
             <div class="col text-center">
-                <div class="text-result-point">
+                <div
+                    class="text-result-point"
+                    :class="{
+                        'text-red': resultPoint <= 40,
+                        'text-yellow': resultPoint > 40 && resultPoint < 80,
+                        'text-green': resultPoint > 80,
+                    }"
+                >
+                    <div>
+                        <h2 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h2>
+                        <h2>{{ unit.name_forgein_language }}</h2>
+                    </div>
                     {{ resultPoint + ' %' }}
                 </div>
             </div>
@@ -37,7 +46,10 @@
         listItem.forEach(
           item => {
             totalPoint += parseInt(item.score)
-            if(item.correct || item.type == 'newword_speak_1') {
+            if(item.poin) {
+              res += parseInt(item.point)
+            }
+            if(item.type == 'newword_speak_1') {
               res += parseInt(item.score)
             }
           }

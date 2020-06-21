@@ -56,21 +56,30 @@
         </div>
         <div
             class="study-footer"
-            :class="{ incorrect: activeItem.correct === false, correct: activeItem.correct === true}"
+            :class="{
+              incorrect: activeItem.point != undefined && !isCorrect(),
+              correct: activeItem.point != undefined  && isCorrect()
+            }"
         >
             <span class="d-none">
                 {{ resetStatus }}
             </span>
-            <div v-if="activeItem.correct === true">
+            <div v-if="isCorrect()">
                 <i class="fa fa-check-circle"></i>
                 Đáp án chính xác
             </div>
-            <div v-else-if="activeItem.correct === false">
+            <div v-else-if="!isCorrect()">
                 <i class="fa fa-check-circle"></i>
-                Đáp án không chính xác
+                <span v-if="userAnswer">
+                    Phát âm của bạn:
+                    {{ userAnswer }}
+                </span>
+                <span v-else>
+                    Đáp án không chính xác
+                </span>
             </div>
             <div v-else></div>
-            <button class="btn" @click="activeItemIndex ++" v-if="activeItem.id">
+            <button class="btn" @click="nextPage" v-if="activeItem.id">
                 Tiếp theo
                 <i class="fa fa-arrow-right"></i>
             </button>
@@ -125,17 +134,29 @@
     },
     data() {
       return {
+        userAnswer: '',
         resetStatus: false,
         unit: {},
         activeItemIndex: 0
       }
     },
     methods: {
+      isCorrect() {
+        const activeItem = this.activeItem
+        console.log('isCorrect', activeItem)
+        return activeItem.point != undefined && activeItem.point == activeItem.score
+      },
+      nextPage() {
+        this.userAnswer = ''
+        this.activeItemIndex ++
+      },
       resetPage() {
         this.resetStatus = !this.resetStatus
       },
-      setAnswer(item, status) {
-        item.correct = status ? true : false
+      setAnswer(item, point, userAnswer = '') {
+        item.point = parseInt(point) ? parseInt(point) : 0
+        this.activeItemIndex = this.activeItemIndex
+        this.userAnswer = userAnswer
         this.resetPage()
       }
     }

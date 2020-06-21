@@ -18,15 +18,14 @@
                         </div>
                         <div class="lesson-body">
                             <div class="lesson-title">
-                                <div class="lesson-title-native two-line-text">
-                                    {{ lesson.name_native_language }}
-                                </div>
+                                <div v-html="$convertNameToHtml(lesson.name_native_language)"
+                                     class="lesson-title-native two-lines-text japan-name"></div>
                                 <div class="lesson-title-trans two-line-text">
                                     {{ lesson.name_second_language }}
                                 </div>
                             </div>
                             <div class="lesson-result">
-                                {{ 100 }}%
+                                {{ 0 }}%
                             </div>
                         </div>
                     </div>

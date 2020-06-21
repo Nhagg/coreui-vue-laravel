@@ -38,13 +38,21 @@ $sFooterHeight: 80px;
   align-items: center;
   justify-content: space-between;
   padding: 0px 70px;
-  background-color: #5E5D5B;
+  background-color: transparent;
   color: #fff;
   &.incorrect {
     background-color: $text-red;
+    .btn {
+      border-color: #fff;
+      color: #fff;
+    }
   }
   &.correct {
     background-color: $text-green;
+    .btn {
+      border-color: #fff;
+      color: #fff;
+    }
   }
   > div {
     font-size: 24px;
@@ -57,27 +65,30 @@ $sFooterHeight: 80px;
     }
   }
   .btn {
-    border: solid 2px #fff;
+    border: solid 2px $text-gray;
     background-color: transparent;
     border-radius: 10px;
     font-size: 20px;
     padding: 5px 20px;
-    color: #fff;
+    color: $text-gray;
     i {
       margin-left: 10px;
     }
   }
 }
 .item-list-answer {
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: 30px auto 0px;
   .item-answer {
-    cursor: pointer;
     margin-bottom: 20px;
+    &:hover {
+      cursor: pointer;
+      color: $text-green;
+    }
   }
   .item-img {
-    border: solid 1px #ddd;
     border-radius: 5px;
+    overflow: hidden;
     position: relative;
     i {
       font-size: 40px;
@@ -138,7 +149,22 @@ $sFooterHeight: 80px;
   }
 }
 .text-result-point {
-  font-size: 50px;
+  font-size: 120px;
   font-weight: bold;
-  color: $text-red;
+  background: no-repeat url('./result.png');
+  margin: 0 auto;
+  width: 700px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  > div {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 30px;
+    color: #000;
+  }
 }

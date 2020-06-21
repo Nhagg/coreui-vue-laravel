@@ -1,28 +1,28 @@
 <template>
     <div class="container newwork-speak-1">
-        <div class="item-list-answer">
-            <div class="row">
-                <div class="col col-sm-12">
-                    <div class="speak-title">
-                        <div class="text-center mr-4">
-                            <h3>Hãy đọc to theo tôi</h3>
-                            <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
-                        </div>
-                        <div class="volume-icon mr-3" @click="playVolume">
-                            <i class="fa fa-volume-up"></i>
-                        </div>
-                        <div class="volume-icon" :class="{ 'text-red': microStatus }" @click="toggleMicro">
-                            <i class="fa fa-microphone-alt"></i>
-                        </div>
+        <div class="row">
+            <div class="col col-sm-12 text-center">
+                <div class="speak-title">
+                    <div class="text-center mr-4">
+                        <h2>Hãy đọc to theo tôi</h2>
+                        <h2 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h2>
+                    </div>
+                    <div class="volume-icon mr-3" @click="playVolume">
+                        <i class="fa fa-volume-up"></i>
+                    </div>
+                    <div class="volume-icon" :class="{ 'text-red': microStatus }" @click="toggleMicro">
+                        <i class="fa fa-microphone-alt"></i>
                     </div>
                 </div>
-                <div class="col">
-                    <h4 v-if="userAnswer">
-                        Phát âm của bạn:
-                        <div v-html="$convertNameToHtml(userAnswer)" class="japan-name d-inline-block"></div>
-                    </h4>
-                </div>
             </div>
+<!--            <div class="col">-->
+<!--                <h4 v-if="userAnswer">-->
+<!--                    Phát âm của bạn:-->
+<!--                    <div v-html="$convertNameToHtml(userAnswer)" class="japan-name d-inline-block"></div>-->
+<!--                </h4>-->
+<!--            </div>-->
+        </div>
+        <div class="item-list-answer">
             <div class="row">
                 <div class="col-sm-8 offset-2">
                     <div class="item-answer">
@@ -59,8 +59,12 @@ let recognition
       recognition.continuous = true;
       recognition.lang='ja-JP'
       recognition.onresult = (event) => {
+        console.log('onresult')
         this.userAnswer = event.results[0][0].transcript
+        console.log(this.userAnswer)
         this.checkAnswer()
+        recognition.stop()
+        this.microStatus = false
       }
     },
     data() {
@@ -85,7 +89,13 @@ let recognition
         window.speechSynthesis.speak(msg);
       },
       checkAnswer() {
-        this.setAnswer(this.item, this.userAnswer == this.$getNativeName(this.unit.name_native_language))
+        let isCorrect = this.userAnswer == this.$getNativeName(this.unit.name_native_language)
+        console.log('st', this.userAnswer)
+        console.log('st', this.$getNativeName(this.unit.name_native_language))
+        console.log('st', isCorrect, this.item.score)
+        this.setAnswer(
+          this.item, isCorrect ? this.item.score : 0, this.userAnswer
+        )
       }
     }
   }

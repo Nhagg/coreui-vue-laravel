@@ -1,20 +1,20 @@
 <template>
     <div class="container newwork-speak-1">
-        <div class="item-list-answer">
-            <div class="row">
-                <div class="col">
-                    <div class="speak-title">
-                        <div class="text-center mr-3">
-                            <h3>{{ unit.name_forgein_language }}</h3>
-                            <h3 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h3>
-                        </div>
-                        <div class="volume-icon" @click="playVolume">
-                            <i class="fa fa-volume-up"></i>
-                        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div class="speak-title">
+                    <div class="text-center mr-3">
+                        <h2>{{ unit.name_forgein_language }}</h2>
+                        <h2 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h2>
+                    </div>
+                    <div class="volume-icon" @click="playVolume">
+                        <i class="fa fa-volume-up"></i>
                     </div>
                 </div>
             </div>
-            <div class="row">
+        </div>
+        <div class="item-list-answer">
+            <div class="row pt-4">
                 <div class="col-sm-8 offset-2">
                     <div class="item-answer">
                         <div class="ratio-4-4">

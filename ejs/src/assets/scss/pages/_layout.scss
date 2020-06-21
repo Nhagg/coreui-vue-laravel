@@ -21,6 +21,9 @@ footer {
   padding-top: $headerHeight;
   overflow-y: auto;
   min-height: 90vh;
+  .home-container {
+    max-width: 90vw;
+  }
 }
 .ejs-app {
   position: relative;
@@ -34,7 +37,7 @@ footer {
         padding: 10px 20px;
         color: #000;
         font-weight: 500;
-
+        font-size: 1.5rem;
         &:hover {
           background-color: #ddd;
           text-decoration: none;
