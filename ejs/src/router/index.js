@@ -64,7 +64,7 @@ function configRoutes () {
       component: UnitLayout,
       children: [
         {
-          path: '/unit/:id',
+          path: '/lesson/:lessonId/unit/:id',
           name: 'Study',
           component: Unit
         }

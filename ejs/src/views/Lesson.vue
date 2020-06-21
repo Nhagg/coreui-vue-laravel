@@ -17,7 +17,7 @@
                     <img :src="unitType.imgUrl" alt="unitType">
                     <div class="">
                         {{ unitType.name }}
-<!--                        <span class="">8/23</span>-->
+                        <!--                        <span class="">8/23</span>-->
                     </div>
                 </div>
                 <div class="list-unit">
@@ -27,7 +27,7 @@
                         class="unit-type-item"
                     >
                         <i class="fa fa-check-circle"></i>
-                        <router-link :to="'/unit/' + unit.id">
+                        <router-link :to="'/lesson/' + lesson.id + '/unit/' + unit.id">
                             <div v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></div>
                             <span class="one-line-text">
                                 {{ unit.name_forgein_language }}
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+  import { mapState } from 'vuex'
   export default {
     name: 'Lesson',
     components: {},
@@ -65,7 +65,6 @@
         }
       },
       listActiveLearnUnit(){
-        console.log(this.listLearnUnit)
         return this.listLearnUnit.filter(u => u.lession.id === this.lesson.id)
       }
     },

@@ -5,7 +5,12 @@
                 <div class="speak-title">
                     <div class="text-center mr-4">
                         <h2>Hãy đọc to theo tôi</h2>
-                        <h2 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h2>
+                        <h2 v-if="!compareHTML"
+                            v-html="$convertNameToHtml(unit.name_native_language)"
+                            class="japan-name"
+                        >
+                        </h2>
+                        <h2 v-else v-html="compareHTML" class="japan-name"></h2>
                     </div>
                     <div class="volume-icon mr-3" @click="playVolume">
                         <i class="fa fa-volume-up"></i>
@@ -15,12 +20,6 @@
                     </div>
                 </div>
             </div>
-<!--            <div class="col">-->
-<!--                <h4 v-if="userAnswer">-->
-<!--                    Phát âm của bạn:-->
-<!--                    <div v-html="$convertNameToHtml(userAnswer)" class="japan-name d-inline-block"></div>-->
-<!--                </h4>-->
-<!--            </div>-->
         </div>
         <div class="item-list-answer">
             <div class="row">
@@ -70,6 +69,7 @@ let recognition
     data() {
       return {
         microStatus: false,
+        compareHTML: '',
         userAnswer: ''
       }
     },
@@ -83,15 +83,47 @@ let recognition
         this.microStatus = !this.microStatus
       },
       playVolume() {
-        console.log('playVolume', this.$getNativeName(this.unit.name_native_language))
+        this.compareHTML = ''
         let msg = new SpeechSynthesisUtterance(this.$getNativeName(this.unit.name_native_language));
         msg.lang = 'ja-JP'
         window.speechSynthesis.speak(msg);
       },
+      compareResult(userAnswer, correctAnswer) {
+        let ans = correctAnswer.replace(/./g, '')
+        if(userAnswer == ans) {
+          return this.item.score
+        }
+        let compareHTML = ''
+        let correctArr = correctAnswer.split('')
+        let userArr = userAnswer.split('')
+        const lengthUserArr = userArr.length
+        const lengthCorrectArr = correctAnswer.length
+        let point = 0
+        correctArr.forEach((text, index) => {
+          const compareIndex = parseInt((index + 1) * lengthUserArr / lengthCorrectArr)
+          let acceptedArr = [
+            userArr[index],
+            userArr[index + 1],
+            userArr[index -1],
+            userArr[compareIndex],
+            userArr[compareIndex - 1],
+            userArr[compareIndex + 1]
+          ]
+          console.log(text, acceptedArr)
+          if(acceptedArr.indexOf(text) > -1) {
+            point ++
+            compareHTML += '<span class="text-green">'+ text +'</span>'
+          } else {
+            compareHTML += '<span class="text-red">' + text +'</span>'
+          }
+        })
+        this.compareHTML = compareHTML
+        return parseInt(point * this.item.score / lengthCorrectArr)
+      },
       checkAnswer() {
-        let isCorrect = this.userAnswer == this.$getNativeName(this.unit.name_native_language)
+        let nativeName = this.$getNativeName(this.unit.name_native_language)
         this.setAnswer(
-          this.item, isCorrect ? this.item.score : 0, this.userAnswer
+          this.item, this.compareResult(this.userAnswer, nativeName), this.userAnswer
         )
       }
     }

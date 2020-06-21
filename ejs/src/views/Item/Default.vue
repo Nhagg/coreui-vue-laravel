@@ -36,26 +36,18 @@
       unit: {
         type: Object,
         default: Object
+      },
+      item: {
+        type: Object,
+        default: Object
+      },
+      resultPoint: {
+        type: Number,
+        default: 0
       }
     },
-    computed: {
-      resultPoint() {
-        let totalPoint = 0
-        const listItem = this.unit.learn_items
-        let totalScore = 0
-        listItem.forEach(
-          item => {
-            totalScore += parseInt(item.score)
-            if(item.point) {
-              totalPoint += parseInt(item.point)
-            }
-            if(item.type == 'newword_speak_1') {
-              totalPoint += parseInt(item.score)
-            }
-          }
-        )
-        return parseInt((totalPoint * 100)/totalScore)
-      }
+    mounted() {
+      console.log('default', this.item)
     },
     data() {
       return {
