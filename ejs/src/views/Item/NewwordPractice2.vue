@@ -61,7 +61,7 @@
           return
         }
         this.userAnswer = i
-        this.setAnswer(this.item, i === 1 ? this.item.scrore : 0)
+        this.setAnswer(this.item, i === 1 ? this.item.score : 0)
       }
     }
   }

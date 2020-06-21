@@ -61,31 +61,36 @@
               correct: activeItem.point != undefined  && isCorrect()
             }"
         >
-            <span class="d-none">
-                {{ resetStatus }}
-            </span>
-            <div v-if="isCorrect()">
-                <i class="fa fa-check-circle"></i>
-                Đáp án chính xác
-            </div>
-            <div v-else-if="!isCorrect()">
-                <i class="fa fa-check-circle"></i>
-                <span v-if="userAnswer">
+            <div class="study-footer-left">
+                <span class="d-none">
+                    {{ resetStatus }}
+                </span>
+                <div v-if="isCorrect()">
+                    <i class="fa fa-check-circle"></i>
+                    Đáp án chính xác
+                </div>
+                <div v-else-if="!isCorrect()">
+                    <i class="fa fa-check-circle"></i>
+                    <span v-if="userAnswer">
                     Phát âm của bạn:
                     {{ userAnswer }}
                 </span>
-                <span v-else>
+                    <span v-else>
                     Đáp án không chính xác
                 </span>
+                </div>
             </div>
-            <div v-else></div>
-            <button class="btn" @click="nextPage" v-if="activeItem.id">
-                Tiếp theo
-                <i class="fa fa-arrow-right"></i>
-            </button>
-            <a href="/" v-else class="btn">
-                Quay lại trang chủ
-            </a>
+            <div>
+                <button class="btn" @click="nextPage" v-if="activeItem.id">
+                    Tiếp theo
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+               <div v-else>
+                   <button @click="leanAgain" class="btn">
+                       Học lại
+                   </button>
+               </div>
+            </div>
         </div>
     </div>
 </template>
@@ -143,7 +148,6 @@
     methods: {
       isCorrect() {
         const activeItem = this.activeItem
-        console.log('isCorrect', activeItem)
         return activeItem.point != undefined && activeItem.point == activeItem.score
       },
       nextPage() {
@@ -153,7 +157,14 @@
       resetPage() {
         this.resetStatus = !this.resetStatus
       },
+      leanAgain() {
+        this.unit.learn_items.forEach(item => {
+          item.point = undefined
+        })
+        this.activeItemIndex = 0
+      },
       setAnswer(item, point, userAnswer = '') {
+        console.log('setAns', point, userAnswer)
         item.point = parseInt(point) ? parseInt(point) : 0
         this.activeItemIndex = this.activeItemIndex
         this.userAnswer = userAnswer

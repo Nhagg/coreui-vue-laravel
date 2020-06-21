@@ -54,15 +54,15 @@ $sFooterHeight: 80px;
       color: #fff;
     }
   }
-  > div {
+  div {
     font-size: 24px;
     font-weight: bold;
     display: flex;
     align-items: center;
-    i {
-      font-size: 50px;
-      margin-right: 20px;
-    }
+  }
+  .study-footer-left i {
+    font-size: 50px;
+    margin-right: 20px;
   }
   .btn {
     border: solid 2px $text-gray;

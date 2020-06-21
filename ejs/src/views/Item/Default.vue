@@ -40,21 +40,21 @@
     },
     computed: {
       resultPoint() {
-        let res = 0
-        const listItem = this.unit.learn_items
         let totalPoint = 0
+        const listItem = this.unit.learn_items
+        let totalScore = 0
         listItem.forEach(
           item => {
-            totalPoint += parseInt(item.score)
-            if(item.poin) {
-              res += parseInt(item.point)
+            totalScore += parseInt(item.score)
+            if(item.point) {
+              totalPoint += parseInt(item.point)
             }
             if(item.type == 'newword_speak_1') {
-              res += parseInt(item.score)
+              totalPoint += parseInt(item.score)
             }
           }
         )
-        return parseInt((res * 100)/totalPoint)
+        return parseInt((totalPoint * 100)/totalScore)
       }
     },
     data() {

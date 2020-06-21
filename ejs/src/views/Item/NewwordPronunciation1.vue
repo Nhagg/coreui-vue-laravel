@@ -90,9 +90,6 @@ let recognition
       },
       checkAnswer() {
         let isCorrect = this.userAnswer == this.$getNativeName(this.unit.name_native_language)
-        console.log('st', this.userAnswer)
-        console.log('st', this.$getNativeName(this.unit.name_native_language))
-        console.log('st', isCorrect, this.item.score)
         this.setAnswer(
           this.item, isCorrect ? this.item.score : 0, this.userAnswer
         )
