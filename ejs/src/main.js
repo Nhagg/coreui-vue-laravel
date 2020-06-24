@@ -12,11 +12,10 @@ Vue.prototype.$shuffler = (arr) => {
 }
 Vue.prototype.$getNativeName = (text) => {
   let res = text
-  console.log(res,'2222')
   res = res.replace(/\(/g, '')
-  console.log(res)
   res = res.replace(/\)/g, '')
-  console.log(res)
+  res = res.replace(/（/g, '')
+  res = res.replace(/）/g, '')
   let arr = res.split('/')
   let s = ''
   arr.forEach((splitText, index) => {
@@ -28,9 +27,7 @@ Vue.prototype.$getNativeName = (text) => {
 }
 Vue.prototype.$convertNameToHtml = (text) => {
   let res = text.replace(/／/g, '/')
-  console.log(res,'2222')
   let arr = res.split('/')
-  console.log(arr,'111')
   let s = ''
   arr.forEach((splitText, index) => {
     if(index % 2 == 1) {
