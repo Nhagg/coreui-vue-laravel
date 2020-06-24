@@ -12,8 +12,11 @@ Vue.prototype.$shuffler = (arr) => {
 }
 Vue.prototype.$getNativeName = (text) => {
   let res = text
+  console.log(res,'2222')
   res = res.replace(/\(/g, '')
+  console.log(res)
   res = res.replace(/\)/g, '')
+  console.log(res)
   let arr = res.split('/')
   let s = ''
   arr.forEach((splitText, index) => {
@@ -24,8 +27,10 @@ Vue.prototype.$getNativeName = (text) => {
   return s
 }
 Vue.prototype.$convertNameToHtml = (text) => {
-  let res = text
+  let res = text.replace(/／/g, '/')
+  console.log(res,'2222')
   let arr = res.split('/')
+  console.log(arr,'111')
   let s = ''
   arr.forEach((splitText, index) => {
     if(index % 2 == 1) {
@@ -35,7 +40,9 @@ Vue.prototype.$convertNameToHtml = (text) => {
     }
   })
   res = s.replace(/\(/g, '<span>')
+  res = s.replace(/（/g, '<span>')
   res = res.replace(/\)/g, '</span>')
+  res = res.replace(/）/g, '</span>')
   return res
 }
 Vue.prototype.$getItemImg = (unit, item, i) => {
