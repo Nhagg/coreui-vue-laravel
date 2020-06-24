@@ -202,6 +202,7 @@
         this.unit.learn_items.forEach(item => {
           item.point = undefined
         })
+        this.showResult = false
         this.activeItemIndex = 0
       },
       setAnswer(item, point, userAnswer = '') {

@@ -10,8 +10,8 @@
                 <div
                     class="text-result-point"
                     :class="{
-                        'text-red': resultPoint <= 40,
-                        'text-yellow': resultPoint > 40 && resultPoint < 80,
+                        'text-red': resultPoint <= 50,
+                        'text-yellow': resultPoint > 50 && resultPoint < 80,
                         'text-green': resultPoint > 80,
                     }"
                 >
