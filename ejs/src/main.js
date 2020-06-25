@@ -16,6 +16,7 @@ Vue.prototype.$getNativeName = (text) => {
   res = res.replace(/\)/g, '')
   res = res.replace(/（/g, '')
   res = res.replace(/）/g, '')
+  res = res.replace(/／/g, '/')
   let arr = res.split('/')
   let s = ''
   arr.forEach((splitText, index) => {
