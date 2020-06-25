@@ -3,7 +3,9 @@
         <div class="detail-lesson-header">
             <div class="lesson-title">
                 <div class="lesson-title-native">
-                    Bài {{ lesson.lessonIndex }}: {{ lesson.name_native_language }}
+                    Bài {{ lesson.lessonIndex }}:
+                    <span class="japan-name"
+                          v-html="$convertNameToHtml(lesson.name_native_language )"></span>
                 </div>
                 <div class="lesson-title-trans">
                     {{ lesson.name_second_language }}

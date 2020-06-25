@@ -10,12 +10,19 @@ Vue.prototype.$domainAPI = window.DOMAIN_API
 Vue.prototype.$shuffler = (arr) => {
   return arr.sort(() => 0.5 - Math.random())
 }
+function replaceSpecialText(text) {
+  text = text.replace(/（/g, '(')
+  text = text.replace(/）/g, ')')
+  text = text.replace(/／/g, '/')
+  return text
+}
 Vue.prototype.$getNativeName = (text) => {
-  let res = text
+  if(!text) {
+    return ''
+  }
+  let res = replaceSpecialText(text)
   res = res.replace(/\(/g, '')
   res = res.replace(/\)/g, '')
-  res = res.replace(/（/g, '')
-  res = res.replace(/）/g, '')
   let arr = res.split('/')
   let s = ''
   arr.forEach((splitText, index) => {
@@ -26,7 +33,10 @@ Vue.prototype.$getNativeName = (text) => {
   return s
 }
 Vue.prototype.$convertNameToHtml = (text) => {
-  let res = text.replace(/／/g, '/')
+  if(!text) {
+    return ''
+  }
+  let res = replaceSpecialText(text)
   let arr = res.split('/')
   let s = ''
   arr.forEach((splitText, index) => {
@@ -37,9 +47,7 @@ Vue.prototype.$convertNameToHtml = (text) => {
     }
   })
   res = s.replace(/\(/g, '<span>')
-  res = s.replace(/（/g, '<span>')
   res = res.replace(/\)/g, '</span>')
-  res = res.replace(/）/g, '</span>')
   return res
 }
 Vue.prototype.$getItemImg = (unit, item, i) => {

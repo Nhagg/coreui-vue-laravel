@@ -25,9 +25,7 @@
             <div class="row">
                 <div class="col-sm-8 offset-2">
                     <div class="item-answer">
-                        <div class="ratio-4-4">
-                            <img :src="$getItemImg(unit, item, 1)" alt="">
-                        </div>
+                        <img :src="$getItemImg(unit, item, 1)" alt="">
                     </div>
                 </div>
             </div>
@@ -37,7 +35,7 @@
 <script>
 let recognition
   export default {
-    name: 'NewworkPractice1',
+    name: 'NewworkPronunciation1',
     props: {
       setAnswer: {
         type: Function,
@@ -53,6 +51,7 @@ let recognition
       }
     },
     mounted() {
+      console.log('NewworkPronunciation1', this.item)
       setTimeout(this.playVolume(), 2000)
       recognition = new webkitSpeechRecognition();
       recognition.continuous = true;

@@ -27,11 +27,7 @@
                 :item="activeItem"
             />
             <NewwordSpeak1
-                v-else-if="
-                    activeItem.type == 'newword_speak_1'
-                    || activeItem.type == 'grammar_speak_1'
-                    || activeItem.type == 'grammar_speak_2'
-                "
+                v-else-if="activeItem.type == 'newword_speak_1' || activeItem.type == 'grammar_speak_1'"
                 :key="activeItem.id"
                 :setAnswer="setAnswer"
                 :unit="unit"
@@ -52,7 +48,14 @@
                     activeItem.type == 'grammar_information_1'
                     || activeItem.type == 'grammar_information_2'
                 "
-                :key="activeItem.id"
+                :key="activeItem.id + activeItem.showText"
+                :setAnswer="setAnswer"
+                :unit="unit"
+                :item="activeItem"
+            />
+            <GrammarSpeak2
+                v-else-if="activeItem.type == 'grammar_speak_2'"
+                :key="activeItem.id + activeItem.showText"
                 :setAnswer="setAnswer"
                 :unit="unit"
                 :item="activeItem"
@@ -123,7 +126,9 @@
   import NewwordSpeak1 from "./Item/NewwordSpeak1";
   import NewwordPronunciation1 from "./Item/NewwordPronunciation1";
   import GrammarInformation2 from "./Item/GrammarInformation2";
+  import GrammarSpeak2 from "./Item/GrammarSpeak2";
   import Default from "./Item/Default";
+  const FREE_TYPE = ['newword_speak_1', 'grammar_speak_1', 'grammar_speak_2']
   export default {
     name: 'Unit',
     components: {
@@ -132,6 +137,7 @@
       NewwordSpeak1,
       NewwordPronunciation1,
       GrammarInformation2,
+      GrammarSpeak2,
       Default
     },
     async mounted() {
@@ -168,6 +174,7 @@
       activeItem() {
         let { unit, activeItemIndex } = this
         if(unit && unit.learn_items && unit.learn_items[activeItemIndex]) {
+          console.log('activeItem', unit.learn_items[activeItemIndex])
           return unit.learn_items[activeItemIndex]
         }
         return {}
@@ -190,6 +197,11 @@
       },
       nextPage() {
         this.userAnswer = ''
+        if(this.activeItem.type == 'grammar_information_2' && this.activeItem.showText != true) {
+          this.activeItem.showText = true
+          this.resetPage()
+          return
+        }
         this.activeItemIndex ++
         if(this.activeItemIndex == this.unit.learn_items.length) {
           this.showResult = true
@@ -201,6 +213,9 @@
       leanAgain() {
         this.unit.learn_items.forEach(item => {
           item.point = undefined
+          if(item.type == 'grammar_information_2') {
+            item.showText = undefined
+          }
         })
         this.showResult = false
         this.activeItemIndex = 0
@@ -222,6 +237,7 @@
         return ''
       },
       resultPoint() {
+        console.log('resultPoint')
         let totalPoint = 0
         const listItem = this.unit.learn_items
         let totalScore = 0
@@ -231,7 +247,7 @@
             if(item.point) {
               totalPoint += parseInt(item.point)
             }
-            if(item.type == 'newword_speak_1') {
+            if(FREE_TYPE.find( t => t == item.type)) {
               totalPoint += parseInt(item.score)
             }
           }
