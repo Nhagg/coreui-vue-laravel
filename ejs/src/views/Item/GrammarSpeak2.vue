@@ -25,7 +25,6 @@
     </div>
 </template>
 <script>
-let playTimeout1, playTimeout2
   export default {
     name: 'NewworkPractice1',
     props: {
@@ -44,18 +43,6 @@ let playTimeout1, playTimeout2
     },
     mounted() {
       setTimeout(this.playVolume(), 2000)
-      playTimeout1 = setTimeout(() => {
-        this.activeAnswer = 2
-        this.playVolume()
-      }, 6000)
-      playTimeout2 = setTimeout(() => {
-        this.activeAnswer = 3
-        this.playVolume()
-      }, 9000)
-    },
-    beforeDestroy() {
-      clearTimeout(playTimeout1)
-      clearTimeout(playTimeout2)
     },
     data() {
       return {
@@ -64,8 +51,9 @@ let playTimeout1, playTimeout2
     },
     methods: {
       playVolume() {
-        console.log('playVolume', this.$getNativeName(this.unit.name_native_language))
-        let msg = new SpeechSynthesisUtterance(this.$getNativeName(this.unit.name_native_language));
+        let text = this.$getNativeName(this.item.content.title1)
+        console.log('playVolume', text)
+        let msg = new SpeechSynthesisUtterance(text);
         msg.lang = 'ja-JP'
         window.speechSynthesis.speak(msg);
       }
