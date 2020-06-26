@@ -94,7 +94,7 @@ let recognition
           return this.item.score
         }
         let compareHTML = ''
-        let correctArr = correctAnswer.split('')
+        let correctArr = ans.split('')
         let userArr = userAnswer.split('')
         const lengthUserArr = userArr.length
         const lengthCorrectArr = correctAnswer.length
