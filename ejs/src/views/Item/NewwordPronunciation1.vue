@@ -89,6 +89,7 @@ let recognition
       },
       compareResult(userAnswer, correctAnswer) {
         let ans = correctAnswer.replace(/./g, '')
+        ans = ans.replace(/・/g, '')
         if(userAnswer == ans) {
           return this.item.score
         }
