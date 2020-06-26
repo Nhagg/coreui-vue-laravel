@@ -187,7 +187,7 @@
         resetStatus: false,
         showResult: false,
         unit: {},
-        activeItemIndex: 0
+        activeItemIndex: 4
       }
     },
     methods: {

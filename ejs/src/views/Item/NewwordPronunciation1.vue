@@ -88,7 +88,7 @@ let recognition
         window.speechSynthesis.speak(msg);
       },
       compareResult(userAnswer, correctAnswer) {
-        let ans = correctAnswer.replace(/./g, '')
+        let ans = correctAnswer.replace(/\./g, '')
         ans = ans.replace(/・/g, '')
         if(userAnswer == ans) {
           return this.item.score
@@ -109,7 +109,6 @@ let recognition
             userArr[compareIndex - 1],
             userArr[compareIndex + 1]
           ]
-          console.log(text, acceptedArr)
           if(acceptedArr.indexOf(text) > -1) {
             point ++
             compareHTML += '<span class="text-green">'+ text +'</span>'
