@@ -434,3 +434,9 @@ $half: round($loops / 2);
     }
   }
 }
+.btn {
+  &.btn-green {
+    background-color: $text-green;
+    color: #fff;
+  }
+}

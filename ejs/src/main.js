@@ -50,12 +50,9 @@ Vue.prototype.$convertNameToHtml = (text) => {
   res = res.replace(/\)/g, '</span>')
   return res
 }
-Vue.prototype.$getItemImg = (unit, item, i) => {
+Vue.prototype.$getItemImg = (unit, item = {}, i = 1) => {
   const api = window.DOMAIN_API
-  if(unit.type == 'grammar') {
-    return api + '/images/grammar/' + item.content['image' + i]
-  }
-  return api + '/images/new_work/' + item.content['image' + i]
+  return api + '/images/' + unit.type +'/' + item.content['image' + i]
 }
 new Vue({
   el: '#ejs',

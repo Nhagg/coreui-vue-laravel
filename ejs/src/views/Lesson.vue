@@ -29,7 +29,7 @@
                         class="unit-type-item"
                     >
                         <i class="fa fa-check-circle"></i>
-                        <router-link :to="'/lesson/' + lesson.id + '/unit/' + unit.id">
+                        <router-link :to="getUnitLink(unit, unitType)">
                             <div v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></div>
                             <span class="one-line-text">
                                 {{ unit.name_forgein_language }}
@@ -99,6 +99,14 @@
           }
         ],
         learnUnits: []
+      }
+    },
+    methods: {
+      getUnitLink(unit, unitType) {
+        if(unitType.type == 'conversation') {
+          return '/lesson/' + this.lesson.id + '/conversation/' + unit.id;
+        }
+        return '/lesson/' + this.lesson.id + '/unit/' + unit.id;
       }
     }
   }

@@ -1,0 +1,82 @@
+.page-conversation {
+  .study-content {
+    padding-top: 100px;
+    padding-bottom: 10px;
+    .border-right {
+      border-color: $border-red !important;
+    }
+    .left-content {
+      text-align: center;
+      img {
+        margin-bottom: 15px;
+      }
+      font-size: 24px;
+    }
+    .right-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .btn-green {
+        font-size: 24px;
+        padding: 10px 25px;
+        border-radius: 10px;
+        i {
+          margin-left: 30px;
+        }
+      }
+      .list-sentence {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        .btn-continue {
+          position: absolute;
+          bottom: 0;
+          right: 0px;
+          i {
+            margin-left: 10px;
+          }
+        }
+      }
+      .conversation-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+        .conversation-item-name {
+          font-weight: 500;
+          margin-right: 20px;
+        }
+        .conversation-item-text {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 15px;
+          border: solid 1px #ddd;
+          border-radius: 4px;
+          font-size: 20px;
+          .japan-name {
+            margin-top: 5px;
+            font-weight: 700;
+          }
+          .volume-icon {
+            margin-left: 30px;
+            .fa {
+              font-size: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .list-person {
+    margin-top: 30px;
+    width: 100%;
+    div > span {
+      cursor: pointer;
+      border-right: solid 1px $border-red;
+      padding: 0 10px;
+      &.active, &:hover {
+        color: $text-green;
+      }
+    }
+  }
+}
