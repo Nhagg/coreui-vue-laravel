@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="study-content" v-if="unit.id">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-5 border-right left-content">
                         <h2 v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></h2>
@@ -20,24 +20,32 @@
                             {{ unit.name_forgein_language }}
                         </h2>
                         <div class="context-content" v-if="activeContext.id">
-                            <img :src="$getItemImg(unit, activeContext, 1)" alt="">
+                            <div class="img-box">
+                                <img :src="$getItemImg(unit, activeContext, 1)" alt="">
+                            </div>
                             <div>
                                 {{ activeContext.content.image_text1 }}
                             </div>
                         </div>
                         <div class="list-person">
                             Bạn sẽ là:
-                            <div v-for="i in [1, 2, 3]" class="d-inline-block" :key="i">
+                            <div
+                                v-for="i in [1, 2, 3]"
+                                :key="i"
+                                class="person"
+                                :class="{ active: activePersonIndex == i }"
+                                @click="activePersonIndex = i"
+                            >
                                 <span
                                     v-html="$convertNameToHtml(itemConfig.content['image_text' + i])"
                                     class="japan-name"
-                                    :class="{ active: activePersonIndex == i }"
                                 >
                                 </span>
+                                <i :class="getPersonClass(i)"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7 right-content">
+                    <div class="col-md-7 right-content" v-if="activeItem.id">
                         <div v-if="activeItem.id == activeContext.id">
                             <button class="btn btn-green" @click="nextPage">
                                 Bắt đầu hội thoại
@@ -46,33 +54,96 @@
                         </div>
                         <div v-if="activeItem.type == 'conversation_sentence_1'" class="list-sentence">
                             <div
-                                v-for="(item, index) in listSentence"
-                                :key="item.id"
-                                class="conversation-item"
+                                v-for="(item, index) in listSentence.filter(i => i.id <= activeItem.id)"
+                                :key="index"
                             >
-                                <div class="conversation-item-name">
-                                    {{ itemConfig.content['image_text' + (index + 1)] }}
-                                </div>
-                                <div class="conversation-item-text">
-                                    <div>
-                                        <div
-                                            v-html="$convertNameToHtml(getSentenceText(item.content['title2'], 0))"
-                                            class="japan-name"
-                                        />
+                                <div
+                                    v-if="
+                                    compareName(
+                                      itemConfig.content['image_text' + activePersonIndex],
+                                        item.content.title1
+                                        )"
+                                    class="conversation-item conversation-item-active"
+                                >
+                                    <div class="conversation-item-text">
                                         <div>
-                                            {{ getSentenceText(item.content['title2'], 1) }}
+                                            <div
+                                                v-if="compareHTML && item.id == activeItem.id"
+                                                v-html="compareHTML"
+                                                class="japan-name"
+                                            />
+                                            <div
+                                                v-else
+                                                v-html="$convertNameToHtml(getSentenceText(item.content['title2'], 0))"
+                                                 class="japan-name"
+                                            />
+
+                                            <div>
+                                                {{ getSentenceText(item.content['title2'], 1) }}
+                                            </div>
+                                        </div>
+                                        <div class="volume-icon" @click="playVolume(getSentenceText(item.content['title2'], 0))">
+                                            <i class="fa fa-volume-up"></i>
                                         </div>
                                     </div>
-                                    <div class="volume-icon" @click="playVolume(getSentenceText(item.content['title2'], 0))">
-                                        <i class="fa fa-volume-up"></i>
+                                    <div class="conversation-item-name">
+                                        <span
+                                            v-html="$convertNameToHtml(item.content.title1)"
+                                            class="japan-name"
+                                        />
+                                    </div>
+                                </div>
+                                <div v-else class="conversation-item else">
+                                    <div class="conversation-item-name">
+                                        <span v-html="$convertNameToHtml(item.content.title1)" class="japan-name"/>
+                                    </div>
+                                    <div class="conversation-item-text">
+                                        <div>
+                                            <div
+                                                v-html="$convertNameToHtml(getSentenceText(item.content['title2'], 0))"
+                                                class="japan-name"
+                                            />
+                                            <div>
+                                                {{ getSentenceText(item.content['title2'], 1) }}
+                                            </div>
+                                        </div>
+                                        <div class="volume-icon" @click="playVolume(getSentenceText(item.content['title2'], 0))">
+                                            <i class="fa fa-volume-up"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-green btn-continue" @click="nextPage">
-                                Tiếp theo
-                                <i class="fa fa-arrow-right"></i>
-                            </button>
+                            <div class="list-sentence-footer">
+                                <div class="content">
+                                    <div v-if="userAnswer">
+                                        <div v-if="isCorrect()">
+                                            Đáp án chính xác
+                                        </div>
+                                        <div v-else-if="!isCorrect()">
+                                        <span>
+                                            Phát âm của bạn: {{ userAnswer }}
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    v-if="compareName(itemConfig.content['image_text' + activePersonIndex],
+                            activeItem.content.title1)"
+                                    class="btn-micro"
+                                    :class="{ 'active': microStatus }"
+                                    @click="toggleMicro"
+                                >
+                                    <i class="fa fa-microphone-alt"></i>
+                                </div>
+                                <button class="btn btn-green btn-continue" @click="nextPage">
+                                    Tiếp theo
+                                    <i class="fa fa-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
+                    </div>
+                    <div v-else class="col-md-7">
+                        Hoàn thành hội thoại
                     </div>
                 </div>
             </div>
@@ -80,11 +151,14 @@
     </div>
 </template>
 <script>
+  let recognition
   import { mapState } from 'vuex'
+  import mixin from '../mixin'
   import axios from "axios"
   const FREE_TYPE = ['newword_speak_1', 'grammar_speak_1', 'grammar_speak_2']
   export default {
     name: 'Unit',
+    mixins: [mixin],
     components: {
     },
     async mounted() {
@@ -104,6 +178,17 @@
         console.log(e)
         alert(e.message)
       })
+      recognition = new webkitSpeechRecognition();
+      recognition.continuous = true;
+      recognition.lang='ja-JP'
+      recognition.onresult = (event) => {
+        console.log('onresult')
+        this.userAnswer = event.results[0][0].transcript
+        console.log(this.userAnswer)
+        this.checkAnswer()
+        recognition.stop()
+        this.microStatus = false
+      }
     },
     computed: {
       ...mapState(['listLesson', 'listLearnUnit']),
@@ -121,8 +206,12 @@
       activeItem() {
         let { unit, activeItemIndex } = this
         if(unit && unit.learn_items && unit.learn_items[activeItemIndex]) {
-          console.log('activeItem', unit.learn_items[activeItemIndex])
-          return unit.learn_items[activeItemIndex]
+          let res = unit.learn_items[activeItemIndex]
+          console.log('activeItem', res)
+          if(res.type == 'conversation_sentence_1') {
+            this.playVolume(this.getSentenceText(res.content['title2'], 0))
+          }
+          return res
         }
         return {}
       },
@@ -147,16 +236,14 @@
       listSentence() {
         let { unit, activeContext } = this
         if(unit.id && activeContext.id) {
-          console.log('activeContextIndex', activeContext)
           const activeContextIndex = unit.learn_items.findIndex((i) => i.id == activeContext.id)
           let nextContext = unit.learn_items.findIndex((i, index) => i.type == 'conversation_context' && index >
             activeContextIndex)
-          console.log('nextContext', nextContext)
           if(nextContext == -1) {
             nextContext = 10000
           }
           let res = unit.learn_items.filter((i, index) => i.type == 'conversation_sentence_1' && index <
-            nextContext)
+            nextContext && index > activeContextIndex)
           console.log('listSentence', res)
           return res ? res : []
         }
@@ -165,29 +252,46 @@
     },
     data() {
       return {
+        compareHTML: '',
         lessonID: this.$route.params.lessonId,
         userAnswer: '',
         resetStatus: false,
+        microStatus: false,
         showResult: false,
         unit: {},
-        activePersonIndex: 1,
-        activeItemIndex: 2,
+        activePersonIndex: 3,
+        activeItemIndex: 1,
         activeContextIndex: 0
       }
     },
     methods: {
+      toggleMicro() {
+        if(this.microStatus) {
+          recognition.stop()
+        } else {
+          recognition.start()
+        }
+        this.microStatus = !this.microStatus
+      },
+      getPersonClass(i){
+        return i % 2 == 0 ? 'fa fa-user-circle' : 'fa fa-user'
+      },
+      compareName(text1, text2) {
+        text1 = text1.replace(/ /g, '' )
+        text2 = text2.replace(/ /g, '' )
+        return text1 == text2 ? true : false
+      },
       isCorrect() {
         const activeItem = this.activeItem
         return activeItem.point != undefined && activeItem.point == activeItem.score
       },
       nextPage() {
         this.userAnswer = ''
-        if(this.activeItem.type == 'grammar_information_2' && this.activeItem.showText != true) {
-          this.activeItem.showText = true
-          this.resetPage()
-          return
-        }
+        this.compareHTML = ''
         this.activeItemIndex ++
+        if(this.activeItem.type == 'conversation_context') {
+          this.activeContextIndex ++
+        }
         if(this.activeItemIndex == this.unit.learn_items.length) {
           this.showResult = true
         }
@@ -211,6 +315,12 @@
         this.activeItemIndex = this.activeItemIndex
         this.userAnswer = userAnswer
         this.resetPage()
+      },
+      checkAnswer() {
+        let nativeName = this.$getNativeName(this.getSentenceText(this.activeItem.content['title2'], 0))
+        this.setAnswer(
+          this.activeItem, this.compareResult(this.userAnswer, nativeName, this.activeItem), this.userAnswer
+        )
       },
       getFooterClass() {
         if(this.activeItem.point != undefined) {
@@ -240,6 +350,7 @@
       },
       playVolume(text) {
         console.log('playVolume', this.$getNativeName(text))
+        this.compareHTML = ''
         let msg = new SpeechSynthesisUtterance(this.$getNativeName(text));
         msg.lang = 'ja-JP'
         window.speechSynthesis.speak(msg);

@@ -1,13 +1,17 @@
 .page-conversation {
   .study-content {
-    padding-top: 100px;
+    padding-top: 80px;
     padding-bottom: 10px;
     .border-right {
       border-color: $border-red !important;
     }
     .left-content {
       text-align: center;
-      img {
+      .img-box {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 15px;
       }
       font-size: 24px;
@@ -28,19 +32,52 @@
         height: 100%;
         width: 100%;
         position: relative;
-        .btn-continue {
+        .list-sentence-footer {
           position: absolute;
+          height: 80px;
           bottom: 0;
-          right: 0px;
+          left: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .content {
+            flex: 1;
+            font-size: 24px;
+            font-weight: 500;
+          }
+        }
+        .btn-continue {
           i {
             margin-left: 10px;
+          }
+        }
+        .btn-micro {
+          float: right;
+          cursor: pointer;
+          width: 100px;
+          height: 100px;
+          border: solid 1px #000;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          margin-right: 40px;
+          &.active {
+            background-color: $text-red;
+            border-color: $text-red;
+            color: #fff;
+          }
+          i {
+            font-size: 60px;
           }
         }
       }
       .conversation-item {
         display: flex;
         align-items: center;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         .conversation-item-name {
           font-weight: 500;
           margin-right: 20px;
@@ -49,9 +86,9 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 15px;
+          padding: 15px 30px;
           border: solid 1px #ddd;
-          border-radius: 4px;
+          border-radius: 14px;
           font-size: 20px;
           .japan-name {
             margin-top: 5px;
@@ -64,18 +101,43 @@
             }
           }
         }
+        &.conversation-item-active {
+          justify-content: flex-end;
+          .conversation-item-name {
+            margin-left: 20px;
+            margin-right: 0px;
+          }
+        }
       }
     }
   }
   .list-person {
-    margin-top: 30px;
+    margin-top: 10px;
     width: 100%;
-    div > span {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    .person {
+      flex: 1;
+      display: inline-flex;
+      flex-direction: column;
       cursor: pointer;
-      border-right: solid 1px $border-red;
       padding: 0 10px;
+      &:not(:last-child) {
+        border-right: solid 1px #ddd;
+      }
       &.active, &:hover {
         color: $text-green;
+        .fa {
+          &:before {
+            font-weight: 200;
+          }
+        }
+      }
+      > span {
+        min-width: 60px;
+        font-size: 14px;
+        margin-bottom: 5px;
       }
     }
   }
