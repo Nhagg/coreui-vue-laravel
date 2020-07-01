@@ -84,6 +84,17 @@
                                         </div>
                                         <div class="volume-icon" @click="playVolume(getSentenceText(item.content['title2'], 0))">
                                             <i class="fa fa-volume-up"></i>
+                                            <span
+                                                v-if="item.point"
+                                                :class="{
+                                                  'text-red': getItemPersonPoint(item) < 50 ? true : false,
+                                                  'text-yellow' : (getItemPersonPoint(item) >= 50 &&
+                                                  getItemPersonPoint(item) < 80) ? true : false,
+                                                  'text-green' : getItemPersonPoint(item) >= 80 ? true : false
+                                                }"
+                                            >
+                                                {{ getItemPersonPoint(item) +'%' }}
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="conversation-item-name">
@@ -109,6 +120,17 @@
                                         </div>
                                         <div class="volume-icon" @click="playVolume(getSentenceText(item.content['title2'], 0))">
                                             <i class="fa fa-volume-up"></i>
+                                            <span
+                                                v-if="item.point"
+                                                :class="{
+                                                  'text-red': getItemPersonPoint(item) < 50 ? true : false,
+                                                  'text-yellow' : (getItemPersonPoint(item) >= 50 &&
+                                                  getItemPersonPoint(item) < 80) ? true : false,
+                                                  'text-green' : getItemPersonPoint(item) >= 80 ? true : false
+                                                }"
+                                            >
+                                                {{ getItemPersonPoint(item) +'%' }}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -116,13 +138,16 @@
                             <div class="list-sentence-footer">
                                 <div class="content">
                                     <div v-if="userAnswer">
-                                        <div v-if="isCorrect()">
+                                        <div v-if="isCorrect()" class="text-green">
                                             Đáp án chính xác
                                         </div>
-                                        <div v-else-if="!isCorrect()">
-                                        <span>
-                                            Phát âm của bạn: {{ userAnswer }}
-                                        </span>
+                                        <div v-else-if="!isCorrect()" class="fs-20">
+                                            <span>
+                                                Phát âm của bạn:
+                                            </span>
+                                            <div>
+                                                {{ userAnswer }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -143,7 +168,26 @@
                         </div>
                     </div>
                     <div v-else class="col-md-7">
-                        Hoàn thành hội thoại
+                        <div class="text-result-point text-red">
+                            <div>
+                                <h2>Chúc mừng bạn hoàn thành hội thoại</h2>
+                            </div>
+                            {{ resultPoint() + '%' }}
+                        </div>
+                        <div class="conversation-footer">
+                            <button @click="leanAgain" class="btn">
+                                Học lại
+                                <i class="fa fa-redo"></i>
+                            </button>
+                            <a
+                                v-if="nextUnit.id"
+                                :href="'/lesson/' + lessonID + '/unit/' + nextUnit.id"
+                                class="btn ml-3"
+                            >
+                                Học tiếp
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -259,7 +303,7 @@
         microStatus: false,
         showResult: false,
         unit: {},
-        activePersonIndex: 3,
+        activePersonIndex: 2,
         activeItemIndex: 1,
         activeContextIndex: 0
       }
@@ -270,6 +314,7 @@
           recognition.stop()
         } else {
           recognition.start()
+          this.compareHTML = ''
         }
         this.microStatus = !this.microStatus
       },
@@ -300,14 +345,9 @@
         this.resetStatus = !this.resetStatus
       },
       leanAgain() {
-        this.unit.learn_items.forEach(item => {
-          item.point = undefined
-          if(item.type == 'grammar_information_2') {
-            item.showText = undefined
-          }
-        })
         this.showResult = false
-        this.activeItemIndex = 0
+        this.activeContextIndex = 0
+        this.activeItemIndex = 1
       },
       setAnswer(item, point, userAnswer = '') {
         console.log('setAns', point, userAnswer)
@@ -333,7 +373,7 @@
       },
       resultPoint() {
         let totalPoint = 0
-        const listItem = this.unit.learn_items
+        const listItem = this.unit.learn_items.filter(i => i.type == 'conversation_sentence_1')
         let totalScore = 0
         listItem.forEach(
           item => {
@@ -357,6 +397,9 @@
       },
       getSentenceText(text = '', index = 0) {
         return text.split('--')[index]
+      },
+      getItemPersonPoint(item){
+        return parseInt(item.point * 100 / item.score)
       }
     }
   }

@@ -3,6 +3,9 @@ const mixin = {
     compareResult(userAnswer, correctAnswer, item) {
       let ans = correctAnswer.replace(/\./g, '')
       ans = ans.replace(/・/g, '')
+      ans = ans.replace(/、/g, '')
+      ans = ans.replace(/,/g, '')
+      ans = ans.split(' ').join('')
       if(userAnswer == ans) {
         return item.score
       }
@@ -10,7 +13,7 @@ const mixin = {
       let correctArr = ans.split('')
       let userArr = userAnswer.split('')
       const lengthUserArr = userArr.length
-      const lengthCorrectArr = correctAnswer.length
+      const lengthCorrectArr = ans.length
       let point = 0
       correctArr.forEach((text, index) => {
         const compareIndex = parseInt((index + 1) * lengthUserArr / lengthCorrectArr)

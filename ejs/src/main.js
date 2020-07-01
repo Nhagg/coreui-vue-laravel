@@ -10,7 +10,7 @@ Vue.prototype.$domainAPI = window.DOMAIN_API
 Vue.prototype.$shuffler = (arr) => {
   return arr.sort(() => 0.5 - Math.random())
 }
-function replaceSpecialText(text) {
+let replaceSpecialText = (text) => {
   text = text.replace(/（/g, '(')
   text = text.replace(/）/g, ')')
   text = text.replace(/／/g, '/')
