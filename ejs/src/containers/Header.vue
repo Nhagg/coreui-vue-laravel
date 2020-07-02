@@ -4,7 +4,7 @@
       <ul class="nav justify-content-end">
         <li v-for="course in listCourse" :key="course.id" class="nav-item">
           <a
-            :href="'?course_id=' + course.id"
+            :href="'/?course_id=' + course.id"
             class="nav-link"
             :class="{ active: activeCourse == course.id}"
           >

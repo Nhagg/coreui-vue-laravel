@@ -1,40 +1,68 @@
 <template>
     <div class="detail-lesson">
         <div class="detail-lesson-header">
-            <div class="lesson-title">
-                <div class="lesson-title-native">
+            <div class="lesson-name">
+                <h2>
                     Bài {{ lesson.lessonIndex }}:
                     <span class="japan-name"
                           v-html="$convertNameToHtml(lesson.name_native_language )"></span>
-                </div>
-                <div class="lesson-title-trans">
+                </h2>
+                <h2 class="lesson-title-trans">
                     {{ lesson.name_second_language }}
-                </div>
+                </h2>
             </div>
             <div class="progress-circle" data-progress="10"></div>
         </div>
-        <div class="row mt-4">
-            <div class="col-md-3" v-for="unitType in learnUnitTypes" :key="unitType.type">
+        <div class="row custom-row mt-3">
+            <div class="col-md-9">
                 <div class="unit-type-header">
-                    <img :src="unitType.imgUrl" alt="unitType">
+                    <img src="/img/new-word.png" alt="unitType">
                     <div class="">
-                        {{ unitType.name }}
+                        {{ 'Học từ mới' }}
                         <!--                        <span class="">8/23</span>-->
                     </div>
                 </div>
-                <div class="list-unit">
+                <div class="row custom-row list-unit">
                     <div
-                        v-for="unit in listActiveLearnUnit.filter(u => u.type == unitType.type)"
+                        v-for="unit in listActiveLearnUnit.filter(u => u.type == 'new_word')"
                         :key="unit.id"
-                        class="unit-type-item"
+                        class="col-md-4"
                     >
-                        <i class="fa fa-check-circle"></i>
-                        <router-link :to="getUnitLink(unit, unitType)">
-                            <div v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></div>
-                            <span class="one-line-text">
+                        <div class="unit-type-item">
+                            <i class="fa fa-check-circle"></i>
+                            <router-link :to="'/lesson/' + lesson.id + '/unit/' + unit.id">
+                                <div v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></div>
+                                <span class="one-line-text">
                                 {{ unit.name_forgein_language }}
                             </span>
-                        </router-link>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div v-for="unitType in learnUnitTypes" :key="unitType.type">
+                    <div class="unit-type-header">
+                        <img :src="unitType.imgUrl" alt="unitType">
+                        <div class="">
+                            {{ unitType.name }}
+                            <!--                        <span class="">8/23</span>-->
+                        </div>
+                    </div>
+                    <div class="list-unit">
+                        <div
+                            v-for="unit in listActiveLearnUnit.filter(u => u.type == unitType.type)"
+                            :key="unit.id"
+                            class="unit-type-item"
+                        >
+                            <i class="fa fa-check-circle"></i>
+                            <router-link :to="getUnitLink(unit, unitType)">
+                                <div v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></div>
+                                <span class="one-line-text">
+                                {{ unit.name_forgein_language }}
+                            </span>
+                            </router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,11 +105,6 @@
     data() {
       return {
         learnUnitTypes: [
-          {
-            type: 'new_word',
-            imgUrl: '/img/new-word.png',
-            name: 'Học từ mới'
-          },
           {
             type: 'grammar',
             imgUrl: '/img/grammar.png',

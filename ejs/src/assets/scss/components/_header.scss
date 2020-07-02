@@ -1,14 +1,16 @@
 header {
-  background-color: $bg-red;
+  background-color: $text-red;
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
+  border-bottom: solid 1px #ddd;
   a {
     color: white;
     &:hover {
-      background-color: #F2F2F2;
+      color: $text-red;
+      background-color: $bg-red;
     }
     &.nav-link{
-      padding: 0 15px;
+      padding: 0;
       line-height: 60px;
       min-width: 150px;
       text-align: center;

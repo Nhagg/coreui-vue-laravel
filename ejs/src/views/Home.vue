@@ -1,11 +1,11 @@
 <template>
     <div class="home-content">
         <h2>{{ course.name }}</h2>
-        <div class="row lesson-list">
+        <div class="row lesson-list custom-row">
             <div
                 v-for="lesson in listLesson.filter(s => s.course && s.course.id == activeCourse)"
                 :key="lesson.id"
-                class="col-sm-4"
+                class="col-sm-3"
             >
                 <router-link :to="'/lesson/' + lesson.id" class="lesson-content">
                     <div class="lesson-card">
@@ -18,14 +18,16 @@
                         </div>
                         <div class="lesson-body">
                             <div class="lesson-title">
-                                <div v-html="$convertNameToHtml(lesson.name_native_language)"
-                                     class="lesson-title-native two-lines-text japan-name"></div>
-                                <div class="lesson-title-trans two-line-text">
-                                    {{ lesson.name_second_language }}
+                                <div
+                                    v-html="$convertNameToHtml(lesson.name_native_language)"
+                                     class="lesson-title-native japan-name"
+                                />
+                                <div class="lesson-result">
+                                    {{ 0 }}%
                                 </div>
                             </div>
-                            <div class="lesson-result">
-                                {{ 0 }}%
+                            <div class="lesson-title-trans two-lines-text" :title="lesson.name_second_language">
+                                {{ lesson.name_second_language }}
                             </div>
                         </div>
                     </div>

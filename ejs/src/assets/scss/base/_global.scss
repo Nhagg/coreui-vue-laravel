@@ -385,6 +385,7 @@ $half: round($loops / 2);
     transform: translateY(-50%) translateX(-50%);
     height: 100%;
     width: 100%;
+    border-radius: 4px;
   }
 }
 .ratio-4-2 {
@@ -417,6 +418,8 @@ $half: round($loops / 2);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .japan-name {
   min-width: 100px;
@@ -445,4 +448,12 @@ $half: round($loops / 2);
 }
 .fs-20 {
   font-size: 20px;
+}
+.custom-row {
+  margin-right: -10px;
+  margin-left: -10px;
+  > div {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
