@@ -3,30 +3,32 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Class
+ * Class ConversationPerson
  * @package App\Models
- * @version June 10, 2020, 10:47 pm UTC
+ * @version July 2, 2020, 12:19 am UTC
  *
- * @property integer $center_id
- * @property integer $course_id
  * @property string $name
- * @property string $start_date
+ * @property integer $gender
+ * @property string $avatar
  */
-class Clazz extends Model
+class ConversationPerson extends Model
 {
+    use SoftDeletes;
 
-    public $table = 'classes';
+    public $table = 'conversation_persons';
+    
 
+    protected $dates = ['deleted_at'];
 
 
 
     public $fillable = [
-        'center_id',
-        'course_id',
         'name',
-        'start_date'
+        'gender',
+        'avatar'
     ];
 
     /**
@@ -36,11 +38,9 @@ class Clazz extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'center_id' => 'integer',
-        'course_id' => 'integer',
         'name' => 'string',
-        'start_date' => 'datetime',
-        'end_date' => 'datetime'
+        'gender' => 'integer',
+        'avatar' => 'string'
     ];
 
     /**
@@ -49,8 +49,8 @@ class Clazz extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
 
-
+    
 }

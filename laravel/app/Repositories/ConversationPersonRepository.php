@@ -2,25 +2,24 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
+use App\Models\ConversationPerson;
 use App\Repositories\BaseRepository;
 
 /**
- * Class UserRepository
+ * Class ConversationPersonRepository
  * @package App\Repositories
- * @version June 4, 2020, 1:46 pm UTC
+ * @version July 2, 2020, 12:19 am UTC
 */
 
-class UserRepository extends BaseRepository
+class ConversationPersonRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'user_name',
-        'user_email',
-        'user_password',
-        'user_role_id'
+        'name',
+        'gender',
+        'avatar'
     ];
 
     /**
@@ -38,6 +37,6 @@ class UserRepository extends BaseRepository
      **/
     public function model()
     {
-        return User::class;
+        return ConversationPerson::class;
     }
 }

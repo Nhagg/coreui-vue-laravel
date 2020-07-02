@@ -4,8 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmailTemplateTable extends Migration
+class CreateConversationPersonsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,12 +14,13 @@ class CreateEmailTemplateTable extends Migration
      */
     public function up()
     {
-        Schema::create('email_template', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-            $table->text('content');
+        Schema::create('conversation_persons', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
-            $table->string('subject');
+            $table->smallInteger('gender');
+            $table->string('avatar');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +31,6 @@ class CreateEmailTemplateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('email_template');
+        Schema::drop('conversation_persons');
     }
 }

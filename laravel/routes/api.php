@@ -126,3 +126,6 @@ Route::resource('exam_results', 'ExamResultAPIController');
 Route::resource('exams', 'ExamAPIController');
 
 Route::resource('student_setiongs', 'StudentSetiongAPIController');
+
+
+Route::resource('conversation_persons', 'ConversationPersonAPIController');
