@@ -42,22 +42,22 @@ export default {
       menus: [
         {
           id: 1,
-          title: 'Học bài',
+          title: 'レッスン',
           path: '/'
         },
         {
           id: 2,
-          title: 'Thi cử',
+          title: '試験',
           path: '/exam'
         },
         {
           id: 3,
-          title: 'Kết quả học tập',
+          title: '報告する',
           path: '/report'
         },
         {
           id: 4,
-          title: 'Cài đặt',
+          title: '設定',
           path: '/settings'
         }
       ]

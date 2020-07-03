@@ -20,13 +20,13 @@
                             <div class="lesson-title">
                                 <div
                                     v-html="$convertNameToHtml(lesson.name_native_language)"
-                                     class="lesson-title-native japan-name"
+                                     class="lesson-title-native japan-name one-line-text"
                                 />
                                 <div class="lesson-result">
                                     {{ 0 }}%
                                 </div>
                             </div>
-                            <div class="lesson-title-trans two-lines-text" :title="lesson.name_second_language">
+                            <div class="lesson-title-trans one-line-text" :title="lesson.name_second_language">
                                 {{ lesson.name_second_language }}
                             </div>
                         </div>

@@ -414,6 +414,13 @@ $half: round($loops / 2);
     width: 100%;
   }
 }
+.one-line-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 .two-lines-text {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -423,9 +430,11 @@ $half: round($loops / 2);
 }
 .japan-name {
   min-width: 100px;
-  margin-top: 1.5rem;
+  display: flex;
+  align-items: flex-end;
   > span {
     position: relative;
+    margin-top: 1.5rem;
     > span {
       position: absolute;
       opacity: 0.9;

@@ -14,7 +14,7 @@
             <div class="progress-circle" data-progress="10"></div>
         </div>
         <div class="row custom-row mt-3">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="unit-type-header">
                     <img src="/img/new-word.png" alt="unitType">
                     <div class="">
@@ -30,7 +30,10 @@
                     >
                         <div class="unit-type-item">
                             <i class="fa fa-check-circle"></i>
-                            <router-link :to="'/lesson/' + lesson.id + '/unit/' + unit.id">
+                            <router-link
+                                :to="'/lesson/' + lesson.id + '/unit/' + unit.id"
+                                :title="unit.name_forgein_language"
+                            >
                                 <div v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></div>
                                 <span class="one-line-text">
                                 {{ unit.name_forgein_language }}
@@ -40,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div v-for="unitType in learnUnitTypes" :key="unitType.type">
                     <div class="unit-type-header">
                         <img :src="unitType.imgUrl" alt="unitType">
@@ -56,7 +59,10 @@
                             class="unit-type-item"
                         >
                             <i class="fa fa-check-circle"></i>
-                            <router-link :to="getUnitLink(unit, unitType)">
+                            <router-link
+                                :to="getUnitLink(unit, unitType)"
+                                :title="unit.name_forgein_language"
+                            >
                                 <div v-html="$convertNameToHtml(unit.name_native_language)" class="japan-name"></div>
                                 <span class="one-line-text">
                                 {{ unit.name_forgein_language }}

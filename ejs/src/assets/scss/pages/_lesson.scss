@@ -9,6 +9,9 @@
   .lesson-name {
     h2 {
       font-size: 20px;
+      .japan-name {
+        display: inline-flex;
+      }
     }
   }
 }
@@ -41,7 +44,7 @@
   font-size: 16px;
   font-weight: bold;
   display: flex;
-  height: 90px;
+  height: 60px;
   align-items: center;
   //border: solid 1px #ddd;
   margin-bottom: 16px;
