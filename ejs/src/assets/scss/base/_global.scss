@@ -2,16 +2,16 @@
   font-weight: 500;
 }
 .text-gray {
-  color: $text-gray;
+  color: $text-gray !important;
 }
 .text-green {
-  color: $text-green;
+  color: $text-green !important;
 }
 .text-yellow {
-  color: $text-yellow;
+  color: $text-yellow !important;
 }
 .text-red {
-  color: $text-red;
+  color: $text-red !important;
 }
 
 .progress-circle {
@@ -415,9 +415,7 @@ $half: round($loops / 2);
   }
 }
 .one-line-text {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }

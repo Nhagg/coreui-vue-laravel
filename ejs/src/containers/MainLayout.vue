@@ -21,6 +21,9 @@
       </div>
     </section>
     <Footer />
+    <modal name="loading" class="loading-modal">
+      <img src="../assets/img/loading.svg" alt="">
+    </modal>
   </div>
 </template>
 

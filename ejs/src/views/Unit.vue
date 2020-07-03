@@ -141,6 +141,7 @@
       Default
     },
     async mounted() {
+      this.$modal.show('loading');
       let unitId = this.$route.params.id
       await this.$store.dispatch('GET_LIST_LESSON')
       await this.$store.dispatch('GET_LIST_LEARN_UNIT')
@@ -157,6 +158,7 @@
         console.log(e)
         alert(e.message)
       })
+      this.$modal.hide('loading');
     },
     computed: {
       ...mapState(['listLesson', 'listLearnUnit']),

@@ -24,3 +24,25 @@ a:hover {
 ul {
   padding-left: 0;
 }
+.loading-modal {
+  .vm--overlay {
+    opacity: 0.5;
+  }
+  .vm--modal {
+    width: 250px !important;
+    height: 250px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    opacity: 1;
+    border-radius: 50%;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100px;
+    }
+  }
+}

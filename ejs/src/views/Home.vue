@@ -55,6 +55,7 @@
       }
     },
     async mounted() {
+      this.$modal.show('loading');
       await this.$store.dispatch('GET_LIST_COURSE')
       const course_id = this.$route.query.course_id
       if(course_id) {
@@ -66,6 +67,7 @@
         this.listLesson = res.data.data
       }
       console.log(this.listLesson)
+      this.$modal.hide('loading');
     },
     data() {
       return {

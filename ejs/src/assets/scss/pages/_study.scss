@@ -23,7 +23,7 @@
   color: $text-red;
   height: 20px;
 }
-$sFooterHeight: 80px;
+$sFooterHeight: 100px;
 .study-content {
   padding-top: 40px;
   padding-bottom: $sFooterHeight;
@@ -32,6 +32,9 @@ $sFooterHeight: 80px;
   align-items: flex-start;
   justify-content: center;
   overflow-y: auto;
+  .japan-name {
+    justify-content: center;
+  }
 }
 
 .study-footer{

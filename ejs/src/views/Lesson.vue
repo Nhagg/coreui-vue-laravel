@@ -78,6 +78,7 @@
 
 <script>
   import { mapState } from 'vuex'
+  import axios from "axios";
   export default {
     name: 'Lesson',
     components: {},
@@ -105,8 +106,19 @@
       }
     },
     async mounted() {
+      this.$modal.show('loading');
       await this.$store.dispatch('GET_LIST_LESSON')
       await this.$store.dispatch('GET_LIST_LEARN_UNIT')
+      this.$modal.hide('loading');
+      // await axios.get(window.DOMAIN_API + '/api/lessions/' + this.$route.params.id).then(
+      //   res => {
+      //     this.unit = res.data.data
+      //     console.log('unit', this.unit)
+      //   }
+      // ).catch(e => {
+      //   console.log(e)
+      //   alert(e.message)
+      // })
     },
     data() {
       return {

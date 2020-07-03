@@ -13,14 +13,8 @@
                 </div>
             </div>
         </div>
-        <div class="item-list-answer">
-            <div class="row pt-4">
-                <div class="col-sm-8 offset-2">
-                    <div class="item-answer">
-                        <img :src="$getItemImg(unit, item, activeAnswer)" alt="">
-                    </div>
-                </div>
-            </div>
+        <div class="item-list-answer pt-4">
+            <img :src="$getItemImg(unit, item, activeAnswer)" alt="">
         </div>
     </div>
 </template>
