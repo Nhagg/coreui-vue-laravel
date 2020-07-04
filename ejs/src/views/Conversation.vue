@@ -58,61 +58,23 @@
                                 :key="index"
                             >
                                 <div
-                                    v-if="
-                                    compareName(
-                                      itemConfig.content['image_text' + activePersonIndex],
-                                        item.content.title1
-                                        )"
-                                    class="conversation-item conversation-item-active"
+                                    class="conversation-item"
+                                    :class="{
+                                        'conversation-item-active': checkActiveConversation(item)
+                                    }"
                                 >
-                                    <div class="conversation-item-text">
-                                        <div>
-                                            <div
-                                                v-if="compareHTML && item.id == activeItem.id"
-                                                v-html="compareHTML"
-                                                class="japan-name"
-                                            />
-                                            <div
-                                                v-else
-                                                v-html="$convertNameToHtml(getSentenceText(item.content['title2'], 0))"
-                                                 class="japan-name"
-                                            />
-
-                                            <div>
-                                                {{ getSentenceText(item.content['title2'], 1) }}
-                                            </div>
-                                        </div>
-                                        <div class="volume-icon" @click="playVolume(getSentenceText(item.content['title2'], 0))">
-                                            <i class="fa fa-volume-up"></i>
-                                            <span
-                                                v-if="item.point"
-                                                :class="{
-                                                  'text-red': getItemPersonPoint(item) < 50 ? true : false,
-                                                  'text-yellow' : (getItemPersonPoint(item) >= 50 &&
-                                                  getItemPersonPoint(item) < 80) ? true : false,
-                                                  'text-green' : getItemPersonPoint(item) >= 80 ? true : false
-                                                }"
-                                            >
-                                                {{ getItemPersonPoint(item) +'%' }}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="conversation-item-name">
+                                    <div class="conversation-item-name" v-if="!checkActiveConversation(item)">
                                         <span
                                             v-html="$convertNameToHtml(item.content.title1)"
                                             class="japan-name"
                                         />
                                     </div>
-                                </div>
-                                <div v-else class="conversation-item else">
-                                    <div class="conversation-item-name">
-                                        <span v-html="$convertNameToHtml(item.content.title1)" class="japan-name"/>
-                                    </div>
                                     <div class="conversation-item-text">
                                         <div>
                                             <div
-                                                v-html="$convertNameToHtml(getSentenceText(item.content['title2'], 0))"
+                                                v-html="item.compareHTML ? item.compareHTML : $convertNameToHtml(getSentenceText(item.content['title2'], 0))"
                                                 class="japan-name"
+                                                :class="{'compare-text': item.compareHTML}"
                                             />
                                             <div>
                                                 {{ getSentenceText(item.content['title2'], 1) }}
@@ -122,16 +84,17 @@
                                             <i class="fa fa-volume-up"></i>
                                             <span
                                                 v-if="item.point"
-                                                :class="{
-                                                  'text-red': getItemPersonPoint(item) < 50 ? true : false,
-                                                  'text-yellow' : (getItemPersonPoint(item) >= 50 &&
-                                                  getItemPersonPoint(item) < 80) ? true : false,
-                                                  'text-green' : getItemPersonPoint(item) >= 80 ? true : false
-                                                }"
+                                                :class="getClassByPercent(getItemPersonPoint(item))"
                                             >
                                                 {{ getItemPersonPoint(item) +'%' }}
                                             </span>
                                         </div>
+                                    </div>
+                                    <div class="conversation-item-name" v-if="checkActiveConversation(item)">
+                                        <span
+                                            v-html="$convertNameToHtml(item.content.title1)"
+                                            class="japan-name"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -152,8 +115,7 @@
                                     </div>
                                 </div>
                                 <div
-                                    v-if="compareName(itemConfig.content['image_text' + activePersonIndex],
-                            activeItem.content.title1)"
+                                    v-if="checkActiveConversation(activeItem)"
                                     class="btn-micro"
                                     :class="{ 'active': microStatus }"
                                     @click="toggleMicro"
@@ -320,6 +282,9 @@
       },
       getPersonClass(i){
         return i % 2 == 0 ? 'fa fa-user-circle' : 'fa fa-user'
+      },
+      checkActiveConversation(item) {
+        return this.compareName(this.itemConfig.content['image_text' + this.activePersonIndex], item.content.title1)
       },
       compareName(text1, text2) {
         text1 = text1.replace(/ /g, '' )

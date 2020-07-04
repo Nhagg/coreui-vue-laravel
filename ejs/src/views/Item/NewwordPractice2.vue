@@ -23,7 +23,7 @@
                                 class="far fa-check-circle text-success"
                             />
                         </div>
-                        <div>
+                        <div class="item-content">
                             {{ item.content['image_text' + i] }}
                         </div>
                     </div>

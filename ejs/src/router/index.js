@@ -2,9 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Containers
-const MainLayout = () => import('@/containers/MainLayout')
+const HomeLayout = () => import('@/containers/HomeLayout')
+const CourseLayout = () => import('@/containers/CourseLayout')
 const UnitLayout = () => import('@/containers/UnitLayout')
 // Views
+const Course = () => import('@/views/Course')
 const Home = () => import('@/views/Home')
 const Lesson = () => import('@/views/Lesson')
 const Unit = () => import('@/views/Unit')
@@ -24,12 +26,25 @@ function configRoutes () {
       path: '/',
       redirect: '/',
       name: 'Home',
-      component: MainLayout,
+      component: HomeLayout,
       children: [
         {
           path: '/',
           name: 'Home',
           component: Home
+        }
+      ]
+    },
+    {
+      path: '/course',
+      redirect: '/course',
+      name: 'CourseLayout',
+      component: CourseLayout,
+      children: [
+        {
+          path: '/course/:course_id',
+          name: 'Course',
+          component: Course
         },
         {
           path: '/lesson/:id',
@@ -39,22 +54,22 @@ function configRoutes () {
         {
           path: '/exam',
           name: 'Exam',
-          component: Home
+          component: Course
         },
         {
           path: '/report',
           name: 'Exam',
-          component: Home
+          component: Course
         },
         {
           path: '/settings',
           name: 'Exam',
-          component: Home
+          component: Course
         },
         {
-          path: '/:d',
+          path: '/course',
           name: 'Default',
-          component: Home
+          component: Course
         },
       ]
     },
@@ -81,6 +96,19 @@ function configRoutes () {
           path: '/lesson/:lessonId/conversation/:id',
           name: 'Conversation',
           component: Conversation
+        }
+      ]
+    },
+    {
+      path: '/:id',
+      redirect: '/',
+      name: 'Default',
+      component: HomeLayout,
+      children: [
+        {
+          path: '/:id',
+          name: 'Default',
+          component: Home
         }
       ]
     }

@@ -1,53 +1,33 @@
 <template>
-    <div class="home-content">
-        <h2>{{ course.name }}</h2>
-        <div class="row lesson-list custom-row">
-            <div
-                v-for="lesson in listLesson.filter(s => s.course && s.course.id == activeCourse)"
-                :key="lesson.id"
-                class="col-sm-3"
-            >
-                <router-link :to="'/lesson/' + lesson.id" class="lesson-content">
-                    <div class="lesson-card">
-                        <div class="lesson-img ratio-4-3">
-                            <img
-                                :src="domainAPI + '/images/lesson/' + lesson.image"
-                                alt="lesson-img"
-                                @error="onErrorImg"
-                            >
-                        </div>
-                        <div class="lesson-body">
-                            <div class="lesson-title">
-                                <div
-                                    v-html="$convertNameToHtml(lesson.name_native_language)"
-                                     class="lesson-title-native japan-name one-line-text"
-                                />
-                                <div class="lesson-result">
-                                    {{ 0 }}%
-                                </div>
-                            </div>
-                            <div class="lesson-title-trans one-line-text" :title="lesson.name_second_language">
-                                {{ lesson.name_second_language }}
-                            </div>
-                        </div>
-                    </div>
-                </router-link>
+    <div class="home-content pt-5">
+        <div class="news">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h2>JVConnect hợp tác với  đối tác lớn ở Nhật bản</h2>
+                </div>
+                <div class="col-sm-3 text-right fw-500">
+                    Thứ bảy, 4/7/2020, 07:00
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-4">
+                    <img src="../assets/img/news.png" alt="">
+                </div>
+                <div class="col-sm-8">
+                    <div>Cuộc tập trận của tàu sân bay USS Ronald Reagan và USS Nimitz ngày 4/7 là một trong những lần tập trận lớn nhất của hải quân Mỹ trong những năm gần đây tại Biển Đông. Các quan chức Mỹ cho biết họ muốn thách thức yêu sách lãnh thổ phi pháp của Trung Quốc, trong bối cảnh căng thẳng giữa hai nước gia tăng vì vấn đề thương mại, đại dịch Covid-19 và luật an ninh Hong Kong.</div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-  import axios from 'axios'
+  // import axios from 'axios'
   import { mapState } from "vuex";
   export default {
     name: 'Home',
     components: {},
     computed: {
-      ...mapState(['domainAPI', 'activeCourse', 'listCourse']),
-      course() {
-        let res = this.listCourse.find(c => c.id == this.activeCourse)
-        return res ? res : {}
-      },
+      ...mapState(['domainAPI']),
     },
     watch: {
       activeCourse(val) {
@@ -55,19 +35,6 @@
       }
     },
     async mounted() {
-      this.$modal.show('loading');
-      await this.$store.dispatch('GET_LIST_COURSE')
-      const course_id = this.$route.query.course_id
-      if(course_id) {
-        this.$store.dispatch('SET_ACTIVE_COURSE', course_id)
-      }
-      const { listCourse } = this.$store.state
-      let res = await axios.get(window.DOMAIN_API + '/api/lessions')
-      if(listCourse && res && res.data && res.data.data) {
-        this.listLesson = res.data.data
-      }
-      console.log(this.listLesson)
-      this.$modal.hide('loading');
     },
     data() {
       return {

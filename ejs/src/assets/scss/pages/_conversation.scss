@@ -91,6 +91,11 @@
           border-radius: 14px;
           font-size: 20px;
           position: relative;
+          .compare-text{
+            span {
+              margin-top: 0;
+            }
+          }
           &:before {
             content: "\f053";
             font-family: "Font Awesome 5 Free";
@@ -101,6 +106,7 @@
             left: -10px;
             background-color: #fff;
             color: #ddd;
+            margin-top: -2px;
           }
           .japan-name {
             margin-top: 5px;
