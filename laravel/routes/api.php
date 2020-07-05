@@ -26,9 +26,18 @@ Route::resource('lesions', 'LesionAPIController');
 Route::resource('student_settings', 'StudentSettingAPIController');
 Route::resource('user_classes', 'UserClassAPIController');
 
+
+
+Route::resource('conversation_persons', 'ConversationPersonAPIController');
+
 Route::post("login", "AuthController@login");
+
+Route::post("auth", "AuthController@auth");
 Route::post('register', 'AuthController@register');
 Route::resource('users', 'UserAPIController');
+
+
+
 
 Route::middleware('auth:sanctum')->group(function () {
 
@@ -100,32 +109,3 @@ Route::group(['middleware' => 'api'], function ($router) {
         Route::get('/roles/move/move-down',    'RolesController@moveDown')->name('roles.down');
     });
 });
-
-
-
-Route::resource('edu_centers', 'EduCenterAPIController');
-
-Route::resource('courses', 'CourseAPIController');
-
-Route::resource('lessions', 'LessionAPIController');
-
-Route::resource('classes', 'ClassAPIController');
-
-Route::resource('user_classes', 'UserClassAPIController');
-
-Route::resource('learn_units', 'LearnUnitAPIController');
-
-Route::resource('learn_items', 'LearnItemAPIController');
-
-Route::resource('learn_transactions', 'LearnTransactionAPIController');
-
-Route::resource('exam_learn_items', 'ExamLearnItemAPIController');
-
-Route::resource('exam_results', 'ExamResultAPIController');
-
-Route::resource('exams', 'ExamAPIController');
-
-Route::resource('student_setiongs', 'StudentSetiongAPIController');
-
-
-Route::resource('conversation_persons', 'ConversationPersonAPIController');

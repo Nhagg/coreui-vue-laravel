@@ -10,7 +10,8 @@ const state = {
   listLesson: [],
   listLearnUnit: [],
   activeCourse: 2,
-  sidebarMinimize: false
+  sidebarMinimize: false,
+  user:null,
 }
 const actions = {
   async GET_LIST_COURSE({commit, state}) {
@@ -70,6 +71,9 @@ const mutations = {
   },
   setListLeanUnit(state, data) {
     state.listLearnUnit = data
+  },
+  setUser(state, user) {
+    state.user = user
   }
 }
 

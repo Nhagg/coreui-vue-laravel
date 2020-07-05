@@ -191,6 +191,13 @@ abstract class BaseRepository
         return $model->delete();
     }
 
+    public function updateOrCreate($search, $input)
+    {
+        $query = $this->model->newQuery();
+
+        return $query->updateOrCreate($search, $input);
+    }
+
     public function newQuery()
     {
         return $this->model->newQuery();

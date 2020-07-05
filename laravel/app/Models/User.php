@@ -12,6 +12,7 @@ class User extends Model
     use HasApiTokens;
 
     const STATUS_ACTIVE = 1;
+    const AUTH_TYPE_GOOGLE = 'google';
     public $table = 'users';
 
 
@@ -23,7 +24,9 @@ class User extends Model
         'email',
         'status',
         'password',
-        'username'
+        'username',
+        'auth_type',
+        'auth_id'
     ];
 
     public $hidden = ['created_at', 'updated_at', 'deleted_at', 'password', 'remember_token'];

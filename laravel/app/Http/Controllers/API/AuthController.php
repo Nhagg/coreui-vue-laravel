@@ -5,9 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\LoginUserAPIRequest;
 use App\Http\Requests\API\RegisterUserAPIRequest;
-use App\Repositories\BlueprintRepository;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
+use Illuminate\Http\Request;
 
 class AuthController extends AppBaseController
 {
@@ -32,18 +32,24 @@ class AuthController extends AppBaseController
     public function login(LoginUserAPIRequest $request)
     {
         $user = $this->userService->login($request->all());
-        if (!$user){
+        if (!$user) {
             return $this->sendError("Username or password something wrong!", 401);
         }
         return $this->sendResponse($user, 'Login success!');
     }
 
+    public function auth(Request $request)
+    {
+        $input = $request->all();
+        $user = $this->userService->auth($input);
+        return $this->sendResponse($user, 'Login success!');
+    }
 
     public function logout()
     {
         auth()->logout();
 
-        return $this->sendResponse(null, 'Successfully logged out') ;
+        return $this->sendResponse(null, 'Successfully logged out');
     }
 
 
