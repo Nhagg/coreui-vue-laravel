@@ -280,7 +280,7 @@
                 showResult: false,
                 unit: {},
                 activePersonIndex: 2,
-                activeItemIndex: 11,
+                activeItemIndex: 1,
                 activeContextIndex: 0
             }
         },
