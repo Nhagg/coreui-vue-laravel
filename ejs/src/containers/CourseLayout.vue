@@ -45,7 +45,7 @@ export default {
       menus: [
         {
           id: 1,
-          title: 'レッスン',
+          title: '日本語レッソン',
           path: '/'
         },
         {
@@ -55,7 +55,7 @@ export default {
         },
         {
           id: 3,
-          title: '報告する',
+          title: '勉強工程結果',
           path: '/report'
         },
         {

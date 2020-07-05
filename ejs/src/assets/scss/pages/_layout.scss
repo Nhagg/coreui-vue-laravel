@@ -9,6 +9,26 @@ header {
   display: flex;
   align-items: center;
   z-index: 10;
+  background-color: $text-red;
+  color: #fff;
+  font-size: 20px;
+  a {
+    color: white;
+    &:hover {
+      color: $text-red;
+      background-color: $bg-red;
+    }
+    &.nav-link{
+      padding: 0;
+      line-height: 60px;
+      min-width: 150px;
+      text-align: center;
+      &.active {
+        color: $text-red;
+        background-color: #f2dede;
+      }
+    }
+  }
 }
 $footerHeight: 84px;
 footer {
@@ -16,6 +36,18 @@ footer {
   height: $footerHeight;
   display: flex;
   z-index: 10;
+  margin-top: 20px;
+  background-color: $text-red;
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  a {
+    color: white;
+  }
+}
+.header-content, .footer-content {
+  padding: 20px;
 }
 .ejs-content {
   padding-top: $headerHeight;

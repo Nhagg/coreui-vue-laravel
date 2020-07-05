@@ -5,19 +5,38 @@
         <ul class="nav justify-content-end">
           <li>
             <a href="/" class="nav-link" :class="{ active: $route.path == '/', }">
-              Trang chủ
+              ホーム（ページ
             </a>
           </li>
           <li>
-            <a href="/course" class="nav-link" :class="{ active: $route.path == '/login', }">
-              Đăng nhập
+<!--            <a href="/course" class="nav-link" :class="{ active: $route.path == '/login', }">-->
+<!--              ログイン-->
+<!--            </a>-->
+            <a href="#" type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
+              ログイン
             </a>
           </li>
         </ul>
       </div>
     </header>
+    <div class="modal fade" id="loginModal">
+      <div class="modal-dialog modal-dialog-centered modal-login" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <h4>
+              Sign in by JVConnect Account
+            </h4>
+            <div class="mt-3">
+              <a href="/course" class="btn btn-login">
+                <i class="fab fa-google-plus-g"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="ejs-content">
-      <div class="container home-container">
+      <div class="container-fluid home-container">
         <div class="row">
           <div class="col-sm-3">
             <router-link to="/">
@@ -58,17 +77,17 @@ export default {
       menus: [
         {
           id: 1,
-          title: 'Tin tức',
+          title: 'ニュース',
           path: '/'
         },
         {
           id: 2,
-          title: 'Thông báo',
+          title: 'お知らせ',
           path: '/notifications'
         },
         {
           id: 3,
-          title: 'Chương trình học',
+          title: 'コース一覧',
           path: '/courses'
         },
         {
@@ -78,22 +97,22 @@ export default {
         },
         {
           id: 5,
-          title: 'Hỏi đáp(FAQ)',
+          title: 'よくご質問',
           path: '/faqs'
         },
         {
           id: 6,
           title: 'Đối tác',
-          path: '/Partner'
+          path: '/partner'
         },
         {
           id: 7,
-          title: 'Giới thiệu trung tâm',
+          title: '弊社について',
           path: '/our-center'
         },
         {
           id: 8,
-          title: 'Danh sách giáo viên',
+          title: '講師一覧',
           path: '/teachers'
         }
       ]
