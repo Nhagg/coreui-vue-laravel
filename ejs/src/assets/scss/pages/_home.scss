@@ -52,3 +52,14 @@
     }
   }
 }
+.modal-login {
+  .modal-body {
+    padding: 30px;
+  }
+}
+.btn-login {
+  width: 300px;
+  padding: 5px 30px;
+  color: #fff;
+  background-color: $text-red;
+}

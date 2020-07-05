@@ -6,8 +6,11 @@ const HomeLayout = () => import('@/containers/HomeLayout')
 const CourseLayout = () => import('@/containers/CourseLayout')
 const UnitLayout = () => import('@/containers/UnitLayout')
 // Views
-const Course = () => import('@/views/Course')
 const Home = () => import('@/views/Home')
+const Notifications = () => import('@/views/Notifications')
+const Courses = () => import('@/views/Courses')
+const OurCenter = () => import('@/views/OurCenter')
+const Course = () => import('@/views/Course')
 const Lesson = () => import('@/views/Lesson')
 const Unit = () => import('@/views/Unit')
 const Conversation = () => import('@/views/Conversation')
@@ -32,6 +35,21 @@ function configRoutes () {
           path: '/',
           name: 'Home',
           component: Home
+        },
+        {
+          path: '/notifications',
+          name: 'Notifications',
+          component: Notifications
+        },
+        {
+          path: '/courses',
+          name: 'Courses',
+          component: Courses
+        },
+        {
+          path: '/our-center',
+          name: 'Courses',
+          component: OurCenter
         }
       ]
     },
