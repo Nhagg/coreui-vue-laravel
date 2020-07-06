@@ -28,7 +28,7 @@ function configRoutes () {
     {
       path: '/',
       redirect: '/',
-      name: 'Home',
+      name: 'HomeLayout',
       component: HomeLayout,
       children: [
         {
@@ -48,7 +48,7 @@ function configRoutes () {
         },
         {
           path: '/our-center',
-          name: 'Courses',
+          name: 'OurCenter',
           component: OurCenter
         }
       ]
@@ -61,7 +61,7 @@ function configRoutes () {
       children: [
         {
           path: '/course/:course_id',
-          name: 'Course',
+          name: 'CourseDetail',
           component: Course
         },
         {
@@ -76,17 +76,17 @@ function configRoutes () {
         },
         {
           path: '/report',
-          name: 'Exam',
+          name: 'report',
           component: Course
         },
         {
           path: '/settings',
-          name: 'Exam',
+          name: 'settings',
           component: Course
         },
         {
           path: '/course',
-          name: 'Default',
+          name: 'course',
           component: Course
         },
       ]
