@@ -22,7 +22,7 @@ Route::resource('exam_results', 'ExamResultAPIController');
 Route::resource('learn_items', 'LearnItemAPIController');
 Route::resource('learn_transactions', 'LearnTransactionAPIController');
 Route::resource('learn_units', 'LearnUnitAPIController');
-Route::resource('lesions', 'LesionAPIController');
+Route::resource('lessions', 'LessionAPIController');
 Route::resource('student_settings', 'StudentSettingAPIController');
 Route::resource('user_classes', 'UserClassAPIController');
 
