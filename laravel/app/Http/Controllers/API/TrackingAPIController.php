@@ -38,11 +38,7 @@ class TrackingAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $trackings = $this->trackingRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        $trackings = $this->trackingRepository->all($request->all());
 
         return $this->sendResponse($trackings->toArray(), 'Trackings retrieved successfully');
     }

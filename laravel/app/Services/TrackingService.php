@@ -24,7 +24,7 @@ class TrackingService
         $learnUnitId = (int)$input['learn_unit_id'] ?? 0;
         $learnItemId = (int)$input['learn_item_id'] ?? 0;
         $progress = (int)$input['progress'] ?? 0;
-        $userId = request()->user()->id ?? 0;
+        $userId = request()->user()->id ?? (int)$input['user_id'] ?? 0;
 
         if ($userId <= 0) {
             return null;
@@ -54,7 +54,8 @@ class TrackingService
             'learn_unit_id' => $learnUnitId,
             'learn_item_id' => $learnItemId,
             'type' => $type,
-            'progress' => $progress
+            'progress' => $progress,
+            'user_id' => $userId
         ]);
 
     }
