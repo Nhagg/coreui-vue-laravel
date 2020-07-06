@@ -12,16 +12,12 @@
 <!--            <a href="/course" class="nav-link" :class="{ active: $route.path == '/login', }">-->
 <!--              ログイン-->
 <!--            </a>-->
-            <a href="#" type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
+            <a v-if="user && user.id" class="nav-link">
+                Hi {{user.name || user.email}}
+            </a>
+            <a v-else @click="handleLoginViaGoogle" type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
               ログイン
             </a>
-              <a v-if="user && user.id" class="nav-link">
-                  Hi {{user.name || user.email}}
-              </a>
-              <a v-else @click="handleLoginViaGoogle" class="nav-link"
-                 :class="{ active: $route.path == '/login', }">
-                  Đăng nhập
-              </a>
           </li>
         </ul>
       </div>
