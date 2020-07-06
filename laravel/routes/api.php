@@ -37,10 +37,10 @@ Route::post('register', 'AuthController@register');
 Route::resource('users', 'UserAPIController');
 
 
-
+Route::resource('tracking', 'TrackingAPIController');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::resource('tracking', 'TrackingAPIController');
+
 });
 
 Route::group(['middleware' => 'api'], function ($router) {

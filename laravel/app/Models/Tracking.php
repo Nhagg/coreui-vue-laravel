@@ -18,13 +18,10 @@ use Eloquent as Model;
 class Tracking extends Model
 {
 
-    const TYPE_LEARN_ITEM = 'item';
-    const TYPE_LEARN_UNIT = 'unit';
+    const TYPE_LEARN_ITEM = 'learn_item';
+    const TYPE_LEARN_UNIT = 'learn_unit';
     const TYPE_LESSION = 'lession';
     public $table = 'tracking';
-
-
-
 
 
     public $fillable = [
@@ -32,7 +29,8 @@ class Tracking extends Model
         'learn_item_id',
         'learn_unit_id',
         'lession_id',
-        'progress'
+        'progress',
+        'type'
     ];
 
     /**
@@ -46,7 +44,8 @@ class Tracking extends Model
         'learn_item_id' => 'integer',
         'learn_unit_id' => 'integer',
         'lession_id' => 'integer',
-        'progress' => 'integer'
+        'progress' => 'integer',
+        'type' => 'string'
     ];
 
     /**

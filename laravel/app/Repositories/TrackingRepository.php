@@ -21,7 +21,8 @@ class TrackingRepository extends BaseRepository
         'learn_item_id',
         'learn_unit_id',
         'lession_id',
-        'progress'
+        'progress',
+        'type'
     ];
 
     /**
