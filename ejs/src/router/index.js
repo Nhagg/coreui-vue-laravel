@@ -7,6 +7,7 @@ const CourseLayout = () => import('@/containers/CourseLayout')
 const UnitLayout = () => import('@/containers/UnitLayout')
 // Views
 const Home = () => import('@/views/Home')
+const Rules = () => import('@/views/Rules')
 const Notifications = () => import('@/views/Notifications')
 const Courses = () => import('@/views/Courses')
 const OurCenter = () => import('@/views/OurCenter')
@@ -37,6 +38,16 @@ function configRoutes () {
           component: Home
         },
         {
+          path: '/our-center',
+          name: 'OurCenter',
+          component: OurCenter
+        },
+        {
+          path: '/rules',
+          name: 'Rules',
+          component: Rules
+        },
+        {
           path: '/notifications',
           name: 'Notifications',
           component: Notifications
@@ -45,11 +56,6 @@ function configRoutes () {
           path: '/courses',
           name: 'Courses',
           component: Courses
-        },
-        {
-          path: '/our-center',
-          name: 'OurCenter',
-          component: OurCenter
         }
       ]
     },
@@ -107,12 +113,12 @@ function configRoutes () {
     {
       path: '/conversation',
       redirect: '/conversation',
-      name: 'Conversation',
+      name: 'conversation',
       component: UnitLayout,
       children: [
         {
           path: '/lesson/:lessonId/conversation/:id',
-          name: 'Conversation',
+          name: 'ConversationDetail',
           component: Conversation
         }
       ]
@@ -120,7 +126,7 @@ function configRoutes () {
     {
       path: '/:id',
       redirect: '/',
-      name: 'Default',
+      name: 'HomeLayoutDefault',
       component: HomeLayout,
       children: [
         {

@@ -19,6 +19,7 @@ Vue.config.performance = true
 Vue.prototype.$domainAPI = window.DOMAIN_API
 
 Vue.use(VModal, {dynamic: true, dynamicDefaults: {clickToClose: false}})
+Vue.prototype.$jquery = window.$
 Vue.prototype.$shuffler = (arr) => {
     return arr.sort(() => 0.5 - Math.random())
 }

@@ -12,7 +12,7 @@
             <a
               :href="'/course/' + course.id"
               class="nav-link"
-              :class="{ active: activeCourse == course.id}"
+              :class="{ active: $route.path == '/course/' + course.id}"
             >
               {{ course.name }}
             </a>
@@ -30,10 +30,7 @@
             </a>
           </li>
           <li>
-            <a v-if="user && user.id" class="nav-link">
-                Hi {{user.name || user.email}}
-            </a>
-            <a v-else type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
+            <a href="#" type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
               ログイン
             </a>
           </li>
@@ -64,7 +61,11 @@
               <img src="/img/ejs/logo.png" alt="">
             </router-link>
             <ul class="side-bar">
-              <li v-for="item in menus" :key="item.id" class="sidebar-item" :class="{active: item.path == $route.path}">
+              <li
+                v-for="(item, index) in menus"
+                :key="index" class="sidebar-item"
+                :class="{active: item.path == $route.path}"
+              >
                 <router-link :to="item.path">{{ item.title }}</router-link>
               </li>
             </ul>
@@ -104,9 +105,14 @@
             path: '/'
           },
           {
-            id: 7,
+            id: 2,
             title: '弊社について',
             path: '/our-center'
+          },
+          {
+            id: 2,
+            title: '教育センター用規則',
+            path: '/rules'
           },
           {
             id: 2,
@@ -122,11 +128,6 @@
             id: 5,
             title: 'よくご質問',
             path: '/faqs'
-          },
-          {
-            id: 8,
-            title: '講師一覧',
-            path: '/teachers'
           }
         ]
       }
@@ -140,7 +141,7 @@
     methods: {
       async handleLoginViaGoogle() {
         const response = await AuthService.authViaGoogle(this.$gAuth)
-        console.log(response)
+        this.$jquery('#loginModal').modal('hide')
         if (response.success) {
           this.$cookies.set("LEANING_TOKEN", response.data && response.data.token)
           this.$store.commit("setUser", response.data)
