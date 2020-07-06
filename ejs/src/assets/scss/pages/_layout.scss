@@ -30,7 +30,7 @@ header {
     }
   }
 }
-$footerHeight: 84px;
+$footerHeight: 110px;
 footer {
   width: 100%;
   height: $footerHeight;
@@ -44,6 +44,9 @@ footer {
   font-size: 14px;
   a {
     color: white;
+    :hover {
+      color: $text-green;
+    }
   }
 }
 .header-content, .footer-content {

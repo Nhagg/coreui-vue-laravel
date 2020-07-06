@@ -19,6 +19,7 @@
           </li>
           <li>
             <a class="nav-link" href="#">
+              <i class="fa fa-user-alt mr-2"></i>
               {{user.name || user.email}}
             </a>
           </li>
