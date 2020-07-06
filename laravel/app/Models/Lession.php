@@ -67,6 +67,6 @@ class Lession extends Model
 
     public function learnUnits()
     {
-        return $this->hasOne(LearnUnit::class, 'id', 'lession_id');
+        return $this->hasMany(LearnUnit::class, 'lession_id', 'id');
     }
 }
