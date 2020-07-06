@@ -1,21 +1,36 @@
 <template>
   <div class="ejs-app">
     <header>
-      <div class="container">
-        <ul class="nav justify-content-end">
+      <div class="container" >
+        <ul class="nav justify-content-end" v-if="user && user.id" >
           <li>
             <a href="/" class="nav-link" :class="{ active: $route.path == '/', }">
-              ホーム（ページ
+              ホーム
+            </a>
+          </li>
+          <li v-for="course in listCourse" :key="course.id" class="nav-item">
+            <a
+              :href="'/course/' + course.id"
+              class="nav-link"
+              :class="{ active: $route.path == '/course/' + course.id}"
+            >
+              {{ course.name }}
             </a>
           </li>
           <li>
-<!--            <a href="/course" class="nav-link" :class="{ active: $route.path == '/login', }">-->
-<!--              ログイン-->
-<!--            </a>-->
-            <a v-if="user && user.id" class="nav-link">
-                Hi {{user.name || user.email}}
+            <a class="nav-link" href="#">
+              {{user.name || user.email}}
             </a>
-            <a v-else @click="handleLoginViaGoogle" type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
+          </li>
+        </ul>
+        <ul v-else class="nav justify-content-end">
+          <li>
+            <a href="/" class="nav-link" :class="{ active: $route.path == '/', }">
+              ホーム
+            </a>
+          </li>
+          <li>
+            <a href="#" type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
               ログイン
             </a>
           </li>
@@ -30,7 +45,7 @@
               Sign in by JVConnect Account
             </h4>
             <div class="mt-3">
-              <a href="/course" class="btn btn-login">
+              <a href="#" class="btn btn-login" @click="handleLoginViaGoogle">
                 <i class="fab fa-google-plus-g"></i>
               </a>
             </div>
@@ -46,7 +61,11 @@
               <img src="/img/ejs/logo.png" alt="">
             </router-link>
             <ul class="side-bar">
-              <li v-for="item in menus" :key="item.id" class="sidebar-item" :class="{active: item.path == $route.path}">
+              <li
+                v-for="(item, index) in menus"
+                :key="index" class="sidebar-item"
+                :class="{active: item.path == $route.path}"
+              >
                 <router-link :to="item.path">{{ item.title }}</router-link>
               </li>
             </ul>
@@ -65,78 +84,71 @@
 </template>
 
 <script>
-    import Footer from './Footer'
-    import AuthService from '../Api/Auth'
+  import Footer from './Footer'
+  import AuthService from '../Api/Auth'
+  import {mapState} from "vuex";
 
-export default {
-  name: 'MainLayout',
-  components: {
-    Footer
-  },
-  async mounted() {
+  export default {
+    name: 'MainLayout',
+    components: {
+      Footer
+    },
+    async mounted() {
       await this.$store.dispatch('GET_LIST_COURSE')
-  },
-  data() {
-    return {
-      menus: [
-        {
-          id: 1,
-          title: 'ニュース',
-          path: '/'
-        },
-        {
-          id: 2,
-          title: 'お知らせ',
-          path: '/notifications'
-        },
-        {
-          id: 3,
-          title: 'コース一覧',
-          path: '/courses'
-        },
-        {
-          id: 4,
-          title: 'Ưu đãi',
-          path: '/promotions'
-        },
-        {
-          id: 5,
-          title: 'よくご質問',
-          path: '/faqs'
-        },
-        {
-          id: 6,
-          title: 'Đối tác',
-          path: '/partner'
-        },
-        {
-          id: 7,
-          title: '弊社について',
-          path: '/our-center'
-        },
-        {
-          id: 8,
-          title: '講師一覧',
-          path: '/teachers'
-        }
-      ]
-    }
-  },
+    },
+    data() {
+      return {
+        menus: [
+          {
+            id: 1,
+            title: 'ニュース',
+            path: '/'
+          },
+          {
+            id: 2,
+            title: '弊社について',
+            path: '/our-center'
+          },
+          {
+            id: 2,
+            title: '教育センター用規則',
+            path: '/rules'
+          },
+          {
+            id: 2,
+            title: 'お知らせ',
+            path: '/notifications'
+          },
+          {
+            id: 3,
+            title: 'コース一覧',
+            path: '/courses'
+          },
+          {
+            id: 5,
+            title: 'よくご質問',
+            path: '/faqs'
+          }
+        ]
+      }
+    },
     computed: {
-        user() {
-            return this.$store.state.user;
-        }
+      ...mapState(['listCourse', 'activeCourse']),
+      user() {
+        return this.$store.state.user;
+      }
     },
     methods: {
-        async handleLoginViaGoogle() {
-            const response = await AuthService.authViaGoogle(this.$gAuth)
-            if (response.success) {
-                this.$cookies.set("LEANING_TOKEN", response.data && response.data.token)
-                this.$store.commit("setUser", response.data)
-            } else {
-                console.log('login failed')
-            }
+      async handleLoginViaGoogle() {
+        const response = await AuthService.authViaGoogle(this.$gAuth)
+        this.$jquery('#loginModal').modal('hide')
+        if (response.success) {
+          this.$cookies.set("LEANING_TOKEN", response.data && response.data.token)
+          this.$store.commit("setUser", response.data)
+        } else {
+          console.log('login failed')
         }
+      }
     }
-}
+  }
 </script>
