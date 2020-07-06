@@ -11,10 +11,12 @@ const Rules = () => import('@/views/Rules')
 const Notifications = () => import('@/views/Notifications')
 const Courses = () => import('@/views/Courses')
 const OurCenter = () => import('@/views/OurCenter')
+//Course
 const Course = () => import('@/views/Course')
 const Lesson = () => import('@/views/Lesson')
 const Unit = () => import('@/views/Unit')
 const Conversation = () => import('@/views/Conversation')
+const Report = () => import('@/views/Report')
 Vue.use(Router)
 
 export default new Router({
@@ -83,7 +85,7 @@ function configRoutes () {
         {
           path: '/report',
           name: 'report',
-          component: Course
+          component: Report
         },
         {
           path: '/settings',

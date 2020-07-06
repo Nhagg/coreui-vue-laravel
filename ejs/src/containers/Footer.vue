@@ -2,34 +2,22 @@
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-9">
           <div>
-            JVConnect là đơn vị đào tạo tiếng Nhật hàng đầu Việt Nam
+            Công ty cổ phần tư vấn kết nối Việt Nhật
             <br />
-            Tiên phong dẫn đầu công nghệ giáo dục trực tuyến
+            JVCONNECT CONSULTING J.S.C
             <br />
-            Copyright © 2020 All Rights Reserved
+            Địa chỉ: Tầng 5 - Tòa nhà Ecolife - 58 Tố Hữu - Trung Văn - Nam Từ Liêm - Hà Nội
+            <br />
+            SĐT: <a href="tel:0988848484">0988848484</a>
           </div>
         </div>
-        <div class="col-sm-2">
-          - Hà Nội
+        <div class="col-sm-3">
           <br />
-          - Đà Nẵng
           <br />
-          - Hồ Chí Minh
           <br>
-        </div>
-        <div class="col-sm-2">
-          - Manila
-          <br />
-          - Singapore
-          <br />
-          - Bangkok
-        </div>
-        <div class="col-sm-2">
-          <i class="fab fa-youtube mr-2"></i>Youtube
-          <br />
-          <i class="fab fa-facebook mr-2"></i>Facebook
+          Copyright © 2020 All Rights Reserved
         </div>
       </div>
     </div>

@@ -1,0 +1,19 @@
+.report-content {
+  .report-item {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    .progress {
+      height: 30px;
+      border-radius: 1px;
+      font-size: 14px;
+    }
+    .report-label {
+      font-weight: 500;
+    }
+    .report-progress {
+      flex: 1;
+      padding: 0 30px;
+    }
+  }
+}
