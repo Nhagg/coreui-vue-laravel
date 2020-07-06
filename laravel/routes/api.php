@@ -40,7 +40,7 @@ Route::resource('users', 'UserAPIController');
 
 
 Route::middleware('auth:sanctum')->group(function () {
-
+    Route::resource('tracking', 'TrackingAPIController');
 });
 
 Route::group(['middleware' => 'api'], function ($router) {

@@ -2,15 +2,17 @@
     <div class="home-content">
         <h2 class="mt-2">Chương trình học tại JVConnect</h2>
         <div class="mt-4">
-            <iframe
-              src="https://docs.google.com/presentation/d/e/2PACX-1vRfatBrfBLuR3DHE0bxiW7HRP8QVzjqQjAGRu5Ni_0-zi-ApJUVhkryf2SxQKUqXz61YC4Lt5xPwDJA/embed?start=false&loop=false&delayms=60000"
-              frameborder="0"
-              width="960"
-              height="569"
-              allowfullscreen="true"
-              mozallowfullscreen="true"
-              webkitallowfullscreen="true">
-            </iframe>
+            <div class="iframe-parent">
+                <iframe
+                  src="https://docs.google.com/presentation/d/e/2PACX-1vTfHBPl5_KAZ3BNuMGtE2trs-kY12RjTGRc2OeCr86TltDpWg3OhKZMnFvaMByv7YbHSg5ytbdE6Lgj/embed?start=false&loop=false&delayms=60000"
+                  frameborder="0"
+                  width="960"
+                  height="569"
+                  allowfullscreen="true"
+                  mozallowfullscreen="true"
+                  webkitallowfullscreen="true">
+                </iframe>
+            </div>
         </div>
     </div>
 </template>

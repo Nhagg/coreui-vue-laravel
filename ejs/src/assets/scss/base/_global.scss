@@ -464,3 +464,14 @@ $half: round($loops / 2);
     padding-right: 10px;
   }
 }
+.iframe-parent {
+  position: relative;
+  width: 958px;
+  height: 569px;
+  overflow: hidden;
+  iframe {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+  }
+}

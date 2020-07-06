@@ -58,12 +58,15 @@ class Lession extends Model
 
     protected $hidden = ['created_at', 'updated_at', 'course_id'];
 
-    protected $with = ['course'];
+    protected $with = ['course', 'learnUnits'];
 
     public function course()
     {
         return $this->hasOne(Course::class, 'id', 'course_id')->select('id', 'name');
     }
 
-
+    public function learnUnits()
+    {
+        return $this->hasOne(LearnUnit::class, 'lession_id', 'id');
+    }
 }

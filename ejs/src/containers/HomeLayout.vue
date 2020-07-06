@@ -30,7 +30,10 @@
             </a>
           </li>
           <li>
-            <a href="#" type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
+            <a v-if="user && user.id" class="nav-link">
+                Hi {{user.name || user.email}}
+            </a>
+            <a v-else type="button" class="nav-link" data-toggle="modal" data-target="#loginModal">
               ログイン
             </a>
           </li>
@@ -101,6 +104,11 @@
             path: '/'
           },
           {
+            id: 7,
+            title: '弊社について',
+            path: '/our-center'
+          },
+          {
             id: 2,
             title: 'お知らせ',
             path: '/notifications'
@@ -114,11 +122,6 @@
             id: 5,
             title: 'よくご質問',
             path: '/faqs'
-          },
-          {
-            id: 7,
-            title: '弊社について',
-            path: '/our-center'
           },
           {
             id: 8,
@@ -137,6 +140,7 @@
     methods: {
       async handleLoginViaGoogle() {
         const response = await AuthService.authViaGoogle(this.$gAuth)
+        console.log(response)
         if (response.success) {
           this.$cookies.set("LEANING_TOKEN", response.data && response.data.token)
           this.$store.commit("setUser", response.data)
