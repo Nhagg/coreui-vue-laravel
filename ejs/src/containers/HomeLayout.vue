@@ -124,11 +124,6 @@
             id: 3,
             title: 'コース一覧',
             path: '/courses'
-          },
-          {
-            id: 5,
-            title: 'よくご質問',
-            path: '/faqs'
           }
         ]
       }
