@@ -150,9 +150,12 @@
               token: 'fake_token'
             }
           }
+          this.$store.commit("setUser", response.data)
+        } else {
+          let data = response.data
+          this.$cookies.set("LEANING_TOKEN", data.data && data.token)
+          this.$store.commit("setUser", data.data)
         }
-        this.$cookies.set("LEANING_TOKEN", response.data && response.data.token)
-        this.$store.commit("setUser", response.data)
 
       }
     }
