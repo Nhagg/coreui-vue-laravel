@@ -47,6 +47,11 @@
         }
         return "";
     }
+    function deleteAllCookies() {
+        var c = document.cookie.split("; ");
+        for (i in c)
+            document.cookie =/^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>

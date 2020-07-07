@@ -18,7 +18,7 @@
             </a>
           </li>
           <li>
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" @click="logout">
               <i class="fa fa-user-alt mr-2"></i>
               {{user.name || user.email}}
             </a>
@@ -156,7 +156,11 @@
           this.$cookies.set("LEANING_TOKEN", data.data && data.token)
           this.$store.commit("setUser", data.data)
         }
-
+      },
+      logout() {
+        console.log('logout')
+        window.deleteAllCookies()
+        window.location.reload()
       }
     }
   }
