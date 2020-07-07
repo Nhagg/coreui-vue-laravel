@@ -48,88 +48,95 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-7 right-content" v-if="activeItem.id">
-                    <div v-if="activeItem.id == activeContext.id">
-                        <button class="btn btn-green" @click="nextPage">
-                            Bắt đầu hội thoại
-                            <i class="fa fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div v-if="activeItem.type == 'conversation_sentence_1'" class="list-sentence">
+                <div class="col-md-7" v-if="activeItem.id">
+                    <div class="right-content">
+                        <div v-if="activeItem.id == activeContext.id">
+                            <button class="btn btn-green" @click="nextPage">
+                                Bắt đầu hội thoại
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
                         <div
-                          v-for="(item, index) in listSentence.filter(i => i.id <= activeItem.id)"
-                          :key="index"
+                          v-if="activeItem.type == 'conversation_sentence_1'"
+                          class="list-sentence"
+                          id="list-sentence"
                         >
                             <div
-                              class="conversation-item"
-                              :class="{
+                              v-for="(item, index) in listSentence.filter(i => i.id <= activeItem.id)"
+                              :key="index"
+                              :id="'sentence-' + item.id"
+                            >
+                                <div
+                                  class="conversation-item"
+                                  :class="{
                                         'conversation-item-active': checkActiveConversation(item)
                                     }"
-                            >
-                                <div class="conversation-item-name" v-if="!checkActiveConversation(item)">
+                                >
+                                    <div class="conversation-item-name" v-if="!checkActiveConversation(item)">
                                         <span
                                           v-html="$convertNameToHtml(item.content.title1)"
                                           class="japan-name"
                                         />
-                                </div>
-                                <div class="conversation-item-text">
-                                    <div>
-                                        <div
-                                          v-html="item.compareHTML ? item.compareHTML : $convertNameToHtml(getSentenceText(item.content['title2'], 0))"
-                                          class="japan-name"
-                                          :class="{'compare-text': item.compareHTML}"
-                                        />
-                                        <div>
-                                            {{ getSentenceText(item.content['title2'], 1) }}
-                                        </div>
                                     </div>
-                                    <div class="volume-icon" @click="playVolume(getSentenceText(item.content['title2'], 0))">
-                                        <i class="fa fa-volume-up"></i>
-                                        <span
-                                          v-if="item.point"
-                                          :class="getClassByPercent(getItemPersonPoint(item))"
-                                        >
+                                    <div class="conversation-item-text">
+                                        <div>
+                                            <div
+                                              v-html="item.compareHTML ? item.compareHTML : $convertNameToHtml(getSentenceText(item.content['title2'], 0))"
+                                              class="japan-name"
+                                              :class="{'compare-text': item.compareHTML}"
+                                            />
+                                            <div>
+                                                {{ getSentenceText(item.content['title2'], 1) }}
+                                            </div>
+                                        </div>
+                                        <div class="volume-icon" @click="playVolume(getSentenceText(item.content['title2'], 0))">
+                                            <i class="fa fa-volume-up"></i>
+                                            <span
+                                              v-if="item.point"
+                                              :class="getClassByPercent(getItemPersonPoint(item))"
+                                            >
                                                 {{ getItemPersonPoint(item) +'%' }}
                                             </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="conversation-item-name" v-if="checkActiveConversation(item)">
+                                    <div class="conversation-item-name" v-if="checkActiveConversation(item)">
                                         <span
                                           v-html="$convertNameToHtml(item.content.title1)"
                                           class="japan-name"
                                         />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div v-if="activeItem.type == 'conversation_sentence_1'" class="list-sentence-footer">
-                        <div class="content">
-                            <div v-if="userAnswer">
-                                <div v-if="isCorrect()" class="text-green">
-                                    Đáp án chính xác
-                                </div>
-                                <div v-else-if="!isCorrect()" class="fs-20">
+                        <div v-if="activeItem.type == 'conversation_sentence_1'" class="list-sentence-footer">
+                            <div class="content">
+                                <div v-if="userAnswer">
+                                    <div v-if="isCorrect()" class="text-green">
+                                        Đáp án chính xác
+                                    </div>
+                                    <div v-else-if="!isCorrect()" class="fs-20">
                                             <span>
                                                 Phát âm của bạn:
                                             </span>
-                                    <div>
-                                        {{ userAnswer }}
+                                        <div>
+                                            {{ userAnswer }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div
+                              v-if="checkActiveConversation(activeItem)"
+                              class="btn-micro"
+                              :class="{ 'active': microStatus }"
+                              @click="toggleMicro"
+                            >
+                                <i class="fa fa-microphone-alt"></i>
+                            </div>
+                            <button class="btn btn-green btn-continue" @click="nextPage">
+                                Tiếp theo
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
                         </div>
-                        <div
-                          v-if="checkActiveConversation(activeItem)"
-                          class="btn-micro"
-                          :class="{ 'active': microStatus }"
-                          @click="toggleMicro"
-                        >
-                            <i class="fa fa-microphone-alt"></i>
-                        </div>
-                        <button class="btn btn-green btn-continue" @click="nextPage">
-                            Tiếp theo
-                            <i class="fa fa-arrow-right"></i>
-                        </button>
                     </div>
                 </div>
                 <div v-else class="col-md-7 right-content">
@@ -239,6 +246,7 @@
                     console.log('activeItem', res)
                     if(res.type == 'conversation_sentence_1') {
                         this.playVolume(this.getSentenceText(res.content['title2'], 0))
+                        setTimeout(() => { $('#list-sentence').scrollTop(112000) }, 100)
                     }
                     return res
                 }

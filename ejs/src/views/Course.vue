@@ -33,6 +33,9 @@
                     </div>
                 </router-link>
             </div>
+            <div v-if="listLesson.length == 0" class="empty-box">
+                <h3> Coming soon. Please wait us!</h3>
+            </div>
         </div>
     </div>
 </template>
@@ -57,15 +60,16 @@
     async mounted() {
       this.$modal.show('loading');
       await this.$store.dispatch('GET_LIST_COURSE')
-      let course_id = this.$route.query.course_id
+      let course_id = this.$route.params.course_id
       course_id = course_id ?  course_id : 2
+        console.log('course_id1', course_id)
       if(course_id) {
         this.$store.dispatch('SET_ACTIVE_COURSE', course_id)
       }
       const { listCourse } = this.$store.state
       let res = await axios.get(window.DOMAIN_API + '/api/lessions')
       if(listCourse && res && res.data && res.data.data) {
-        this.listLesson = res.data.data
+        this.listLesson = res.data.data.filter(d => d.course.id == course_id)
       }
       console.log(this.listLesson)
       this.$modal.hide('loading');
