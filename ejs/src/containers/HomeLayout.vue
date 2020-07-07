@@ -88,6 +88,7 @@
   import Footer from './Footer'
   import AuthService from '../Api/Auth'
   import {mapState} from "vuex";
+  import axios from "axios";
 
   export default {
     name: 'MainLayout',
@@ -101,14 +102,9 @@
       return {
         menus: [
           {
-            id: 1,
-            title: 'ニュース',
-            path: '/'
-          },
-          {
             id: 2,
             title: '弊社について',
-            path: '/our-center'
+            path: '/'
           },
           {
             id: 2,
@@ -117,6 +113,10 @@
           },
           {
             id: 2,
+            title: 'ニュース',
+            path: '/news'
+          },
+          {
             title: 'お知らせ',
             path: '/notifications'
           },
@@ -136,14 +136,24 @@
     },
     methods: {
       async handleLoginViaGoogle() {
-        const response = await AuthService.authViaGoogle(this.$gAuth)
+        const gData = await AuthService.authViaGoogle(this.$gAuth)
         this.$jquery('#loginModal').modal('hide')
-        if (response.success) {
-          this.$cookies.set("LEANING_TOKEN", response.data && response.data.token)
-          this.$store.commit("setUser", response.data)
-        } else {
-          console.log('login failed')
+        this.$modal.show('loading');
+        const response = await axios.post(window.DOMAIN_API + '/api/auth', gData).catch(err => { console.log(err) })
+        this.$modal.hide('loading');
+        if (!response) {
+          return {
+            success: true,
+            data: {
+              id: 1,
+              name: 'Nhạ',
+              token: 'fake_token'
+            }
+          }
         }
+        this.$cookies.set("LEANING_TOKEN", response.data && response.data.token)
+        this.$store.commit("setUser", response.data)
+
       }
     }
   }
