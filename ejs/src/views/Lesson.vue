@@ -29,7 +29,7 @@
                         class="col-md-4"
                     >
                         <div class="unit-type-item">
-                            <i class="fa fa-check-circle"></i>
+                            <i class="fa fa-check-circle" :class="getClassByUnit(unit)"></i>
                             <router-link
                                 :to="'/lesson/' + lesson.id + '/unit/' + unit.id"
                                 :title="unit.name_forgein_language"
@@ -58,7 +58,7 @@
                             :key="unit.id"
                             class="unit-type-item"
                         >
-                            <i class="fa fa-check-circle"></i>
+                            <i class="fa fa-check-circle" :class="getClassByUnit(unit)"></i>
                             <router-link
                                 :to="getUnitLink(unit, unitType)"
                                 :title="unit.name_forgein_language"
@@ -79,11 +79,13 @@
 <script>
   import { mapState } from 'vuex'
   import axios from "axios";
+  import mixin from "../mixin";
   export default {
     name: 'Lesson',
+      mixins: [mixin],
     components: {},
     computed: {
-      ...mapState(['listLesson', 'listLearnUnit'])
+      ...mapState(['listLesson', 'listLearnUnit', 'user'])
     },
     async mounted() {
       this.$modal.show('loading');
@@ -99,6 +101,13 @@
         console.log(e)
         alert(e.message)
       })
+
+        let userId = this.user.id ? this.user.id : 18
+        let res = await axios.get(window.DOMAIN_API + '/api/tracking?user_id=' + userId +'&type=learn_unit')
+        if(res.data.success) {
+            this.listLearnedUnit = res.data.data.sort((a, b) => a.progress - b.progress)
+            console.log('listLearnedUnit', this.listLearnedUnit)
+        }
     },
     data() {
       return {
@@ -120,10 +129,18 @@
           }
         ],
          lesson: {},
+          listLearnedUnit: [],
         learnUnits: []
       }
     },
     methods: {
+        getClassByUnit(unit) {
+            let leanedUnit = this.listLearnedUnit.find(u => u.learn_unit_id == unit.id)
+          if(leanedUnit) {
+              return this.getClassByPercent(leanedUnit.progress)
+          }
+          return ''
+        },
       getUnitLink(unit, unitType) {
         if(unitType.type == 'conversation') {
           return '/lesson/' + this.lesson.id + '/conversation/' + unit.id;

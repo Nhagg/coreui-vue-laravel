@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="report-result">
-                    {{ listUnit.length + '/' + maxNewWork }}
+                    {{ listUnitNewWord.length + '/' + maxNewWork }}
                 </div>
             </div>
             <div class="report-item">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="report-result">
-                    {{ listUnit.length + '/' + maxGrammar }}
+                    {{ listUnitGrammar.length + '/' + maxGrammar }}
                 </div>
             </div>
             <div class="report-item">
@@ -134,7 +134,7 @@
                     </div>
                 </div>
                 <div class="report-result">
-                    {{ listUnit.length + '/' + maxConversation }}
+                    {{ listUnitConversation.length + '/' + maxConversation }}
                 </div>
             </div>
         </div>
@@ -151,6 +151,24 @@
                             {{ unitType.name }}
                         </div>
                     </div>
+                    <div class="listUnit">
+                        <div
+                          v-for="unit in listUnit.filter(u => u.learn_unit.type == unitType.type).slice(0, 5)"
+                          :key="unit.id"
+                           class="unit-type-item"
+                        >
+                            <i class="fa fa-check-circle" :class="getClassByPercent(unit.progress)"></i>
+                            <router-link
+                              :to="getUnitLink(unit, unit.learn_unit)"
+                              :title="unit.learn_unit.name_forgein_language"
+                            >
+                                <div v-html="$convertNameToHtml(unit.learn_unit.name_native_language)" class="japan-name"></div>
+                                <span class="one-line-text">
+                                {{ unit.learn_unit.name_forgein_language }}
+                            </span>
+                            </router-link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -158,16 +176,29 @@
 </template>
 <script>
   // import axios from 'axios'
-  import { mapState } from "vuex";
-  import axios from "axios";
+  import { mapState } from "vuex"
+  import axios from "axios"
+  import mixin from '../mixin'
   const maxNewWork = 200
   const maxGrammar = 25
   const maxConversation = 10
   export default {
-    name: 'Home',
+    name: 'Report',
+      mixins: [mixin],
     components: {},
     computed: {
       ...mapState(['domainAPI', 'user']),
+        listUnitNewWord() {
+          return this.listUnit
+            .filter(u => u.learn_unit.type == 'new_word')
+            .sort((a, b) => a.progress - b.progress)
+        },
+        listUnitGrammar() {
+          return this.listUnit.filter(u => u.learn_unit.type == 'grammar')
+        },
+        listUnitConversation() {
+          return this.listUnit.filter(u => u.learn_unit.type == 'conversation')
+        }
     },
     watch: {
       activeCourse(val) {
@@ -177,9 +208,8 @@
     async mounted() {
         let userId = this.user.id ? this.user.id : 18
         let res = await axios.get(window.DOMAIN_API + '/api/tracking?user_id=' + userId +'&type=learn_unit')
-        console.log(res)
         if(res.data.success) {
-            this.listUnit = res.data.data
+            this.listUnit = res.data.data.sort((a, b) => a.progress - b.progress)
             console.log('listUnit', this.listUnit)
         }
     },
@@ -211,7 +241,6 @@
     methods: {
         getPoint(wordType, pointType) {
             let listWork = this.listUnit.filter(u => u.learn_unit.type == wordType)
-            console.log('getPoint', this.listUnit, wordType, pointType)
             if(pointType == 'good') {
                 listWork = listWork.filter(u => u.progress >= 80)
             }
@@ -221,7 +250,6 @@
             if(pointType == 'middle') {
                 listWork = listWork.filter(u => u.progress >= 50 && u.progress < 80)
             }
-            console.log('getPoint', listWork.length)
             if(wordType == 'new_word') {
                 return Math.ceil(listWork.length * 100 / maxNewWork)
             }
@@ -232,6 +260,13 @@
                 return Math.ceil(listWork.length * 100 / maxConversation)
             }
             return 0
+        },
+        getUnitLink(unit, unitType) {
+            let res = '/lesson/' + unit.lession_id
+            if(unitType.type == 'conversation') {
+                return res + '/conversation/' + unit.learn_unit_id;
+            }
+            return res + '/unit/' + unit.learn_unit_id;
         }
     }
   }
