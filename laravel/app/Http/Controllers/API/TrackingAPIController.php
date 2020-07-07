@@ -56,7 +56,7 @@ class TrackingAPIController extends AppBaseController
         $input = $request->all();
         $tracking = $this->trackingService->store($input);
         if (!$tracking) {
-            $this->sendError('Tracking saved error.');
+            return $this->sendError('Tracking saved error.');
         }
         return $this->sendResponse($tracking->toArray(), 'Tracking saved successfully');
     }
