@@ -128,6 +128,7 @@
   import GrammarInformation2 from "./Item/GrammarInformation2";
   import GrammarSpeak2 from "./Item/GrammarSpeak2";
   import Default from "./Item/Default";
+  import Api from '../Api/Index'
   const FREE_TYPE = ['newword_speak_1', 'grammar_speak_1', 'grammar_speak_2']
   export default {
     name: 'Unit',
@@ -142,7 +143,7 @@
     },
     async mounted() {
       this.$modal.show('loading');
-      let unitId = this.$route.params.id
+      let unitId = this.unitId
       await this.$store.dispatch('GET_LIST_LESSON')
       await this.$store.dispatch('GET_LIST_LEARN_UNIT')
       if( !unitId) {
@@ -170,7 +171,7 @@
       this.$modal.hide('loading');
     },
     computed: {
-      ...mapState(['listLesson', 'listLearnUnit']),
+      ...mapState(['listLesson', 'listLearnUnit', 'user']),
       nextUnit(){
         const { unit, lesson } = this
           let listActiveLearnUnit =  lesson.learn_units
@@ -186,12 +187,12 @@
           console.log('activeItem', unit.learn_items[activeItemIndex])
           return unit.learn_items[activeItemIndex]
         }
-          console.log('activeItem default')
         return {}
       }
     },
     data() {
       return {
+        unitId: this.$route.params.id,
         lessonID: this.$route.params.lessonId,
         lesson: {},
         userAnswer: '',
@@ -214,7 +215,18 @@
           return
         }
         this.activeItemIndex ++
+          //if this is last page => send pint
         if(this.activeItemIndex == this.unit.learn_items.length) {
+            console.log(Api)
+            Api.savePoint(
+              {
+                  lession_id: this.lessonID,
+                  learn_unit_id: this.unitId,
+                  learn_item_id: 0,
+                  progress: this.resultPoint(),
+                  user_id: this.user.id
+              }
+            )
           this.showResult = true
         }
       },

@@ -4,6 +4,12 @@ import axios from "axios"
 Vue.use(Vuex)
 let loginUser =  window.getCookie('userInfo')
 let defaultUser = loginUser ? JSON.parse(loginUser) : {}
+if(!loginUser.id && window.location.host.indexOf('localhost') > -1) {
+  defaultUser = {
+    id: 1,
+    name: 'NhaGG'
+  }
+}
 const state = {
   domainAPI: window.DOMAIN_API,
   sidebarShow: 'responsive',
@@ -12,7 +18,7 @@ const state = {
   listLearnUnit: [],
   activeCourse: 2,
   sidebarMinimize: false,
-  user: window.location.host.indexOf('localhost') > -1 ? defaultUser : {}
+  user: defaultUser
 }
 const actions = {
   async GET_LIST_COURSE({commit, state}) {
