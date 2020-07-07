@@ -22,7 +22,47 @@
                     </div>
                 </div>
                 <div class="report-result">
-                    (600/1125)
+                    (600/1500)
+                </div>
+            </div>
+            <div class="report-item">
+                <div class="report-label">
+                    Ngữ pháp
+                </div>
+                <div class="report-progress">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 10%"
+                             aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                            10%
+                        </div>
+                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 4%"
+                             aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">
+                            4%
+                        </div>
+                    </div>
+                </div>
+                <div class="report-result">
+                    (14/100)
+                </div>
+            </div>
+            <div class="report-item">
+                <div class="report-label">
+                    Phát âm
+                </div>
+                <div class="report-progress">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 20%"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                            20%
+                        </div>
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 5%"
+                             aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+                            5%
+                        </div>
+                    </div>
+                </div>
+                <div class="report-result">
+                    (7/25)
                 </div>
             </div>
         </div>

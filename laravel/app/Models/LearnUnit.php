@@ -65,12 +65,12 @@ class LearnUnit extends Model
 
     protected $hidden = ['created_at', 'updated_at', 'lession_id', 'learn_item_id'];
 
-    protected $with = ['lession', 'learnItems'];
+    protected $with = ['learnItems'];
 
-    public function lession()
-    {
-        return $this->hasOne(Lession::class, 'id', 'lession_id');
-    }
+//    public function lession()
+//    {
+//        return $this->hasOne(Lession::class, 'id', 'lession_id');
+//    }
 
 
     public function learnItems()

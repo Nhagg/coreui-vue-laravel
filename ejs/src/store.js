@@ -2,10 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from "axios"
 Vue.use(Vuex)
-let defaultUser = {
-  id: 1,
-  name: 'Nhạ'
-}
+let loginUser =  window.getCookie('userInfo')
+let defaultUser = loginUser ? JSON.parse(loginUser) : {}
 const state = {
   domainAPI: window.DOMAIN_API,
   sidebarShow: 'responsive',
@@ -76,6 +74,8 @@ const mutations = {
     state.listLearnUnit = data
   },
   setUser(state, user) {
+    window.setCookie('userInfo', JSON.stringify(user), 1)
+    console.log('setUser', user)
     state.user = user
   }
 }

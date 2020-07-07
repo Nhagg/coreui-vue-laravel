@@ -149,6 +149,15 @@
         alert('Không tìm thấy bài học')
         return
       }
+        await axios.get(window.DOMAIN_API + '/api/lessions/' + this.lessonID).then(
+          res => {
+              this.lesson = res.data.data
+              console.log('lesson', this.lesson)
+          }
+        ).catch(e => {
+            console.log(e)
+            alert(e.message)
+        })
       await axios.get(window.DOMAIN_API + '/api/learn_units/' + unitId).then(
         res => {
           this.unit = res.data.data
@@ -162,11 +171,9 @@
     },
     computed: {
       ...mapState(['listLesson', 'listLearnUnit']),
-      listActiveLearnUnit(){
-        return this.listLearnUnit.filter(u => u.lession.id == this.lessonID)
-      },
       nextUnit(){
-        const { unit, listActiveLearnUnit } = this
+        const { unit, lesson } = this
+          let listActiveLearnUnit =  lesson.learn_units
         let unitIndex = listActiveLearnUnit.findIndex(u => u.id == unit.id)
         if(unitIndex == -1 || unitIndex == listActiveLearnUnit.length - 1) {
           return {}
@@ -179,12 +186,14 @@
           console.log('activeItem', unit.learn_items[activeItemIndex])
           return unit.learn_items[activeItemIndex]
         }
+          console.log('activeItem default')
         return {}
       }
     },
     data() {
       return {
         lessonID: this.$route.params.lessonId,
+        lesson: {},
         userAnswer: '',
         resetStatus: false,
         showResult: false,
