@@ -13,7 +13,7 @@
             </div>
             <div class="progress-circle" data-progress="10"></div>
         </div>
-        <div class="row custom-row mt-3">
+        <div class="row custom-row mt-3" v-if="lesson.learn_units">
             <div class="col-md-8">
                 <div class="unit-type-header">
                     <img src="/img/new-word.png" alt="unitType">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="row custom-row list-unit">
                     <div
-                        v-for="unit in listActiveLearnUnit.filter(u => u.type == 'new_word')"
+                        v-for="unit in lesson.learn_units.filter(u => u.type == 'new_word')"
                         :key="unit.id"
                         class="col-md-4"
                     >
@@ -54,7 +54,7 @@
                     </div>
                     <div class="list-unit">
                         <div
-                            v-for="unit in listActiveLearnUnit.filter(u => u.type == unitType.type)"
+                            v-for="unit in lesson.learn_units.filter(u => u.type == unitType.type)"
                             :key="unit.id"
                             class="unit-type-item"
                         >
@@ -83,42 +83,22 @@
     name: 'Lesson',
     components: {},
     computed: {
-      ...mapState(['listLesson', 'listLearnUnit']),
-      lesson() {
-        let res = {}
-        const listLesson = this.listLesson
-        const lessonId = this.$route.params.id
-        if(!listLesson || listLesson.length == 0 || !lessonId) {
-          return res
-        }
-        let lessonIndex = listLesson.findIndex(s => s.id == lessonId)
-        if(lessonIndex === -1) {
-          alert('Không tìm thấy bài học')
-          return {}
-        }
-        return {
-          ...listLesson[lessonIndex],
-          lessonIndex: lessonIndex + 1
-        }
-      },
-      listActiveLearnUnit(){
-        return this.listLearnUnit.filter(u => u.lession.id === this.lesson.id)
-      }
+      ...mapState(['listLesson', 'listLearnUnit'])
     },
     async mounted() {
       this.$modal.show('loading');
       await this.$store.dispatch('GET_LIST_LESSON')
       await this.$store.dispatch('GET_LIST_LEARN_UNIT')
       this.$modal.hide('loading');
-      // await axios.get(window.DOMAIN_API + '/api/lessions/' + this.$route.params.id).then(
-      //   res => {
-      //     this.unit = res.data.data
-      //     console.log('unit', this.unit)
-      //   }
-      // ).catch(e => {
-      //   console.log(e)
-      //   alert(e.message)
-      // })
+      await axios.get(window.DOMAIN_API + '/api/lessions/' + this.$route.params.id).then(
+        res => {
+          this.lesson = res.data.data
+          console.log('lesson', this.lesson)
+        }
+      ).catch(e => {
+        console.log(e)
+        alert(e.message)
+      })
     },
     data() {
       return {
@@ -139,6 +119,7 @@
             name: 'Làm bài tập'
           }
         ],
+         lesson: {},
         learnUnits: []
       }
     },
