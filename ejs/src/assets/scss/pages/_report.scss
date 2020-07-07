@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     font-size: 18px;
+    margin-top: 20px;
     .progress {
       height: 30px;
       border-radius: 1px;
@@ -10,6 +11,7 @@
     }
     .report-label {
       font-weight: 500;
+      width: 100px;
     }
     .report-progress {
       flex: 1;

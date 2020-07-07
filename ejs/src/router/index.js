@@ -9,6 +9,8 @@ const UnitLayout = () => import('@/containers/UnitLayout')
 const Home = () => import('@/views/Home')
 const Rules = () => import('@/views/Rules')
 const Notifications = () => import('@/views/Notifications')
+const News = () => import('@/views/News')
+const DetailNews = () => import('@/views/DetailNews')
 const Courses = () => import('@/views/Courses')
 const OurCenter = () => import('@/views/OurCenter')
 //Course
@@ -37,17 +39,22 @@ function configRoutes () {
         {
           path: '/',
           name: 'Home',
-          component: Home
-        },
-        {
-          path: '/our-center',
-          name: 'OurCenter',
           component: OurCenter
         },
         {
           path: '/rules',
           name: 'Rules',
           component: Rules
+        },
+        {
+          path: '/news',
+          name: 'News',
+          component: News
+        },
+        {
+          path: '/news/:id',
+          name: 'DetailNews',
+          component: DetailNews
         },
         {
           path: '/notifications',

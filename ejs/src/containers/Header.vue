@@ -4,7 +4,7 @@
       <ul class="nav justify-content-end">
         <li>
           <a href="/" class="nav-link" :class="{ active: $route.path == '/', }">
-            ホーム（ページ
+            ホーム
           </a>
         </li>
         <li v-for="course in listCourse" :key="course.id" class="nav-item">

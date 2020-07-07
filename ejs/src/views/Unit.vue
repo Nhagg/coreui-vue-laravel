@@ -128,6 +128,7 @@
   import GrammarInformation2 from "./Item/GrammarInformation2";
   import GrammarSpeak2 from "./Item/GrammarSpeak2";
   import Default from "./Item/Default";
+  import Api from '../Api/Index'
   const FREE_TYPE = ['newword_speak_1', 'grammar_speak_1', 'grammar_speak_2']
   export default {
     name: 'Unit',
@@ -142,13 +143,22 @@
     },
     async mounted() {
       this.$modal.show('loading');
-      let unitId = this.$route.params.id
+      let unitId = this.unitId
       await this.$store.dispatch('GET_LIST_LESSON')
       await this.$store.dispatch('GET_LIST_LEARN_UNIT')
       if( !unitId) {
         alert('Không tìm thấy bài học')
         return
       }
+        await axios.get(window.DOMAIN_API + '/api/lessions/' + this.lessonID).then(
+          res => {
+              this.lesson = res.data.data
+              console.log('lesson', this.lesson)
+          }
+        ).catch(e => {
+            console.log(e)
+            alert(e.message)
+        })
       await axios.get(window.DOMAIN_API + '/api/learn_units/' + unitId).then(
         res => {
           this.unit = res.data.data
@@ -161,12 +171,10 @@
       this.$modal.hide('loading');
     },
     computed: {
-      ...mapState(['listLesson', 'listLearnUnit']),
-      listActiveLearnUnit(){
-        return this.listLearnUnit.filter(u => u.lession.id == this.lessonID)
-      },
+      ...mapState(['listLesson', 'listLearnUnit', 'user']),
       nextUnit(){
-        const { unit, listActiveLearnUnit } = this
+        const { unit, lesson } = this
+          let listActiveLearnUnit =  lesson.learn_units
         let unitIndex = listActiveLearnUnit.findIndex(u => u.id == unit.id)
         if(unitIndex == -1 || unitIndex == listActiveLearnUnit.length - 1) {
           return {}
@@ -184,7 +192,9 @@
     },
     data() {
       return {
+        unitId: this.$route.params.id,
         lessonID: this.$route.params.lessonId,
+        lesson: {},
         userAnswer: '',
         resetStatus: false,
         showResult: false,
@@ -205,7 +215,18 @@
           return
         }
         this.activeItemIndex ++
+          //if this is last page => send pint
         if(this.activeItemIndex == this.unit.learn_items.length) {
+            console.log(Api)
+            Api.savePoint(
+              {
+                  lession_id: this.lessonID,
+                  learn_unit_id: this.unitId,
+                  learn_item_id: 0,
+                  progress: this.resultPoint(),
+                  user_id: this.user.id
+              }
+            )
           this.showResult = true
         }
       },

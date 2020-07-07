@@ -2,9 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from "axios"
 Vue.use(Vuex)
-let defaultUser = {
-  id: 1,
-  name: 'Nhạ'
+let loginUser =  window.getCookie('userInfo')
+let defaultUser = loginUser ? JSON.parse(loginUser) : {}
+if(!loginUser.id && window.location.host.indexOf('localhost') > -1) {
+  defaultUser = {
+    id: 1,
+    name: 'NhaGG'
+  }
 }
 const state = {
   domainAPI: window.DOMAIN_API,
@@ -14,7 +18,7 @@ const state = {
   listLearnUnit: [],
   activeCourse: 2,
   sidebarMinimize: false,
-  user: window.location.host.indexOf('localhost') > -1 ? defaultUser : {}
+  user: defaultUser
 }
 const actions = {
   async GET_LIST_COURSE({commit, state}) {
@@ -76,6 +80,8 @@ const mutations = {
     state.listLearnUnit = data
   },
   setUser(state, user) {
+    window.setCookie('userInfo', JSON.stringify(user), 1)
+    console.log('setUser', user)
     state.user = user
   }
 }
