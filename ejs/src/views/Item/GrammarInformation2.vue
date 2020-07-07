@@ -1,11 +1,11 @@
 <template>
     <div class="container grammar-info-1 text-center">
-        <div class="item-list-answer mt-5" v-if="!item.showText">
+        <div class="mt-5" v-if="!item.showText">
             <div class="row">
                 <div class="col-sm-10 offset-1">
                     <h3>Bạn hãy dành thời gian để hiểu cấu trúc ngữ pháp này</h3>
-                    <div class="item-answer mt-4">
-                        <img :src="$getItemImg(unit, item, 1)" alt="grammar0img">
+                    <div class="mt-4">
+                        <img :src="$getItemImg(unit, item, 1)" alt="grammar0img" class="w-100">
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ let defaultData = {
 }
 async function savePoint(data = defaultData){
   let res
-  res = await axios.post(window.DOMAIN_API + '/api/lessions', data,
+  res = await axios.post(window.DOMAIN_API + '/api/tracking', data,
     {
       headers: {
         'Access-Control-Allow-Origin': '*',
