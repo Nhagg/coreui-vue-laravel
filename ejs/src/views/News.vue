@@ -2,17 +2,17 @@
     <div class="home-content pt-5">
         <div class="news">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                     <router-link to="/news/1">
-                        <h3>QUY ĐỊNH MỚI KHI NHẬP CẢNH VÀO NHẬT BẢN TỪ 01/10/2018</h3>
+                        <h5>QUY ĐỊNH MỚI KHI NHẬP CẢNH VÀO NHẬT BẢN TỪ 01/10/2018</h5>
                     </router-link>
                 </div>
-                <div class="col-sm-3 text-right fw-500">
-                    Thứ bảy, 4/7/2020, 07:00
+                <div class="col-sm-2 text-right fw-500">
+                    <small>Thứ bảy, 4/7/2020, 07:00</small>
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <img src="../assets/img/news/1_2.jpg" alt="">
                 </div>
                 <div class="col-sm-8">
@@ -24,17 +24,17 @@
         </div>
         <div class="news mt-5">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                     <router-link to="/news/2">
-                        <h3>MƯA LỚN TIẾP TỤC ĐE DỌA VÙNG KYUSHU, NHẬT BẢN</h3>
+                        <h5>MƯA LỚN TIẾP TỤC ĐE DỌA VÙNG KYUSHU, NHẬT BẢN</h5>
                     </router-link>
                 </div>
-                <div class="col-sm-3 text-right fw-500">
-                    Thứ sáu, 3/7/2020, 09:00
+                <div class="col-sm-2 text-right fw-500">
+                    <small>Thứ sáu, 3/7/2020, 09:00</small>
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <img src="../assets/img/news/2_1.jpg" alt="">
                 </div>
                 <div class="col-sm-8">
@@ -46,19 +46,19 @@
         </div>
         <div class="news mt-5">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                     <router-link to="/news/3">
-                        <h3>
+                        <h5>
                             Đưa công dân Việt Nam từ Nhật Bản về nước
-                        </h3>
+                        </h5>
                     </router-link>
                 </div>
-                <div class="col-sm-3 text-right fw-500">
-                    Thứ ba, 30/6/2020, 13:00
+                <div class="col-sm-2 text-right fw-500">
+                    <small>Thứ ba, 30/6/2020, 13:00</small>
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <img src="../assets/img/news/3_1.jpg" alt="">
                 </div>
                 <div class="col-sm-8">
