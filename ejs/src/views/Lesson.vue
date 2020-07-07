@@ -96,6 +96,7 @@
           alert('Không tìm thấy bài học')
           return {}
         }
+          console.log('this.$route.params', listLesson, lessonIndex)
         return {
           ...listLesson[lessonIndex],
           lessonIndex: lessonIndex + 1
@@ -110,15 +111,15 @@
       await this.$store.dispatch('GET_LIST_LESSON')
       await this.$store.dispatch('GET_LIST_LEARN_UNIT')
       this.$modal.hide('loading');
-      // await axios.get(window.DOMAIN_API + '/api/lessions/' + this.$route.params.id).then(
-      //   res => {
-      //     this.unit = res.data.data
-      //     console.log('unit', this.unit)
-      //   }
-      // ).catch(e => {
-      //   console.log(e)
-      //   alert(e.message)
-      // })
+      await axios.get(window.DOMAIN_API + '/api/lessions/' + this.$route.params.id).then(
+        res => {
+          this.unit = res.data.data
+          console.log('unit', this.unit)
+        }
+      ).catch(e => {
+        console.log(e)
+        alert(e.message)
+      })
     },
     data() {
       return {
