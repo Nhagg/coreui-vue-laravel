@@ -6,7 +6,7 @@ let loginUser =  window.getCookie('userInfo')
 let defaultUser = loginUser ? JSON.parse(loginUser) : {}
 if(!loginUser.id && window.location.host.indexOf('localhost') > -1) {
   defaultUser = {
-    id: 1,
+    id: 18,
     name: 'NhaGG'
   }
 }

@@ -101,35 +101,35 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="list-sentence-footer">
-                            <div class="content">
-                                <div v-if="userAnswer">
-                                    <div v-if="isCorrect()" class="text-green">
-                                        Đáp án chính xác
-                                    </div>
-                                    <div v-else-if="!isCorrect()" class="fs-20">
+                    </div>
+                    <div v-if="activeItem.type == 'conversation_sentence_1'" class="list-sentence-footer">
+                        <div class="content">
+                            <div v-if="userAnswer">
+                                <div v-if="isCorrect()" class="text-green">
+                                    Đáp án chính xác
+                                </div>
+                                <div v-else-if="!isCorrect()" class="fs-20">
                                             <span>
                                                 Phát âm của bạn:
                                             </span>
-                                        <div>
-                                            {{ userAnswer }}
-                                        </div>
+                                    <div>
+                                        {{ userAnswer }}
                                     </div>
                                 </div>
                             </div>
-                            <div
-                              v-if="checkActiveConversation(activeItem)"
-                              class="btn-micro"
-                              :class="{ 'active': microStatus }"
-                              @click="toggleMicro"
-                            >
-                                <i class="fa fa-microphone-alt"></i>
-                            </div>
-                            <button class="btn btn-green btn-continue" @click="nextPage">
-                                Tiếp theo
-                                <i class="fa fa-arrow-right"></i>
-                            </button>
                         </div>
+                        <div
+                          v-if="checkActiveConversation(activeItem)"
+                          class="btn-micro"
+                          :class="{ 'active': microStatus }"
+                          @click="toggleMicro"
+                        >
+                            <i class="fa fa-microphone-alt"></i>
+                        </div>
+                        <button class="btn btn-green btn-continue" @click="nextPage">
+                            Tiếp theo
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
                 <div v-else class="col-md-7 right-content">
@@ -155,7 +155,7 @@
                                     <i class="fa fa-undo"></i>
                                 </button>
                                 <a
-                                  v-if="nextUnit.id"
+                                  v-if="nextUnit && nextUnit.id"
                                   :href="'/lesson/' + lessonID + '/unit/' + nextUnit.id"
                                   class="btn ml-3"
                                 >
@@ -182,6 +182,7 @@
         components: {
         },
         async mounted() {
+            this.$modal.show('loading');
             let unitId = this.$route.params.id
             await this.$store.dispatch('GET_LIST_LESSON')
             await this.$store.dispatch('GET_LIST_LEARN_UNIT')
@@ -189,6 +190,15 @@
                 alert('Không tìm thấy bài học')
                 return
             }
+            await axios.get(window.DOMAIN_API + '/api/lessions/' + this.lessonID).then(
+              res => {
+                  this.lesson = res.data.data
+                  console.log('lesson', this.lesson)
+              }
+            ).catch(e => {
+                console.log(e)
+                alert(e.message)
+            })
             await axios.get(window.DOMAIN_API + '/api/learn_units/' + unitId).then(
               res => {
                   this.unit = res.data.data
@@ -209,14 +219,13 @@
                 recognition.stop()
                 this.microStatus = false
             }
+            this.$modal.hide('loading');
         },
         computed: {
-            ...mapState(['listLesson', 'listLearnUnit']),
-            listActiveLearnUnit(){
-                return this.listLearnUnit.filter(u => u.lession.id == this.lessonID)
-            },
+            ...mapState(['listLesson']),
             nextUnit(){
-                const { unit, listActiveLearnUnit } = this
+                const { unit } = this
+                let listActiveLearnUnit = this.lesson.learn_units
                 let unitIndex = listActiveLearnUnit.findIndex(u => u.id == unit.id)
                 if(unitIndex == -1 || unitIndex == listActiveLearnUnit.length - 1) {
                     return {}
@@ -233,6 +242,7 @@
                     }
                     return res
                 }
+                console.log('activeItem end')
                 return {}
             },
             itemConfig() {
@@ -278,6 +288,7 @@
                 resetStatus: false,
                 microStatus: false,
                 showResult: false,
+                lesson: {},
                 unit: {},
                 activePersonIndex: 2,
                 activeItemIndex: 1,
@@ -317,6 +328,7 @@
                 if(this.activeItem.type == 'conversation_context') {
                     this.activeContextIndex ++
                 }
+                console.log('nextPage', this.unit.learn_items.length, this.activeItemIndex)
                 if(this.activeItemIndex == this.unit.learn_items.length) {
                     this.showResult = true
                 }
@@ -352,6 +364,7 @@
                 return ''
             },
             resultPoint() {
+                console.log('resultPoint')
                 let totalPoint = 0
                 const listItem = this.unit.learn_items.filter(i => i.type == 'conversation_sentence_1')
                 let totalScore = 0
@@ -366,6 +379,7 @@
                       }
                   }
                 )
+                console.log('resultPoint ed')
                 return parseInt((totalPoint * 100)/totalScore)
             },
             playVolume(text) {

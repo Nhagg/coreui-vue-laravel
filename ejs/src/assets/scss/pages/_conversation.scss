@@ -32,6 +32,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow-y: auto;
+      height: 100vh;
+      position: relative;
+      padding-top: 80px;
+      padding-bottom: 20px;
+      overflow-y: auto;
       .btn-green {
         font-size: 24px;
         padding: 10px 25px;
@@ -44,47 +50,47 @@
         height: 100%;
         width: 100%;
         position: relative;
-        .list-sentence-footer {
-          position: absolute;
-          height: 80px;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          .content {
-            flex: 1;
-            font-size: 24px;
-            font-weight: 500;
-          }
+      }
+      .btn-continue {
+        i {
+          margin-left: 10px;
         }
-        .btn-continue {
-          i {
-            margin-left: 10px;
-          }
+      }
+      .list-sentence-footer {
+        position: fixed;
+        height: 80px;
+        bottom: 30px;
+        left: 42%;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .content {
+          flex: 1;
+          font-size: 24px;
+          font-weight: 500;
         }
-        .btn-micro {
-          float: right;
-          cursor: pointer;
-          width: 100px;
-          height: 100px;
-          border: solid 1px #000;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #fff;
-          margin-right: 40px;
-          margin-bottom: 20px;
-          &.active {
-            background-color: $text-red;
-            border-color: $text-red;
-            color: #fff;
-          }
-          i {
-            font-size: 60px;
-          }
+      }
+      .btn-micro {
+        float: right;
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        border: solid 1px #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        margin-right: 40px;
+        margin-bottom: 20px;
+        &.active {
+          background-color: $text-red;
+          border-color: $text-red;
+          color: #fff;
+        }
+        i {
+          font-size: 60px;
         }
       }
       .right-main {
@@ -101,6 +107,9 @@
         .conversation-item-name {
           font-weight: 500;
           margin-right: 20px;
+          .japan-name {
+            min-width: 50px;
+          }
         }
         .conversation-item-text {
           display: flex;
@@ -109,7 +118,7 @@
           padding: 15px 30px;
           border: solid 2px #ddd;
           border-radius: 14px;
-          font-size: 20px;
+          font-size: 18px;
           position: relative;
           .compare-text{
             span {
@@ -207,7 +216,6 @@
 }
 .conversation-footer {
   padding: 20px;
-  text-align: right;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -224,18 +232,20 @@
   .study-footer-left {
     color: #fff;
     font-size: 20px;
+    flex: 1;
   }
-  .btn-learn-again {
-    color: #fff;
+  .btn {
     border: solid 2px #fff;
-    border-radius: 10px;
-    padding: 5px 30px;
-    font-size: 20px;
     background-color: transparent;
-    float: right;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px 20px;
+    color: #fff;
+    :not(:first-child) {
+      margin-right: 10px;
+    }
     i {
-      margin-left: 8px;
-      font-size: 16px;
+      margin-left: 10px;
     }
   }
 }
