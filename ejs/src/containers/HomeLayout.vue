@@ -139,10 +139,10 @@
         const gData = await AuthService.authViaGoogle(this.$gAuth)
         this.$jquery('#loginModal').modal('hide')
         this.$modal.show('loading');
-        const response = await axios.post(window.DOMAIN_API + '/api/auth', gData).catch(err => { console.log(err) })
+        let response = await axios.post(window.DOMAIN_API + '/api/auth', gData).catch(err => { console.log(err) })
         this.$modal.hide('loading');
         if (!response) {
-          return {
+          response =  {
             success: true,
             data: {
               id: 1,

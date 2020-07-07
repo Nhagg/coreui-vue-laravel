@@ -1,4 +1,3 @@
-import axios from "axios"
 
 async function authViaGoogle(gAuth) {
     const googleUser = await gAuth.signIn()
