@@ -11,7 +11,7 @@
           <a
             :href="'/course/' + course.id"
             class="nav-link"
-            :class="{ active: activeCourse == course.id}"
+            :class="{ active: $route.path == '/course/' + course.id }"
           >
             {{ course.name }}
           </a>

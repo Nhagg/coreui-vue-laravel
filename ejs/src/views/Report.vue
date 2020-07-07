@@ -7,9 +7,16 @@
                 </div>
                 <div class="report-progress">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 30%"
-                             aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-                            30%
+                        <div
+                          v-if="getPoint('new_word', 'good')"
+                          class="progress-bar progress-bar-striped bg-success"
+                          role="progressbar"
+                          :style="`width: ${getPoint('new_word', 'good')}%`"
+                          :aria-valuenow="getPoint('new_word', 'good')"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        >
+                            {{ getPoint('new_word', 'good') + '%' }}
                         </div>
                         <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 20%"
                              aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
@@ -22,7 +29,7 @@
                     </div>
                 </div>
                 <div class="report-result">
-                    (600/1500)
+                    {{ listUnit.length + '/' + maxNewWork }}
                 </div>
             </div>
             <div class="report-item">
@@ -42,7 +49,7 @@
                     </div>
                 </div>
                 <div class="report-result">
-                    (14/100)
+                    {{ listUnit.length + '/' + maxGrammar }}
                 </div>
             </div>
             <div class="report-item">
@@ -62,7 +69,7 @@
                     </div>
                 </div>
                 <div class="report-result">
-                    (7/25)
+                    {{ listUnit.length + '/' + maxGrammar }}
                 </div>
             </div>
         </div>
@@ -87,11 +94,15 @@
 <script>
   // import axios from 'axios'
   import { mapState } from "vuex";
+  import axios from "axios";
+  const maxNewWork = 600
+  const maxGrammar = 25
+  const maxConversation = 25
   export default {
     name: 'Home',
     components: {},
     computed: {
-      ...mapState(['domainAPI']),
+      ...mapState(['domainAPI', 'user']),
     },
     watch: {
       activeCourse(val) {
@@ -99,9 +110,16 @@
       }
     },
     async mounted() {
+        let res = await axios.get(window.DOMAIN_API + '/api/tracking?user_id=' + this.user.id)
+        if(res.data.success) {
+            this.listUnit = res.data.data
+        }
     },
     data() {
       return {
+          maxNewWork,
+          maxGrammar,
+          maxConversation,
           learnUnitTypes: [
               {
                   type: 'new_word',
@@ -118,10 +136,33 @@
                   imgUrl: '/img/conversation.png',
                   name: 'Phát âm'
               }
-          ]
+          ],
+          listUnit: []
       }
     },
     methods: {
+        getPoint(wordType, pointType) {
+            let listWork = this.listUnit.filter(u => u.type == wordType)
+            if(pointType == 'good') {
+                listWork = listWork.filter(u => u.progress >= 80)
+            }
+            if(pointType == 'bad') {
+                listWork = listWork.filter(u => u.progress < 50)
+            }
+            if(pointType == 'good') {
+                listWork = listWork.filter(u => u.progress >= 50 && u.progress < 80)
+            }
+            if(wordType == 'new_work') {
+                return parseInt(listWork.length * 100 / maxNewWork)
+            }
+            if(wordType == 'grammar') {
+                return parseInt(listWork.length * 100 / maxGrammar)
+            }
+            if(wordType == 'conversation') {
+                return parseInt(listWork.length * 100 / maxConversation)
+            }
+            return 0
+        }
     }
   }
 </script>
