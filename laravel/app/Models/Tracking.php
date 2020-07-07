@@ -57,5 +57,19 @@ class Tracking extends Model
 
     ];
 
+    public function learnUnit()
+    {
+        return $this->hasOne(LearnUnit::class, 'id', 'learn_unit_id')->without('learnItems')->select('id', 'type', 'name_native_language', 'name_forgein_language');
+    }
+
+    public function learnItem()
+    {
+        return $this->hasOne(LearnItem::class, 'id', 'learn_item_id');
+    }
+
+    public function lession()
+    {
+        return $this->hasOne(Lession::class, 'id', 'lession_id');
+    }
 
 }

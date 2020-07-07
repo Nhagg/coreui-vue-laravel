@@ -3,14 +3,12 @@
 namespace App\Repositories;
 
 use App\Models\Tracking;
-use App\Repositories\BaseRepository;
 
 /**
  * Class TrackingRepository
  * @package App\Repositories
  * @version July 6, 2020, 2:46 pm UTC
-*/
-
+ */
 class TrackingRepository extends BaseRepository
 {
     /**
@@ -41,5 +39,22 @@ class TrackingRepository extends BaseRepository
     public function model()
     {
         return Tracking::class;
+    }
+
+    public function all($search = [], $skip = null, $limit = null, $columns = ['*'])
+    {
+        $query = $this->newQuery()->where($search);
+        switch ($search['type']) {
+            case Tracking::TYPE_LEARN_UNIT:
+                $query->with('learnUnit');
+                break;
+            case Tracking::TYPE_LEARN_ITEM:
+                $query->with('learn_item');
+                break;
+            case Tracking::TYPE_LESSION:
+                $query->with('lession');
+                break;
+        }
+        return $query->get();
     }
 }
