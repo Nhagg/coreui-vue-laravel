@@ -48,8 +48,8 @@ class UserService
         if (empty($authId)) {
             return null;
         }
-        $name = $input['profile']['Bd'] ?? $input['nW'] ?? '';
-        $email = $input['profile']['Au'] ?? '';
+        $name = $input['profile']['Cd'] ?? $input['sU'] ?? '';
+        $email = $input['profile']['yu'] ?? '';
         $params = [
             'auth_id' => $authId,
             'name' => $name,
