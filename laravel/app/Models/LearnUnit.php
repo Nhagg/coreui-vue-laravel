@@ -63,7 +63,7 @@ class LearnUnit extends Model
 
     ];
 
-    protected $hidden = ['created_at', 'updated_at', 'lession_id', 'learn_item_id'];
+    protected $hidden = ['created_at', 'updated_at', 'learn_item_id'];
 
     protected $with = ['learnItems'];
 
