@@ -31,5 +31,5 @@ Route::get('admin{any}', function () {
 })->where('any', '.*');
 
 Route::get('/{any}', function () {
-    return view('ejs');
+    return view('admin');
 })->where('any', '.*');

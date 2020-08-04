@@ -34,12 +34,13 @@
 
 <script>
 import axios from 'axios'
+import nav from './_nav'
 export default {
   name: 'Menu',
   data () {
     return {
       //minimize: false,
-      nav: [],
+      nav: nav,
       //show: true,
       buffor: [],
     }
@@ -112,14 +113,14 @@ export default {
     }
   },
   mounted () {
-    let self = this;
-    axios.get(   '/api/menu?token=' + localStorage.getItem("api_token") + '&menu=' + 'top_menu')
-    .then(function (response) {
-      self.nav = self.rebuildData(response.data);
-    }).catch(function (error) {
-      console.log(error);
-      self.$router.push({ path: '/login' });
-    });
+    // let self = this;
+    // axios.get(   '/api/menu?token=' + localStorage.getItem("api_token") + '&menu=' + 'top_menu')
+    // .then(function (response) {
+    //   self.nav = self.rebuildData(response.data);
+    // }).catch(function (error) {
+    //   console.log(error);
+    //   self.$router.push({ path: '/login' });
+    // });
   }
 }
 </script>

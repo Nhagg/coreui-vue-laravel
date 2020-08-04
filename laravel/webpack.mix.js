@@ -18,12 +18,13 @@ mix.webpackConfig({
  |
  */
 
-mix.js('resources/js/ejs.js', 'public/js')
-   .sass('resources/sass/ejs.scss', 'public/css');
+// mix.js('resources/js/ejs.js', 'public/js')
+//    .sass('resources/sass/ejs.scss', 'public/css');
 
-mix.copy('../ejs/public', 'public');
+// mix.copy('../ejs/public', 'public');
 
 
-// mix.js('resources/js/coreui.js', 'public/js')
-//     .sass('resources/sass/coreui.scss', 'public/css');
-// mix.copy('../coreui/public', 'public');
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css');
+
+mix.copy('../coreui/public', 'public');
