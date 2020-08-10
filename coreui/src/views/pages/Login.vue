@@ -7,7 +7,7 @@
             <CCardBody>
               <CForm @submit.prevent="login" method="POST">
                 <h1>Login</h1>
-                <p class="text-muted">Sign In to your account</p>
+                <p class="text-muted">Sign In to your account 123</p>
                 <CInput
                   v-model="email"
                   prependHtml="<i class='cui-user'></i>"

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import nav from './_nav'
 export default {
   name: 'Menu',

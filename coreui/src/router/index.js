@@ -52,6 +52,8 @@ const Page404 = () => import('@/views/pages/Page404')
 const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
 const Register = () => import('@/views/pages/Register')
+const CMSManagement = () => import('@/views/pages/cms/CMSManagement')
+const CMSCreate = () => import('@/views/pages/cms/CMSCreate')
 
 // Users
 const Users = () => import('@/views/users/Users')
@@ -131,6 +133,16 @@ function configRoutes () {
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard
+        },
+        {
+          path: '/cms-pages',
+          name: 'cms-pages',
+          component: CMSManagement
+        },
+        {
+          path: '/cms-pages/create',
+          name: 'cms-pages-create',
+          component: CMSCreate
         },
         {
           path: 'colors',
