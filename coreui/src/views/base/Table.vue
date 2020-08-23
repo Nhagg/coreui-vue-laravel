@@ -16,7 +16,6 @@
         :fields="fields"
         :items-per-page="small ? 10 : 5"
         :dark="dark"
-        pagination
       >
         <template #status="{item}">
           <td>

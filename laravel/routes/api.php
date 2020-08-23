@@ -99,3 +99,6 @@ Route::middleware('auth:sanctum')->group(function () {
 //        Route::get('/roles/move/move-down',    'RolesController@moveDown')->name('roles.down');
 //    });
 //});
+
+
+Route::resource('news', 'NewsAPIController');
