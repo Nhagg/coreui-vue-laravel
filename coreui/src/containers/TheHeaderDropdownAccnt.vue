@@ -66,23 +66,20 @@
 </template>
 
 <script>
-import axios from 'axios'
-export default {
+    import AuthService from '../services/Auth'
+    import Cookies from 'js-cookie'
+    export default {
   name: 'TheHeaderDropdownAccnt',
   data () {
-    return { 
+    return {
       itemsCount: 42,
     }
   },
   methods:{
-    logout(){
-      let self = this;
-      axios.post('/api/logout?token=' + localStorage.getItem("api_token"),{})
-      .then(function (response) {
-        self.$router.push({ path: '/login' });
-      }).catch(function (error) {
-        console.log(error); 
-      });
+    async logout(){
+     await AuthService.logout()
+     Cookies.set('token', '')
+     await this.$router.push({ path: '/login' });
     }
   }
 }

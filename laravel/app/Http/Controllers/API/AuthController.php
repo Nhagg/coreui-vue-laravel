@@ -45,10 +45,12 @@ class AuthController extends AppBaseController
         return $this->sendResponse($user, 'Login success!');
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        auth()->logout();
-
+        $user = $request->user();
+        if (!empty($user)) {
+            $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
+        }
         return $this->sendResponse(null, 'Successfully logged out');
     }
 

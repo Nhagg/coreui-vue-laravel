@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,21 +24,13 @@ Route::resource('lessions', 'LessionAPIController');
 Route::resource('student_settings', 'StudentSettingAPIController');
 Route::resource('user_classes', 'UserClassAPIController');
 
-
-
 Route::resource('conversation_persons', 'ConversationPersonAPIController');
 
 Route::post("login", "AuthController@login");
-
 Route::post("auth", "AuthController@auth");
-Route::post('register', 'AuthController@register');
-Route::resource('users', 'UserAPIController');
-
-
 Route::resource('tracking', 'TrackingAPIController');
-
 Route::middleware('auth:sanctum')->group(function () {
-
+    Route::post("logout", "AuthController@logout");
 });
 //
 //Route::group(['middleware' => 'api'], function ($router) {

@@ -26,10 +26,6 @@ Route::post(
     '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
 )->name('io_generator_builder_generate_from_file');
 
-Route::get('admin{any}', function () {
+Route::get('/{vue_capture?}', function () {
     return view('admin');
-})->where('any', '.*');
-
-Route::get('/{any}', function () {
-    return view('admin');
-})->where('any', '.*');
+})->where('vue_capture', '[\/\w\.-]*');
