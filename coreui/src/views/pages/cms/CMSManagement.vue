@@ -59,7 +59,7 @@
         data() {
             return {
                 viewed: false,
-                items: Array,
+                items: [],
                 fields: ['id', 'short_name', 'name', 'updated_at', 'actions'],
                 caption: {
                     type: String,
