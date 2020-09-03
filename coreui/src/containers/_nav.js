@@ -17,6 +17,12 @@ export default [
         name: 'CMS Pages',
         to: '/cms-pages',
         icon: 'cil-pencil'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'User',
+        to: '/user',
+        icon: 'cil-user'
       }
     ]
   }

@@ -1,13 +1,13 @@
 import VueRouter from "vue-router";
 import Vue from 'vue'
 import Cookies from "js-cookie";
-import Dev from '@/router/dev'
+// import Dev from '@/router/dev'
 import Prod from '@/router/prod'
 
 Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
-    routes: process.env.NODE_ENV === 'development' ? Dev : Dev
+    routes: process.env.NODE_ENV === 'development' ? Prod : Prod
 });
 
 router.beforeEach((to, from, next) => {

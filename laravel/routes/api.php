@@ -53,7 +53,6 @@ Route::middleware('auth:sanctum')->group(function () {
 //
 //        Route::resource('bread',  'BreadController');   //create BREAD (resource)
 //
-//        Route::resource('users', 'UsersController')->except( ['create', 'store'] );
 //
 //        Route::prefix('menu/menu')->group(function () {
 //            Route::get('/',         'MenuEditController@index')->name('menu.menu.index');
@@ -102,3 +101,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 Route::resource('news', 'NewsAPIController');
+Route::resource('users', 'UserAPIController');
