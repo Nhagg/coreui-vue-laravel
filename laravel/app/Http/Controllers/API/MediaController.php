@@ -22,7 +22,7 @@ class MediaController extends Controller
 
 		return response()->json([
 			'success' => true,
-			'result' => $result
+			'data' => $result
 		]);
 	}
 
@@ -37,11 +37,11 @@ class MediaController extends Controller
 		$result = [];
 
 		$result['folders'] = Storage::disk('media')->allDirectories($parentFolder);
-		$result['files']  = Storage::disk('media')->allFiles($parentFolder);
+		$result['files'] = Storage::disk('media')->allFiles($parentFolder);
 
 		return response()->json([
 			'success' => true,
-			'result' => $result
+			'data' => $result
 		]);
 	}
 
@@ -49,9 +49,9 @@ class MediaController extends Controller
 	{
 		$validatedData = request()->validate([
 			'file' => "required",
-			'path' => "string",
+			'path' => "string|nullable",
 			'name' => "string",
-			'action'=> "string"
+			'action' => "string"
 		]);
 		/**
 		 * @var UploadedFile $file
@@ -65,12 +65,13 @@ class MediaController extends Controller
 		if (!isset($type) || !in_array($type, array("image/png", "image/jpeg", "image/gif"))) {
 			return response()->json([
 				'success' => false,
-				'result' => 'invalid_image_type'
+				'data' => 'invalid_image_type'
 			]);
 		}
 
-		$name = isset($validatedData['name']) ? $validatedData['name'] : $originalName;
-		$path = isset($validatedData['path']) ? $validatedData['path'] : '';
+		$path = isset($validatedData['path']) ? '/' . $validatedData['path'] . '/' : '/';
+		$name = isset($validatedData['name']) ? $path . $validatedData['name'] : $path . $originalName;
+		$fileName = isset($validatedData['name']) ? $validatedData['name'] : $originalName;
 		$action = isset($validatedData['action']) ? $validatedData['action'] : '';
 
 		$fileExist = Storage::disk('media')->exists($name);
@@ -85,15 +86,19 @@ class MediaController extends Controller
 		if ($fileExist && $action === 'override') {
 			Storage::disk('media')->delete($name);
 		}
-
+//		dd($path);
 		//move to images folder
-		$createdFileName = Storage::disk('media')->put($path, $file);
+		$createdFileName = Storage::disk('media')->put($path . '/', $file);
 		//rename
 		Storage::disk('media')->move($createdFileName, $name);
 
 		return response()->json([
 			'success' => true,
-			'result' => $name
+			'data' => [
+				'name' => $fileName,
+				'path' => $name,
+				'url' => '/images' . $name
+			]
 		]);
 	}
 
