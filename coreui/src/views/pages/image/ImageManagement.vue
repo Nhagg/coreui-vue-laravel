@@ -2,11 +2,11 @@
     <div>
         <div class="row">
             <div class="col">
-                <h2>Quản lý CMS Pages</h2>
+                <h2>Quản lý hình ảnh</h2>
             </div>
             <div class="col text-right">
-                <router-link to="/cms-pages/create" class="btn btn-success">
-                    Tạo CMS pages
+                <router-link to="/image/create" class="btn btn-success">
+                    Tải hình ảnh
                 </router-link>
             </div>
         </div>
@@ -19,7 +19,8 @@
                 :fixed="true"
                 :items="items"
                 :fields="fields"
-                :items-per-page="10"
+                :itemsPerPage="10"
+                pagination
                 style="background: white"
             >
                 <template #content="{item}">
@@ -29,11 +30,9 @@
                 </template>
                 <template #actions="{item}">
                     <td>
-                        <CButton block color="light" @click="viewed = item">
-                            View
-                        </CButton>
-                        <CButton block color="light">Edit</CButton>
-                        <CButton block color="light">Delete</CButton>
+                        <a :href="'https://jp-learn.toprate.io/report?user_id=' + item.id" target="_blank">
+                            View Report
+                        </a>
                     </td>
                 </template>
             </CDataTable>
@@ -41,15 +40,14 @@
         <CModal
             title="Modal title"
             size="lg"
-            :show.sync="viewed"
+            :show="viewed ? true : false"
         >
             <div class="viewed__content" v-html="viewed.content"></div>
         </CModal>
     </div>
 </template>
 <script>
-    import NewsService from '../../../services/News'
-    // import StandardButtons from "../../buttons/StandardButtons";
+    import FolderService from '../../../services/Folder'
     import {cibEyeem} from '@coreui/icons'
 
     export default {
@@ -60,22 +58,35 @@
             return {
                 viewed: false,
                 items: [],
-                fields: ['id', 'short_name', 'name', 'updated_at', 'actions'],
+                fields: ['type', 'name'],
                 caption: {
                     type: String,
                     default: 'Table'
                 },
             }
         },
-        async mounted() {
-            await this.getData()
+        created() {
+            this.getData()
         },
         methods: {
             async getData() {
-                const response = await NewsService.get()
+                const response = await FolderService.get()
                 if (response.success) {
-                    this.items = response.data
+                    this.items = this.convertFolderData(response.result)
                 }
+            },
+            convertFolderData(data) {
+                let res = []
+                Object.keys(data).forEach(key => {
+                    let items = data[key]
+                    items.forEach(item => {
+                        res.push({
+                            type: key,
+                            name: item
+                        })
+                    })
+                })
+                return res
             }
         }
     }

@@ -23,6 +23,12 @@ export default [
         name: 'User',
         to: '/user',
         icon: 'cil-user'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Image',
+        to: '/image',
+        icon: 'cil-image'
       }
     ]
   }

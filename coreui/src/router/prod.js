@@ -5,11 +5,13 @@ const Dashboard = () => import('@/views/Dashboard')
 const CMSManagement = () => import('@/views/pages/cms/CMSManagement')
 const CMSCreate = () => import('@/views/pages/cms/CMSCreate')
 const UserManagement = () => import('@/views/pages/user/UserManagement')
+const ImageManagement = () => import('@/views/pages/image/ImageManagement')
+const ImageCreate = () => import('@/views/pages/image/ImageCreate')
 
 export default [
     {
         path: '/',
-        redirect: '/dashboard',
+        redirect: '/cms-pages',
         name: 'Home',
         component: TheContainer,
         children: [
@@ -37,6 +39,16 @@ export default [
                 path: '/user',
                 name: 'User',
                 component: UserManagement
+            },
+            {
+                path: '/image',
+                name: 'ImageManagement',
+                component: ImageManagement
+            },
+            {
+                path: '/image/create',
+                name: 'ImageCreate',
+                component: ImageCreate
             },
         ]
     },

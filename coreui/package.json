@@ -40,7 +40,7 @@
         "lodash.get": "^4.4.2",
         "vue": "~2.6.11",
         "vue-router": "~3.1.5",
-        "vue2-editor": "^2.10.2",
+        "vue2-editor": "^2.0.42-images",
         "vuex": "~3.1.2"
     },
     "devDependencies": {

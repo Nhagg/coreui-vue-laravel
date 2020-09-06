@@ -29,8 +29,9 @@
                     <div>
                         <div>Nội dung</div>
                         <vue-editor
+                          id="editor"
                           v-model="input.content"
-                          useCustomImageHandler
+                          :useCustomImageHandler="true"
                           @imageAdded="handleImageAdded"
                         />
                     </div>
@@ -74,12 +75,15 @@
                 // An example of using FormData
                 // NOTE: Your key could be different such as:
                 // formData.append('file', file)
-
+                console.log('handleImageAdded', file, Editor, cursorLocation, resetUploader)
                 var formData = new FormData();
-                formData.append("image", file);
+                formData.append("name", 'name');
+                formData.append("file", file);
+                formData.append("path", "news");
+                formData.append("action", "override" );
 
                 axios({
-                    url: "https://fakeapi.yoursite.com/images",
+                    url: "/api/media/file",
                     method: "POST",
                     data: formData
                 })
