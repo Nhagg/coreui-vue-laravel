@@ -55,24 +55,18 @@
         methods: {
             async onSubmit(e) {
                 var formData = new FormData();
-                formData.append("name", e.target.image_name.value);
+                // formData.append("name", e.target.image_name.value);
                 formData.append("path", e.target.path.value);
                 formData.append("action", "override" );
                 // var reader = new FileReader();
                 var file = document.getElementById('uploadImage');
                 formData.append("file", file.files[0]);
                 const response = await FolderService.uploadImage(formData)
-                console.log(response, 'response')
-                if (response.success) {
+                let data = response.data
+                if (data.success) {
                     this.$router.push("/image")
                 }
                 return false
-                // reader.onload = async function(e)
-                // {
-                //     console.log(e, 'onload')
-                //
-                // };
-                // reader.readAsBinaryString(file.files[0]);
             }
         }
     }

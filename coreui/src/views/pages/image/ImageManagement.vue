@@ -72,7 +72,7 @@
             async getData() {
                 const response = await FolderService.get()
                 if (response.success) {
-                    this.items = this.convertFolderData(response.result)
+                    this.items = this.convertFolderData(response.data)
                 }
             },
             convertFolderData(data) {

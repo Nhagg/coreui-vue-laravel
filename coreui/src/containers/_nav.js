@@ -4,31 +4,21 @@ export default [
     _children: [
       {
         _name: 'CSidebarNavItem',
-        name: 'Dashboard',
-        to: '/dashboard',
-        icon: 'cil-speedometer',
-        badge: {
-          color: 'primary',
-          text: 'NEW'
-        }
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: 'CMS Pages',
+        name: 'Tin Tức',
         to: '/cms-pages',
         icon: 'cil-pencil'
       },
       {
         _name: 'CSidebarNavItem',
-        name: 'User',
+        name: 'Người dùng',
         to: '/user',
         icon: 'cil-user'
       },
       {
         _name: 'CSidebarNavItem',
-        name: 'Image',
+        name: 'Hình ảnh',
         to: '/image',
-        icon: 'cil-image'
+        icon: 'cil-file'
       }
     ]
   }

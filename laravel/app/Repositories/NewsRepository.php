@@ -18,6 +18,7 @@ class NewsRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'short_name',
+        'image_url',
         'name',
         'content'
     ];

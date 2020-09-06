@@ -2,32 +2,39 @@
     <div>
         <CCard>
             <CCardHeader>
-                Tạo trang CMS
-                <CButton color="primary" class="float-right">
-                    Upload Images
-                </CButton>
+                Tạo tin tức
             </CCardHeader>
             <CCardBody>
                 <CForm @submit.prevent="onSubmit">
                     <div>
-                        <span>Tên ngắn gọn</span>
+                        <span>Tiêu đề</span>
                         <CInput
-                            v-model="input.short_name"
-                            autocomplete="news_name"
-                            required
+                          v-model="input.name"
+                          autocomplete="news_name"
+                          required
                         >
                         </CInput>
                     </div>
                     <div>
-                        <span>Tên đầy đủ</span>
+                        <span>Link ảnh đại diện</span>
+                        <CInput
+                          v-model="input.image_url"
+                          autocomplete="image_url"
+                          required
+                        >
+                        </CInput>
+                    </div>
+                    <div>
+                        <span>Nội dung ngắn gọn</span>
                         <CTextarea
-                            v-model="input.name"
-                            autocomplete="news_subtitle"
+                          v-model="input.short_name"
+                          autocomplete="short_name"
+                          required
                         >
                         </CTextarea>
                     </div>
-                    <div>
-                        <div>Nội dung</div>
+                    <div class="form-group">
+                        <div>Nội dung đầy đủ</div>
                         <vue-editor
                           id="editor"
                           v-model="input.content"
@@ -75,9 +82,11 @@
                 // An example of using FormData
                 // NOTE: Your key could be different such as:
                 // formData.append('file', file)
-                console.log('handleImageAdded', file, Editor, cursorLocation, resetUploader)
+                console.log('handleImageAdded', file)
+                console.log('handleImageAdded', Editor)
+                console.log('handleImageAdded', cursorLocation)
+                console.log('handleImageAdded', resetUploader)
                 var formData = new FormData();
-                formData.append("name", 'name');
                 formData.append("file", file);
                 formData.append("path", "news");
                 formData.append("action", "override" );
@@ -88,7 +97,10 @@
                     data: formData
                 })
                   .then(result => {
-                      let url = result.data.url; // Get url from response
+                      console.log(result)
+                      console.log(result.data)
+                      const res = result.data
+                      let url = res.data.url; // Get url from response
                       Editor.insertEmbed(cursorLocation, "image", url);
                       resetUploader();
                   })
