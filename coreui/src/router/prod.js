@@ -7,6 +7,10 @@ const CMSCreate = () => import('@/views/pages/cms/CMSCreate')
 const UserManagement = () => import('@/views/pages/user/UserManagement')
 const ImageManagement = () => import('@/views/pages/image/ImageManagement')
 const ImageCreate = () => import('@/views/pages/image/ImageCreate')
+const Page404 = () => import('@/views/pages/Page404')
+// const Page500 = () => import('@/views/pages/Page500')
+const Login = () => import('@/views/pages/Login')
+const Register = () => import('@/views/pages/Register')
 
 export default [
     {
@@ -31,11 +35,6 @@ export default [
                 component: CMSCreate
             },
             {
-                path: '/cms-pages/create',
-                name: 'cms-pages-create',
-                component: CMSCreate
-            },
-            {
                 path: '/user',
                 name: 'User',
                 component: UserManagement
@@ -52,4 +51,31 @@ export default [
             },
         ]
     },
+    {
+        path: '/',
+        redirect: '/login',
+        name: 'Auth',
+        component: {
+            render(c) {
+                return c('router-view')
+            }
+        },
+        children: [
+            {
+                path: 'login',
+                name: 'Login',
+                component: Login
+            },
+            {
+                path: 'register',
+                name: 'Register',
+                component: Register
+            },
+        ]
+    },
+    {
+        path: '*',
+        name: '404',
+        component: Page404
+    }
 ]
