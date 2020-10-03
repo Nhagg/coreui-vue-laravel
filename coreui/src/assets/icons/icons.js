@@ -20,7 +20,7 @@ import {
   cibCcVisa,
   cibStripe,
   cibPaypal,
-  cibGooglePay, 
+  cibGooglePay,
   cibCcAmex
 } from '@coreui/icons'
 import {
@@ -76,6 +76,7 @@ import {
   cilUser,
   cilUserFemale,
   cilUserFollow,
+  cilSchool,
   cilXCircle
 
 } from '@coreui/icons'
@@ -129,6 +130,7 @@ export const iconsSet = Object.assign(
     cilUser,
     cilUserFemale,
     cilUserFollow,
+    cilSchool,
     cilXCircle
   },
   {

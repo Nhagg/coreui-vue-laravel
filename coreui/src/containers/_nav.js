@@ -19,6 +19,18 @@ export default [
         name: 'Hình ảnh',
         to: '/image',
         icon: 'cil-file'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Lớp học',
+        to: '/class',
+        icon: 'cil-school'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Kỳ thi',
+        to: '/exam',
+        icon: 'cil-calendar'
       }
     ]
   }
