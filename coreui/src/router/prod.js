@@ -5,11 +5,12 @@ const Dashboard = () => import('@/views/Dashboard')
 const CMSManagement = () => import('@/views/pages/cms/CMSManagement')
 const CMSCreate = () => import('@/views/pages/cms/CMSCreate')
 const UserManagement = () => import('@/views/pages/user/UserManagement')
-const Class = () => import('@/views/pages/class/Class')
 const ImageManagement = () => import('@/views/pages/image/ImageManagement')
 const ImageCreate = () => import('@/views/pages/image/ImageCreate')
+const Class = () => import('@/views/pages/class/Class')
+const Exam = () => import('@/views/pages/exam/Exam')
+
 const Page404 = () => import('@/views/pages/Page404')
-// const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
 const Register = () => import('@/views/pages/Register')
 
@@ -58,7 +59,7 @@ export default [
             {
                 path: '/exam',
                 name: 'Exam',
-                component: UserManagement
+                component: Exam
             },
         ]
     },
