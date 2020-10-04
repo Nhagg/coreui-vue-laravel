@@ -32,8 +32,15 @@ async function put(url, params) {
 	return response.data
 }
 
+async function delete_(url, params) {
+	const {urlProcess, allParams, headersData} = common.getURL(url, params);
+	const response = await axios.delete(urlProcess, allParams, {headers: headersData})
+	return response.data
+}
+
 export default {
 	get,
 	post,
-	put
+	put,
+	delete: delete_
 };

@@ -33,7 +33,12 @@ export default [
             },
             {
                 path: '/cms-pages/create',
-                name: 'cms-pages-create',
+                name: 'Create CMS',
+                component: CMSCreate
+            },
+            {
+                path: '/cms-pages/edit/:id',
+                name: 'Edit CMS',
                 component: CMSCreate
             },
             {
