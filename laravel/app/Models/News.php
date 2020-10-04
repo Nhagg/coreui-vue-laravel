@@ -17,12 +17,13 @@ class News extends Model
 {
 
     public $table = 'news';
-    
+
 
 
 
     public $fillable = [
         'short_name',
+        'type',
         'name',
         'content'
     ];
@@ -34,6 +35,7 @@ class News extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'type' => 'string',
         'short_name' => 'string',
         'name' => 'string'
     ];
@@ -44,8 +46,8 @@ class News extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }
